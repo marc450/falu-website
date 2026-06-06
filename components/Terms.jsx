@@ -39,10 +39,8 @@ window.Terms = function Terms() {
 
       {/* CONTENT */}
       <section style={{ padding: "0 0 112px", borderTop: "1px solid var(--rule)" }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 0, borderLeft: "1px solid var(--rule)", borderRight: "1px solid var(--rule)" }}>
-
-          {/* MAIN COLUMN */}
-          <div style={{ padding: "56px", borderRight: "1px solid var(--rule)" }}>
+        <div className="container">
+          <div style={{ maxWidth: 860, borderLeft: "1px solid var(--rule)", borderRight: "1px solid var(--rule)", padding: "56px" }}>
             <SectionLabel num="01">Terms of use</SectionLabel>
 
             <div style={{ marginTop: 32, display: "flex", flexDirection: "column", gap: 24 }}>
@@ -147,34 +145,9 @@ window.Terms = function Terms() {
                 </p>
               </div>
             </div>
-          </div>
 
-          {/* SIDE RAIL */}
-          <div style={{ padding: "56px", background: "var(--bg-alt)" }}>
-            <SectionLabel num="02">At a glance</SectionLabel>
-
-            <div style={{ marginTop: 32, display: "flex", flexDirection: "column", gap: 28 }}>
-              <div>
-                <div className="mono" style={cRail.label}>SCOPE</div>
-                <p style={cRail.addr}>Use of this website. Machinery sales are governed by separate contractual terms.</p>
-              </div>
-
-              <div style={{ borderTop: "1px solid var(--rule)", paddingTop: 28 }}>
-                <div className="mono" style={cRail.label}>GOVERNING LAW</div>
-                <p style={cRail.addr}>Swiss law. Jurisdiction: Rüti, Canton of Zurich.</p>
-              </div>
-
-              <div style={{ borderTop: "1px solid var(--rule)", paddingTop: 28 }}>
-                <div className="mono" style={cRail.label}>EFFECTIVE</div>
-                <p style={cRail.addr}>June 2026</p>
-              </div>
-
-              <div style={{ borderTop: "1px solid var(--rule)", paddingTop: 28 }}>
-                <div className="mono" style={cRail.label}>QUESTIONS</div>
-                <a href="#contact" className="btn btn--primary" style={{ marginTop: 6 }}>
-                  Contact us<span className="arrow" />
-                </a>
-              </div>
+            <div style={{ marginTop: 40, paddingTop: 28, borderTop: "1px solid var(--rule)" }}>
+              <div className="mono" style={cBody.eff}>Effective June 2026</div>
             </div>
           </div>
         </div>
@@ -196,10 +169,6 @@ const cCrumb = {
 const cBody = {
   h3: { fontSize: 16, color: "var(--navy)", fontWeight: 600, margin: "0 0 8px", letterSpacing: "-0.01em" },
   para: { fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.7, margin: 0 },
-  inlineLink: { color: "var(--falu-red)", textDecoration: "none" }
-};
-
-const cRail = {
-  label: { fontSize: 10, color: "var(--falu-red)", letterSpacing: "0.18em", marginBottom: 12 },
-  addr: { fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.6, margin: 0 }
+  inlineLink: { color: "var(--falu-red)", textDecoration: "none" },
+  eff: { fontSize: 11, color: "var(--ink-muted)", letterSpacing: "0.08em", textTransform: "uppercase" }
 };

@@ -37,10 +37,8 @@ window.Imprint = function Imprint() {
 
       {/* CONTENT */}
       <section style={{ padding: "0 0 112px", borderTop: "1px solid var(--rule)" }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 0, borderLeft: "1px solid var(--rule)", borderRight: "1px solid var(--rule)" }}>
-
-          {/* MAIN COLUMN */}
-          <div style={{ padding: "56px", borderRight: "1px solid var(--rule)" }}>
+        <div className="container">
+          <div style={{ maxWidth: 860, borderLeft: "1px solid var(--rule)", borderRight: "1px solid var(--rule)", padding: "56px" }}>
             <SectionLabel num="01">Company details</SectionLabel>
 
             <div style={{ marginTop: 32, display: "flex", flexDirection: "column", gap: 28 }}>
@@ -127,35 +125,6 @@ window.Imprint = function Imprint() {
               </div>
             </div>
           </div>
-
-          {/* SIDE RAIL */}
-          <div style={{ padding: "56px", background: "var(--bg-alt)" }}>
-            <SectionLabel num="03">At a glance</SectionLabel>
-
-            <div style={{ marginTop: 32, display: "flex", flexDirection: "column", gap: 28 }}>
-              <div>
-                <div className="mono" style={cRail.label}>REGISTERED OFFICE</div>
-                <p style={cRail.addr}>8630 Rüti, Switzerland</p>
-              </div>
-
-              <div style={{ borderTop: "1px solid var(--rule)", paddingTop: 28 }}>
-                <div className="mono" style={cRail.label}>UID</div>
-                <p style={cRail.addr}>CHE-105.813.399</p>
-              </div>
-
-              <div style={{ borderTop: "1px solid var(--rule)", paddingTop: 28 }}>
-                <div className="mono" style={cRail.label}>FOUNDED</div>
-                <p style={cRail.addr}>Rüti, 1965</p>
-              </div>
-
-              <div style={{ borderTop: "1px solid var(--rule)", paddingTop: 28 }}>
-                <div className="mono" style={cRail.label}>GET IN TOUCH</div>
-                <a href="#contact" className="btn btn--primary" style={{ marginTop: 6 }}>
-                  Contact us<span className="arrow" />
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -180,9 +149,4 @@ const cBody = {
   h3: { fontSize: 16, color: "var(--navy)", fontWeight: 600, margin: "0 0 8px", letterSpacing: "-0.01em" },
   para: { fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.7, margin: 0 },
   inlineLink: { color: "var(--falu-red)", textDecoration: "none" }
-};
-
-const cRail = {
-  label: { fontSize: 10, color: "var(--falu-red)", letterSpacing: "0.18em", marginBottom: 12 },
-  addr: { fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.6, margin: 0 }
 };
