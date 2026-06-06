@@ -89,6 +89,66 @@ const JOB_ROLES = [
     ]
   },
   {
+    title: "Sales Manager",
+    dept: "Sales", loc: "Rüti · travel", type: "Permanent",
+    lookingFor: [
+      "Look after manufacturers who run FALU machines around the world.",
+      "Guide customers from first enquiry through specification, quotation and order.",
+      "Represent FALU at trade fairs and on visits to customer sites."
+    ],
+    youBring: [
+      "A commercial or technical background, ideally with machinery or capital goods.",
+      "The ability to understand a production line and explain it in plain terms.",
+      "Confidence building long-term relationships and travelling.",
+      "Strong English; German and further languages are an asset."
+    ],
+    weOffer: [
+      "A respected Swiss product that largely sells on its reputation.",
+      "Direct contact with engineering, so you can promise what we deliver.",
+      "Stable, long-term employment with international reach."
+    ]
+  },
+  {
+    title: "Purchasing Specialist (Einkauf)",
+    dept: "Purchasing", loc: "Rüti · 80-100%", type: "Permanent",
+    lookingFor: [
+      "Source components and materials, from standard parts to custom work.",
+      "Manage suppliers, prices, lead times and quality with engineering and assembly.",
+      "Keep the right parts available without tying up the workshop or the budget."
+    ],
+    youBring: [
+      "A commercial education (KV) or comparable, ideally in a technical setting.",
+      "An eye for detail, good negotiation and reliable follow-through.",
+      "Comfort reading technical documents and dealing with suppliers.",
+      "German and English."
+    ],
+    weOffer: [
+      "Real influence on cost, quality and delivery.",
+      "Close work with the people who design and build the machines.",
+      "Stable, long-term employment in Rüti."
+    ]
+  },
+  {
+    title: "Administration & Finance",
+    dept: "Administration", loc: "Rüti · 60-100%", type: "Permanent",
+    lookingFor: [
+      "Keep the commercial side of FALU running: orders, invoicing and daily administration.",
+      "Support accounting, payroll preparation and correspondence.",
+      "Be a dependable point of contact for customers, suppliers and the team."
+    ],
+    youBring: [
+      "A commercial education (KV) or comparable office experience.",
+      "Care, discretion and a structured way of working.",
+      "Confidence with common office and ERP software.",
+      "German; English is an asset."
+    ],
+    weOffer: [
+      "A varied role at the centre of a small company.",
+      "A friendly, long-standing team.",
+      "Stable employment with a flexible workload (60 to 100%)."
+    ]
+  },
+  {
     title: "Apprentice, Polymechanic (Polymechaniker/in EFZ)",
     dept: "Apprenticeship", loc: "Rüti", type: "4 years",
     lookingFor: [
@@ -191,9 +251,9 @@ window.Careers = function Careers() {
               Work on machines<br />built to last.
             </h1>
             <p style={{ fontSize: 18, lineHeight: 1.6, color: "var(--ink-soft)" }}>
-              The people who design a FALU machine are often the ones who assemble it and service it
-              years later. Our machines are built to run for decades, and so is the knowledge behind
-              them. If you like doing careful work and seeing it last, this is a good place to do it.
+              It takes more than engineers to build machines that run for decades. Design, assembly
+              and service work alongside sales, purchasing and administration, all under one roof in
+              Rüti. If you like doing careful work and seeing it last, this is a good place to do it.
             </p>
           </div>
         </div>
@@ -208,8 +268,8 @@ window.Careers = function Careers() {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 }}>
             {[
-              ["Ownership, end to end", "Engineers follow a machine from concept through assembly and commissioning. No handing work over a wall."],
-              ["Swiss craft, real depth", "Six decades of know-how in one narrow field. You will learn things about cotton, sticks and forming that exist nowhere else."],
+              ["Ownership, end to end", "Whatever your role, you follow your work from start to finish. No handing things over a wall and hoping for the best."],
+              ["Swiss craft, real depth", "Six decades of focus in one specialised field. From the workshop to the office, people here learn things that exist nowhere else."],
               ["Stability over churn", "We invest in people for the long run, the same way we build our machines. Many colleagues have been here a long time."]
             ].map(([t, b]) => (
               <div key={t} style={{ paddingTop: 20, borderTop: "1px solid var(--rule)" }}>
@@ -226,17 +286,35 @@ window.Careers = function Careers() {
       <section style={{ padding: "96px 0", borderBottom: "1px solid var(--rule)" }}>
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
-            <ImageSlot label="FALU assembly floor, technician at work" ratio="4 / 3" />
+            <ImageSlot label="FALU team at work in Rüti" ratio="4 / 3" />
             <div>
               <SectionLabel num="02">Who we look for</SectionLabel>
               <h2 style={{ fontSize: 40, lineHeight: 1.1, letterSpacing: "-0.025em", marginTop: 32 }}>
                 Precise, curious, patient.
               </h2>
               <p style={{ marginTop: 24, fontSize: 16, lineHeight: 1.7, color: "var(--ink-soft)" }}>
-                Most of our work is mechanical and electrical engineering, assembly, and field
-                service. We value people who care about tolerances, who finish what they start, and
-                who are happy to spend years getting genuinely good at something specific.
+                Our work runs from mechanical and electrical engineering, assembly and field service
+                to sales, purchasing and administration. We value people who care about getting the
+                details right, who finish what they start, and who are happy to get genuinely good at
+                something over time.
               </p>
+              <div style={{ marginTop: 32, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px 24px" }}>
+                {[
+                  "Engineering & design",
+                  "Electrical & controls",
+                  "Assembly",
+                  "Field service",
+                  "Sales",
+                  "Purchasing",
+                  "Administration & finance",
+                  "Apprenticeships"
+                ].map((a) => (
+                  <div key={a} className="mono" style={{ fontSize: 12, color: "var(--navy)", letterSpacing: "0.04em", display: "flex", alignItems: "center", gap: 10 }}>
+                    <span style={{ width: 14, height: 1, background: "var(--falu-red)", flexShrink: 0 }} />
+                    {a}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
