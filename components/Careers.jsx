@@ -5,6 +5,168 @@
 //  Recruiting page. Why work at FALU, what we look for, open
 //  roles, and how to apply. Grounded, no startup-perks fluff.
 // ============================================================
+
+// Open roles, each with a full description revealed on expand.
+// Placeholder copy in FALU's grounded voice; refine with real specifics.
+const JOB_ROLES = [
+  {
+    title: "Mechanical Design Engineer",
+    dept: "Engineering", loc: "Rüti · 100%", type: "Permanent",
+    lookingFor: [
+      "Design mechanical assemblies for our cotton swab, pad and paper stick machines.",
+      "Take parts from concept and 3D model through to production-ready drawings.",
+      "Work alongside assembly and service so your designs hold up on the floor and in the field."
+    ],
+    youBring: [
+      "A degree or HF/FH qualification in mechanical engineering.",
+      "Confident 3D CAD skills (SolidWorks or comparable).",
+      "A feel for tolerances, materials and manufacturability.",
+      "German and/or English."
+    ],
+    weOffer: [
+      "Ownership of machines from first sketch to running line.",
+      "A small team in Rüti where your decisions matter.",
+      "Stable, long-term employment with room to grow."
+    ]
+  },
+  {
+    title: "Electrical Engineer, Controls",
+    dept: "Engineering", loc: "Rüti · 100%", type: "Permanent",
+    lookingFor: [
+      "Design the electrical and control systems behind FALU machines.",
+      "Develop PLC and HMI software and commission it on real machines.",
+      "Support installed machines through a service life measured in decades."
+    ],
+    youBring: [
+      "Training in electrical engineering or automation.",
+      "PLC programming experience (Siemens or comparable) and drive know-how.",
+      "Readiness to commission and troubleshoot at the machine.",
+      "German and/or English."
+    ],
+    weOffer: [
+      "End-to-end responsibility for a machine's controls.",
+      "Hands-on work, not just specifications.",
+      "Stable, long-term employment in Rüti."
+    ]
+  },
+  {
+    title: "Machine Assembly Technician",
+    dept: "Assembly", loc: "Rüti · 100%", type: "Permanent",
+    lookingFor: [
+      "Build FALU machines from individual components to a complete, tested line.",
+      "Fit, wire and align mechanical and electrical assemblies.",
+      "Help commission and run machines in before they ship."
+    ],
+    youBring: [
+      "A technical apprenticeship (Polymechaniker, Automatiker or similar).",
+      "Careful, precise, hands-on work.",
+      "The ability to read mechanical and electrical drawings."
+    ],
+    weOffer: [
+      "Whole machines to build, not isolated steps.",
+      "A workshop where quality comes before speed.",
+      "Stable, long-term employment in Rüti."
+    ]
+  },
+  {
+    title: "Field Service Engineer",
+    dept: "Service", loc: "Rüti · travel", type: "Permanent",
+    lookingFor: [
+      "Install and commission FALU machines at customer sites worldwide.",
+      "Train operators and support production start-up.",
+      "Diagnose and resolve issues, both on-site and remotely."
+    ],
+    youBring: [
+      "A technical background in mechanics or electrics.",
+      "Confidence working independently and travelling.",
+      "A calm, customer-friendly manner.",
+      "Good English; further languages are welcome."
+    ],
+    weOffer: [
+      "Travel to customers across more than 70 countries.",
+      "Varied work and real responsibility from day one.",
+      "Stable, long-term employment based in Rüti."
+    ]
+  },
+  {
+    title: "Apprentice, Polymechanic (Polymechaniker/in EFZ)",
+    dept: "Apprenticeship", loc: "Rüti", type: "4 years",
+    lookingFor: [
+      "A four-year apprenticeship at our site in Rüti.",
+      "Hands-on training across machining, assembly and engineering.",
+      "Real work on real machines from early on."
+    ],
+    youBring: [
+      "Completed compulsory schooling (Sekundarstufe I).",
+      "Genuine interest in machines, precision and problem-solving.",
+      "Reliability and a willingness to learn."
+    ],
+    weOffer: [
+      "A recognised Swiss apprenticeship (EFZ).",
+      "Mentoring from experienced engineers and assemblers.",
+      "A strong foundation for a long technical career."
+    ]
+  }
+];
+
+function JobSection({ title, items }) {
+  return (
+    <div className="job__section">
+      <div className="mono job__section-title">{title}</div>
+      <ul className="job__list">
+        {items.map((it) => <li key={it}>{it}</li>)}
+      </ul>
+    </div>
+  );
+}
+
+function JobAccordion({ roles }) {
+  const [open, setOpen] = React.useState(() => new Set());
+  const toggle = (i) => setOpen((prev) => {
+    const next = new Set(prev);
+    next.has(i) ? next.delete(i) : next.add(i);
+    return next;
+  });
+  return (
+    <div style={{ border: "1px solid var(--rule)", background: "#fff" }}>
+      {roles.map((r, i) => {
+        const isOpen = open.has(i);
+        return (
+          <div key={r.title} className="job" style={{ borderBottom: i === roles.length - 1 ? "none" : "1px solid var(--rule)" }}>
+            <button
+              type="button"
+              className="job__head"
+              aria-expanded={isOpen}
+              aria-controls={`job-panel-${i}`}
+              onClick={() => toggle(i)}
+            >
+              <span className="job__headmain">
+                <span className="job__title">{r.title}</span>
+                <span className="job__meta">
+                  <span className="mono job__dept">{r.dept}</span>
+                  <span className="mono job__loc">{r.loc}</span>
+                  <span className="mono job__type">{r.type}</span>
+                </span>
+              </span>
+              <span className={`job__toggle${isOpen ? " is-open" : ""}`} aria-hidden="true" />
+            </button>
+            <div id={`job-panel-${i}`} className={`job__panel${isOpen ? " is-open" : ""}`} role="region" aria-label={r.title}>
+              <div className="job__panel-inner">
+                <div className="job__sections">
+                  <JobSection title="What we are looking for" items={r.lookingFor} />
+                  <JobSection title="What you bring to the table" items={r.youBring} />
+                  <JobSection title="What we offer" items={r.weOffer} />
+                </div>
+                <a href="#contact" className="btn btn--primary">Apply for this role<span className="arrow" /></a>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 window.Careers = function Careers() {
   return (
     <div style={{ background: "#fff", minHeight: "100vh" }}>
@@ -117,35 +279,7 @@ window.Careers = function Careers() {
             </p>
           </div>
 
-          <div style={{ border: "1px solid var(--rule)", background: "#fff" }}>
-            {[
-              ["Mechanical Design Engineer", "Engineering", "Rüti · 100%", "Permanent"],
-              ["Electrical Engineer, Controls", "Engineering", "Rüti · 100%", "Permanent"],
-              ["Machine Assembly Technician", "Assembly", "Rüti · 100%", "Permanent"],
-              ["Field Service Engineer", "Service", "Rüti · travel", "Permanent"],
-              ["Apprentice, Polymechanic (Polymechaniker/in EFZ)", "Apprenticeship", "Rüti", "4 years"]
-            ].map(([title, dept, loc, type], i, arr) => (
-              <a
-                key={title}
-                href="#contact"
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "2fr 1fr 1fr 0.8fr auto",
-                  gap: 24,
-                  alignItems: "center",
-                  padding: "24px 32px",
-                  borderBottom: i === arr.length - 1 ? "none" : "1px solid var(--rule)",
-                  textDecoration: "none",
-                  color: "inherit"
-                }}>
-                <div style={{ fontSize: 16, fontWeight: 600, color: "var(--navy)", letterSpacing: "-0.01em" }}>{title}</div>
-                <div className="mono" style={{ fontSize: 11, color: "var(--ink-muted)", letterSpacing: "0.12em", textTransform: "uppercase" }}>{dept}</div>
-                <div className="mono" style={{ fontSize: 12, color: "var(--ink-soft)", letterSpacing: "0.04em" }}>{loc}</div>
-                <div className="mono" style={{ fontSize: 11, color: "var(--ink-muted)", letterSpacing: "0.1em", textTransform: "uppercase" }}>{type}</div>
-                <span className="mono" style={{ fontSize: 11, color: "var(--falu-red)", letterSpacing: "0.16em", fontWeight: 600 }}>APPLY →</span>
-              </a>
-            ))}
-          </div>
+          <JobAccordion roles={JOB_ROLES} />
         </div>
       </section>
 

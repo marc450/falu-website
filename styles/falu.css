@@ -471,3 +471,64 @@ iframe { height: auto; }
 @media (max-width: 480px) {
   .falu-footer__main { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   CAREERS JOB ACCORDION
+   ============================================================ */
+.job__head {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 0.8fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 24px 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: background 120ms ease;
+}
+.job__head:hover { background: var(--bg-alt); }
+/* On desktop the wrappers dissolve so their children sit in the head grid */
+.job__headmain,
+.job__meta { display: contents; }
+.job__title { font-size: 16px; font-weight: 600; color: var(--navy); letter-spacing: -0.01em; }
+.job__dept { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.12em; text-transform: uppercase; }
+.job__loc { font-size: 12px; color: var(--ink-soft); letter-spacing: 0.04em; }
+.job__type { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+.job__toggle { position: relative; width: 14px; height: 14px; justify-self: end; }
+.job__toggle::before,
+.job__toggle::after {
+  content: "";
+  position: absolute;
+  background: var(--falu-red);
+  transition: transform 200ms ease;
+}
+.job__toggle::before { top: 6px; left: 0; width: 14px; height: 2px; }
+.job__toggle::after { left: 6px; top: 0; width: 2px; height: 14px; }
+.job__toggle.is-open::after { transform: scaleY(0); }
+
+.job__panel { max-height: 0; overflow: hidden; transition: max-height 320ms ease; }
+.job__panel.is-open { max-height: 1600px; }
+.job__panel-inner { padding: 28px 32px 36px; border-top: 1px solid var(--rule-soft); }
+.job__sections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 28px;
+}
+.job__section-title { font-size: 10px; color: var(--falu-red); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 14px; }
+.job__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.job__list li { position: relative; padding-left: 16px; font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
+.job__list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 1px; background: var(--ink-muted); }
+
+@media (max-width: 760px) {
+  .job__head { grid-template-columns: 1fr auto; gap: 16px; padding: 20px; align-items: start; }
+  .job__headmain { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .job__meta { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+  .job__sections { grid-template-columns: 1fr; gap: 28px; }
+  .job__panel-inner { padding: 22px 20px 28px; }
+  .job__panel.is-open { max-height: 2400px; }
+}
