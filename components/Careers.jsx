@@ -245,20 +245,6 @@ window.Careers = function Careers() {
                 service. We value people who care about tolerances, who finish what they start, and
                 who are happy to spend years getting genuinely good at something specific.
               </p>
-              <div style={{ marginTop: 28, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
-                {[
-                  "Mechanical engineering",
-                  "Electrical & controls",
-                  "Machine assembly",
-                  "Field service & commissioning",
-                  "Apprenticeships (Lehre)",
-                  "Production planning"
-                ].map((d) => (
-                  <div key={d} style={{ fontSize: 14, color: "var(--navy)" }}>
-                    {d}
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
