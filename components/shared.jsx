@@ -105,7 +105,7 @@ window.FaluFooter = function FaluFooter() {
         <div>© 2026 FALU AG · UID CHE-105.813.399</div>
         <div className="falu-footer__bottom-links">
           <a href="#imprint">Imprint</a>
-          <a href="#">Terms</a>
+          <a href="#terms">Terms</a>
           <a href="#">Privacy</a>
         </div>
       </div>
