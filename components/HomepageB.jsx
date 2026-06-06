@@ -386,8 +386,8 @@ const famB = {
 };
 
 const planning = {
-  wrap: { padding: "0", background: "#fff" },
-  frame: { background: "var(--navy)", padding: "80px 56px", display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: 64, alignItems: "center", borderTop: "4px solid var(--falu-red)" },
+  wrap: { padding: "80px 0", background: "var(--navy)", borderTop: "4px solid var(--falu-red)" },
+  frame: { display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: 64, alignItems: "center" },
   left: {},
   tag: { color: "var(--falu-red)", fontSize: 11, letterSpacing: "0.2em" },
   right: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0, borderTop: "1px solid #103e6c", borderLeft: "1px solid #103e6c" },
