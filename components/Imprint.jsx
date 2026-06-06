@@ -38,7 +38,7 @@ window.Imprint = function Imprint() {
       {/* CONTENT */}
       <section style={{ padding: "0 0 112px", borderTop: "1px solid var(--rule)" }}>
         <div className="container">
-          <div style={{ maxWidth: 860, borderLeft: "1px solid var(--rule)", borderRight: "1px solid var(--rule)", padding: "56px" }}>
+          <div style={{ maxWidth: 860, margin: "0 auto", borderLeft: "1px solid var(--rule)", borderRight: "1px solid var(--rule)", padding: "56px" }}>
             <SectionLabel num="01">Company details</SectionLabel>
 
             <div style={{ marginTop: 32, display: "flex", flexDirection: "column", gap: 28 }}>
