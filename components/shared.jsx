@@ -7,12 +7,11 @@ window.FaluHeader = function FaluHeader({ active = "home" }) {
     { id: "machinery", label: "Machinery", children: [
       { label: "Cotton swab machinery", href: "#cotton-swab-machinery" },
       { label: "Cotton pad machinery", href: "#cotton-pad-machinery" },
-      { label: "Paper stick machinery", href: "#paper-stick-machinery" }
+      { label: "Paper stick machinery", href: "#prx" }
     ]},
     { id: "services", label: "Services" },
     { id: "about", label: "About" },
     { id: "careers", label: "Careers" },
-    { id: "contact", label: "Contact" },
   ];
   return (
     <header className="falu-header">
@@ -23,7 +22,12 @@ window.FaluHeader = function FaluHeader({ active = "home" }) {
         <nav className="falu-nav">
           {items.map((it) => (
             <div key={it.id} className={`falu-nav__item${it.children ? " has-dropdown" : ""}`}>
-              <a href={`#${it.id}`} className={active === it.id ? "active" : ""}>
+              <a
+                href={`#${it.id}`}
+                className={active === it.id ? "active" : ""}
+                aria-current={active === it.id ? "page" : undefined}
+                aria-haspopup={it.children ? "true" : undefined}
+              >
                 {it.label}
                 {it.children && <span className="falu-nav__caret" aria-hidden="true">▾</span>}
               </a>
@@ -41,7 +45,6 @@ window.FaluHeader = function FaluHeader({ active = "home" }) {
         </nav>
         <div className="falu-header__cta">
           <a href="tel:+41552255151" className="falu-phone">
-            <span className="dot" />
             +41 55 225 51 51
           </a>
           <a href="#contact" className="btn btn--primary">
