@@ -1,0 +1,153 @@
+/* global React, FaluHeader, FaluFooter, SectionLabel, ImageSlot */
+
+// ============================================================
+//  /machinery/cotton-swab-machinery/packing
+//  Overview of all cotton swab packing machines. Each card links
+//  to its machine detail page. Format-led, scannable.
+// ============================================================
+window.PackingMachines = function PackingMachines() {
+  const machines = [
+  {
+    code: "SV-2X",
+    name: "Cardboard box packing",
+    format: "Cardboard boxes",
+    desc: "Fully automatic cardboard box packing. Erects, fills, closes and seals flat cartons, replacing plastic packaging with cardboard.",
+    spec: "Retail cartons",
+    href: "#sv2x",
+    img: "SV-2X cardboard box packing machine"
+  },
+  {
+    code: "BV-2M / ABS-2",
+    name: "Polybag packing",
+    format: "Polybags",
+    desc: "Semi-automatic (BV-2M) or fully automatic (ABS-2) polybag packing. Polyethylene or paper bags, optional zipper-lock closure.",
+    spec: "50 to 400 swabs/bag",
+    href: "#polybag",
+    img: "ABS-2 polybag packing machine"
+  },
+  {
+    code: "RB-30A",
+    name: "Round box packing",
+    format: "Round boxes",
+    desc: "Fully automatic round box filling. Dispenses boxes, fills a predefined swab count, and closes them with their lids.",
+    spec: "Up to 25 boxes/min",
+    href: "#rb30a",
+    img: "RB-30A round box packing machine"
+  },
+  {
+    code: "SQB-2A",
+    name: "Square box packing",
+    format: "Square boxes",
+    desc: "Fully automatic square box packing. Erects, fills and closes square folding cartons for retail distribution.",
+    spec: "Folding cartons",
+    href: "#sqb2a",
+    img: "SQB-2A square box packing machine"
+  },
+  {
+    code: "BL-12",
+    name: "Blister packing",
+    format: "Blister packs",
+    desc: "Fully automatic blister packing. Thermoforms cavities, fills a counted set of swabs, and seals with card or foil for tamper-evident packs.",
+    spec: "Up to 12 cycles/min",
+    href: "#bl12",
+    img: "BL-12 blister packing machine"
+  }];
+
+
+  return (
+    <div style={{ background: "#fff", minHeight: "100vh" }}>
+      <FaluHeader active="machinery" />
+
+      {/* Breadcrumb */}
+      <div style={{ background: "var(--bg-alt)", borderBottom: "1px solid var(--rule)" }}>
+        <div className="container" style={{ padding: "12px var(--gutter)" }}>
+          <div className="mono" style={{ fontSize: 11, color: "var(--ink-muted)", letterSpacing: "0.14em" }}>
+            <a href="#home" style={{ color: "inherit", textDecoration: "none" }}>HOME</a>
+            <span style={{ margin: "0 10px", opacity: 0.4 }}>/</span>
+            <a href="#machinery" style={{ color: "inherit", textDecoration: "none" }}>MACHINERY</a>
+            <span style={{ margin: "0 10px", opacity: 0.4 }}>/</span>
+            <a href="#cotton-swab-machinery" style={{ color: "inherit", textDecoration: "none" }}>COTTON SWAB MACHINERY</a>
+            <span style={{ margin: "0 10px", opacity: 0.4 }}>/</span>
+            <span style={{ color: "var(--navy)" }}>PACKING</span>
+          </div>
+        </div>
+      </div>
+
+      {/* HERO */}
+      <section style={{ padding: "112px 0 88px" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 80, alignItems: "end" }}>
+            <h1 style={{ fontSize: 80, lineHeight: 0.98, letterSpacing: "-0.035em", color: "var(--navy)" }}>
+              Swab packing machines.
+            </h1>
+            <p style={{ fontSize: 18, lineHeight: 1.6, color: "var(--ink-soft)" }}>Five packing machines combine with cotton swab production to match any retail or bulk format. Each one connects to FALU CB and CT swab lines.
+
+
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* MACHINE LIST */}
+      <section style={{ padding: "0 0 96px", background: "var(--bg-band)", borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)" }}>
+        <div className="container" style={{ paddingTop: 80 }}>
+          <SectionLabel num="01">Five formats</SectionLabel>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginTop: 48 }}>
+            {machines.map((m) =>
+            <a key={m.code} href={m.href} style={pack.card}>
+                <ImageSlot label={m.img} ratio="16 / 9" />
+                <div style={pack.body}>
+                  <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 16 }}>
+                    <div className="mono" style={pack.code}>{m.code}</div>
+                    <div className="mono" style={pack.format}>{m.format}</div>
+                  </div>
+                  <h3 style={{ fontSize: 24, marginTop: 10, lineHeight: 1.15, letterSpacing: "-0.015em", color: "var(--navy)" }}>{m.name}</h3>
+                  <p style={{ marginTop: 14, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)", flex: 1 }}>{m.desc}</p>
+                </div>
+              </a>
+            )}
+
+            {/* Semi-automated packing card */}
+            <div style={{ ...pack.card, cursor: "default", justifyContent: "center", padding: "40px 40px", background: "#fff" }}>
+              <div className="mono" style={{ fontSize: 10, color: "var(--ink-muted)", letterSpacing: "0.18em", marginBottom: 14 }}>
+                SEMI-AUTOMATED
+              </div>
+              <h3 style={{ fontSize: 24, lineHeight: 1.15, letterSpacing: "-0.015em", color: "var(--navy)" }}>
+                Semi-automated packing
+              </h3>
+              <p style={{ marginTop: 14, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)" }}>
+                The swab machine places finished swabs onto a rotating round table. Factory workers
+                pick them up and place them into the container by hand. Lower investment, full
+                format flexibility for low to mid volumes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{ padding: "96px 0" }}>
+        <div className="container" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 48, alignItems: "center" }}>
+          <h2 style={{ color: "var(--navy)", maxWidth: 720 }}>
+            Not sure which format fits your market? We will help you choose.
+          </h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "flex-end" }}>
+            <a href="#contact" className="btn btn--primary btn--lg">Get in touch with our specialists<span className="arrow" /></a>
+            <a href="#cotton-swab-machinery" className="mono" style={{ color: "var(--ink-muted)", fontSize: 12, letterSpacing: "0.06em" }}>
+              Back to cotton swab machinery
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <FaluFooter />
+    </div>);
+};
+
+const pack = {
+  card: { display: "flex", flexDirection: "column", background: "#fff", border: "1px solid var(--rule)", textDecoration: "none", color: "inherit" },
+  body: { padding: "28px 28px 24px", display: "flex", flexDirection: "column", flex: 1 },
+  code: { fontSize: 13, color: "var(--falu-red)", letterSpacing: "0.1em", fontWeight: 600 },
+  format: { fontSize: 10, color: "var(--ink-muted)", letterSpacing: "0.16em", textTransform: "uppercase" },
+  foot: { marginTop: 22, paddingTop: 18, borderTop: "1px solid var(--rule)", display: "flex", justifyContent: "flex-end", alignItems: "center" }
+};

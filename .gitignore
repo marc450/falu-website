@@ -1,0 +1,20 @@
+# Dependencies & build output
+node_modules/
+dist/
+
+# Design / source material — not part of the live site
+uploads/
+design-canvas.jsx
+components/HomepageA.jsx
+Falu Website v2.html
+FALU Website.html
+.thumbnail
+.design-canvas.state.json
+design-system/
+BRAND_RULES.md
+
+# OS / editor
+.DS_Store
+
+# Root assets/ is source-only; the build serves public/assets/
+/assets/
