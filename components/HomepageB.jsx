@@ -43,7 +43,7 @@ window.HomepageB = function HomepageB() {
       <section style={{ padding: "120px 0", borderTop: "1px solid var(--rule)" }}>
         <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 80, alignItems: "center" }}>
           <div>
-            <h2 style={{ fontSize: 52, lineHeight: 1.05, letterSpacing: "-0.025em" }}>CB1, the cotton swab production machine that defined the category.
+            <h2 style={{ fontSize: 52, lineHeight: 1.05, letterSpacing: "-0.025em" }}>CB1, the cotton swab production machine that defines the category.
 
             </h2>
             <p style={{ marginTop: 28, fontSize: 17, lineHeight: 1.65, color: "var(--ink-soft)" }}>Mechanical speed in excess of 3'100 swabs per minute. Compatible with paper, plastic and wood sticks. Pairs upstream with the PRX paper-stick machine and downstream with different packaging configurations.
