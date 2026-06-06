@@ -189,7 +189,15 @@ window.Contact = function Contact() {
               </div>
 
               <div style={{ borderTop: "1px solid var(--rule)", paddingTop: 0 }}>
-                <ImageSlot label="Rüti, Switzerland, location map" ratio="4 / 3" />
+                <div style={{ aspectRatio: "4 / 3", border: "1px solid var(--rule)" }}>
+                  <iframe
+                    title="FALU AG location, Joweid Zentrum 5, 8630 Rüti, Switzerland"
+                    src="https://maps.google.com/maps?q=FALU%20AG%2C%20Joweid%20Zentrum%205%2C%208630%20R%C3%BCti%2C%20Switzerland&z=15&output=embed"
+                    style={{ width: "100%", height: "100%", border: 0, display: "block" }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
               </div>
             </div>
           </div>
