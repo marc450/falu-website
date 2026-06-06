@@ -58,7 +58,8 @@ window.Careers = function Careers() {
               ["Swiss craft, real depth", "Six decades of know-how in one narrow field. You will learn things about cotton, sticks and forming that exist nowhere else."],
               ["Stability over churn", "We invest in people for the long run, the same way we build our machines. Many colleagues have been here a long time."]
             ].map(([t, b]) => (
-              <div key={t} style={{ paddingTop: 20, borderTop: "2px solid var(--falu-red)" }}>
+              <div key={t} style={{ paddingTop: 20, borderTop: "1px solid var(--rule)" }}>
+                <div style={{ width: 28, height: 2, background: "var(--falu-red)", marginBottom: 18 }} />
                 <h4 style={{ color: "var(--navy)", fontSize: 18, fontWeight: 600, marginBottom: 12 }}>{t}</h4>
                 <p style={{ color: "var(--ink-soft)", fontSize: 14, lineHeight: 1.6 }}>{b}</p>
               </div>
@@ -91,8 +92,7 @@ window.Careers = function Careers() {
                   "Apprenticeships (Lehre)",
                   "Production planning"
                 ].map((d) => (
-                  <div key={d} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "var(--navy)" }}>
-                    <span style={{ width: 8, height: 1, background: "var(--falu-red)", display: "inline-block" }} />
+                  <div key={d} style={{ fontSize: 14, color: "var(--navy)" }}>
                     {d}
                   </div>
                 ))}
