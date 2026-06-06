@@ -203,17 +203,9 @@ window.Careers = function Careers() {
       <section style={{ padding: "96px 0", background: "var(--bg-band)", borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)" }}>
         <div className="container">
           <SectionLabel num="01">Why work here</SectionLabel>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 80, alignItems: "start", marginTop: 32, marginBottom: 56 }}>
-            <h2 style={{ fontSize: 44, lineHeight: 1.1, letterSpacing: "-0.025em" }}>
-              A small team that<br />owns its work.
-            </h2>
-            <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--ink-soft)" }}>
-              FALU is a specialist manufacturer, not a corporation. Engineering, manufacturing,
-              assembly and service sit under one roof in Rüti, so the distance between an idea and a
-              finished machine is short. You will see your work leave the building, and stay in touch
-              with it long after.
-            </p>
-          </div>
+          <h2 style={{ fontSize: 44, lineHeight: 1.1, letterSpacing: "-0.025em", marginTop: 32, marginBottom: 56 }}>
+            A small team that owns its work.
+          </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 }}>
             {[
               ["Ownership, end to end", "Engineers follow a machine from concept through assembly and commissioning. No handing work over a wall."],
