@@ -1,30 +1,36 @@
 # FALU AG — Website
 
-Static marketing site for FALU AG (Swiss manufacturer of cotton swab, cotton pad, and paper stick machinery). Built as hand-authored HTML + in-browser React/JSX (Babel standalone), no build step required.
+Marketing site for FALU AG (Swiss manufacturer of cotton swab, cotton pad, and paper stick machinery). Hand-authored React/JSX, precompiled with Vite. The components keep their original `window.X = function` pattern; Vite just bundles them in place of the old in-browser Babel.
+
+Live at https://marc450.github.io/falu-website/
 
 ## Run locally
 
-It's fully static. Serve the folder with any static server, e.g.:
-
 ```bash
-npx serve .
-# or
-python3 -m http.server
+npm install
+npm run dev      # dev server with HMR
 ```
 
-Then open `index.html` (the hash router handles all pages).
+```bash
+npm run build    # production build to dist/
+npm run preview  # serve the built dist/ locally
+```
 
-> Open via a server, not `file://` — the JSX files are loaded with `<script src>` and some browsers block that over `file://`.
+## Deploy
+
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds and publishes `dist/` to GitHub Pages. No manual step.
 
 ## Entry points
 
-- `index.html` — the live, browsable site (hash-routed). **Start here.**
-- `Falu Website v2.html` — design-canvas view: every page laid out side-by-side for review (uses `design-canvas.jsx`).
+- `index.html` — page shell: loads fonts + d3/topojson (CDN) and the bundled `main.jsx`.
+- `main.jsx` — imports every component module (for their `window.X` side effects) and mounts `FaluRouter`.
 
 ## Structure
 
 ```
-index.html                 # browsable site, loads all components + FaluRouter
+index.html                 # page shell, loads main.jsx (bundled)
+main.jsx                   # entry: imports components + mounts FaluRouter
+vite.config.js             # build config (base path, jsxInject)
 styles/falu.css            # full design-system stylesheet (tokens, header, footer, buttons, nav)
 components/
   FaluRouter.jsx           # hash-based router: maps #hash -> page component
@@ -66,7 +72,7 @@ See `BRAND_RULES.md` and `design-system/README.md`. Highlights:
 
 ## Known follow-ups
 
-1. **Production build.** In-browser Babel is fine for preview but slow for a public launch. Port to Vite/esbuild and pre-compile the JSX (extract each `window.X = function` into ES modules, mount `FaluRouter`).
-2. **Real photography.** Every image is a labeled `ImageSlot` placeholder.
-3. **Unbuilt stubs:** Imprint / Terms / Privacy / Downloads pages, and datasheet PDFs (download links).
-4. **Responsive.** Designed at 1280px; needs a mobile pass.
+1. **Real photography.** Every image is a labeled `ImageSlot` placeholder.
+2. **Unbuilt stubs:** Imprint / Terms / Privacy / Downloads pages, and datasheet PDFs (download links).
+3. **Responsive.** Designed at 1280px; needs a mobile pass.
+4. **Bundle d3/topojson.** Currently loaded from CDN at runtime; could be bundled for full offline-of-CDN reliability.
