@@ -78,7 +78,7 @@ window.FaluFooter = function FaluFooter() {
             <li><a href="#cotton-swab-machinery">Cotton Swab Machinery</a></li>
             <li><a href="#cotton-pad-machinery">Cotton Pad Machinery</a></li>
             <li><a href="#prx">Paper Stick Machinery</a></li>
-            <li><a href="#machinery">Production Planning & Layout</a></li>
+            <li><a href="#services">Production Planning & Layout</a></li>
           </ul>
         </div>
         <div>
