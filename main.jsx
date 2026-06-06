@@ -27,4 +27,8 @@ import "./components/Privacy.jsx";
 import "./components/FaluRouter.jsx";
 
 const { FaluRouter } = window;
-ReactDOM.createRoot(document.getElementById("root")).render(<FaluRouter />);
+// Reuse a single root across HMR re-executions of this entry; calling
+// createRoot twice on the same node mounts duplicate React trees that fight
+// over the DOM (broken events/state in dev).
+const root = (window.__faluRoot ||= ReactDOM.createRoot(document.getElementById("root")));
+root.render(<FaluRouter />);

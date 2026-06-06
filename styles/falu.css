@@ -357,3 +357,117 @@ p { margin: 0; }
   text-transform: uppercase;
 }
 .falu-footer__bottom-links { display: flex; gap: 24px; }
+
+/* ============================================================
+   RESPONSIVE
+   The page markup uses fixed inline styles (px font sizes,
+   multi-column grids). We override the common patterns centrally
+   here with !important so they reflow on small screens without
+   touching every component.
+   ============================================================ */
+
+/* Media never overflows its container */
+img, svg, iframe, video { max-width: 100%; height: auto; }
+iframe { height: auto; }
+
+/* ===== Mobile navigation (hamburger) ===== */
+.falu-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--rule);
+  cursor: pointer;
+}
+.falu-burger__icon { position: relative; width: 20px; height: 14px; display: block; }
+.falu-burger__icon > span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--navy);
+  transition: transform 160ms ease, opacity 120ms ease, top 160ms ease;
+}
+.falu-burger__icon > span:nth-child(1) { top: 0; }
+.falu-burger__icon > span:nth-child(2) { top: 6px; }
+.falu-burger__icon > span:nth-child(3) { top: 12px; }
+.falu-burger__icon.is-open > span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+.falu-burger__icon.is-open > span:nth-child(2) { opacity: 0; }
+.falu-burger__icon.is-open > span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+
+.falu-mobile-menu { display: none; }
+.falu-mobile-nav { display: flex; flex-direction: column; padding: 4px var(--gutter) 0; }
+.falu-mobile-link {
+  padding: 15px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  border-top: 1px solid var(--rule-soft);
+}
+.falu-mobile-link:first-child { border-top: none; }
+.falu-mobile-link.active { color: var(--falu-red); }
+.falu-mobile-sublink {
+  padding: 12px 0 12px 18px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-top: 1px solid var(--rule-soft);
+}
+.falu-mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px var(--gutter) 24px;
+}
+.falu-mobile-actions .btn { justify-content: center; }
+
+@media (max-width: 900px) {
+  .falu-nav,
+  .falu-header__cta { display: none; }
+  .falu-burger { display: inline-flex; }
+  .falu-header__main { height: 68px; }
+  .falu-header__logo img { width: 46px; height: 46px; }
+  .falu-mobile-menu {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    background: #fff;
+    transition: max-height 260ms ease;
+  }
+  .falu-mobile-menu.is-open {
+    max-height: 85vh;
+    overflow-y: auto;
+    border-top: 1px solid var(--rule);
+  }
+}
+
+/* ===== Layout + type reflow for phones/small tablets ===== */
+@media (max-width: 760px) {
+  :root { --gutter: 20px; }
+
+  /* Collapse multi-column inline grids to one column */
+  [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+  .falu-footer__main { grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  /* Scale large inline headings down */
+  h1 { font-size: clamp(2rem, 8.5vw, 3rem) !important; }
+  h2 { font-size: clamp(1.6rem, 6.5vw, 2.25rem) !important; }
+  h3 { font-size: clamp(1.15rem, 4.5vw, 1.45rem) !important; }
+
+  /* Tame oversized inline padding */
+  [style*="padding: 56px"] { padding: 28px !important; }
+  [style*="112px 0 80px"] { padding-top: 64px !important; padding-bottom: 48px !important; }
+  [style*="112px 0"] { padding-top: 64px !important; padding-bottom: 64px !important; }
+  [style*="120px 0"] { padding-top: 64px !important; padding-bottom: 64px !important; }
+  [style*="80px 0"] { padding-top: 56px !important; padding-bottom: 56px !important; }
+
+  .falu-footer__bottom { flex-direction: column; gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .falu-footer__main { grid-template-columns: 1fr; }
+}

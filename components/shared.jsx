@@ -3,6 +3,8 @@ const { useState } = React;
 
 // ============ HEADER ============
 window.FaluHeader = function FaluHeader({ active = "home" }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const close = () => setMenuOpen(false);
   const items = [
     { id: "machinery", label: "Machinery", children: [
       { label: "Cotton swab machinery", href: "#cotton-swab-machinery" },
@@ -16,7 +18,7 @@ window.FaluHeader = function FaluHeader({ active = "home" }) {
   return (
     <header className="falu-header">
       <div className="falu-header__main">
-        <a href="#home" className="falu-header__logo">
+        <a href="#home" className="falu-header__logo" onClick={close}>
           <img src="assets/falu-logo.png" alt="FALU AG" />
         </a>
         <nav className="falu-nav">
@@ -50,6 +52,46 @@ window.FaluHeader = function FaluHeader({ active = "home" }) {
           <a href="#contact" className="btn btn--primary">
             Request a quotation
             <span className="arrow" />
+          </a>
+        </div>
+        <button
+          type="button"
+          className="falu-burger"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="falu-mobile-menu"
+          onClick={() => setMenuOpen((o) => !o)}
+        >
+          <span className={`falu-burger__icon${menuOpen ? " is-open" : ""}`} aria-hidden="true">
+            <span /><span /><span />
+          </span>
+        </button>
+      </div>
+
+      <div id="falu-mobile-menu" className={`falu-mobile-menu${menuOpen ? " is-open" : ""}`}>
+        <nav className="falu-mobile-nav">
+          {items.map((it) => (
+            <React.Fragment key={it.id}>
+              <a
+                href={`#${it.id}`}
+                className={`falu-mobile-link${active === it.id ? " active" : ""}`}
+                aria-current={active === it.id ? "page" : undefined}
+                onClick={close}
+              >
+                {it.label}
+              </a>
+              {it.children && it.children.map((c) => (
+                <a key={c.label} href={c.href} className="falu-mobile-sublink" onClick={close}>
+                  {c.label}
+                </a>
+              ))}
+            </React.Fragment>
+          ))}
+        </nav>
+        <div className="falu-mobile-actions">
+          <a href="tel:+41552255151" className="falu-phone" onClick={close}>+41 55 225 51 51</a>
+          <a href="#contact" className="btn btn--primary" onClick={close}>
+            Request a quotation<span className="arrow" />
           </a>
         </div>
       </div>
