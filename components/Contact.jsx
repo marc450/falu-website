@@ -7,6 +7,49 @@ const { useState: useStateC } = React;
 // Quotation form + direct contact + Rüti location.
 // ============================================================
 
+// Consent-gated Google Maps embed. The iframe (which sets Google cookies and
+// transfers data to Google) is only loaded after the visitor actively agrees.
+// The choice is remembered in localStorage so it is asked only once.
+const MAPS_CONSENT_KEY = "falu-maps-consent";
+function MapEmbed() {
+  const [consented, setConsented] = useStateC(() => {
+    try { return localStorage.getItem(MAPS_CONSENT_KEY) === "yes"; } catch (e) { return false; }
+  });
+  const allow = () => {
+    try { localStorage.setItem(MAPS_CONSENT_KEY, "yes"); } catch (e) { /* storage blocked */ }
+    setConsented(true);
+  };
+
+  if (consented) {
+    return (
+      <div style={{ aspectRatio: "4 / 3", border: "1px solid var(--rule)" }}>
+        <iframe
+          title="FALU AG location, Joweid Zentrum 5, 8630 Rüti, Switzerland"
+          src="https://maps.google.com/maps?q=FALU%20AG%2C%20Joweid%20Zentrum%205%2C%208630%20R%C3%BCti%2C%20Switzerland&z=15&output=embed"
+          style={{ width: "100%", height: "100%", border: 0, display: "block" }}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ aspectRatio: "4 / 3", border: "1px solid var(--rule)", background: "var(--bg-alt)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "24px", gap: 16 }}>
+      <div className="mono" style={{ fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--ink-muted)" }}>
+        Location map
+      </div>
+      <p style={{ fontSize: 13, color: "var(--ink-soft)", lineHeight: 1.6, margin: 0, maxWidth: 320 }}>
+        The map is loaded from Google Maps. Loading it may set cookies and transfer data to Google.
+        See our <a href="#privacy" style={{ color: "var(--falu-red)", textDecoration: "none" }}>privacy policy</a>.
+      </p>
+      <button type="button" onClick={allow} className="btn btn--primary">
+        Load map<span className="arrow" />
+      </button>
+    </div>
+  );
+}
+
 window.Contact = function Contact() {
   const [form, setForm] = useStateC({
     company: "",
@@ -189,15 +232,7 @@ window.Contact = function Contact() {
               </div>
 
               <div style={{ borderTop: "1px solid var(--rule)", paddingTop: 0 }}>
-                <div style={{ aspectRatio: "4 / 3", border: "1px solid var(--rule)" }}>
-                  <iframe
-                    title="FALU AG location, Joweid Zentrum 5, 8630 Rüti, Switzerland"
-                    src="https://maps.google.com/maps?q=FALU%20AG%2C%20Joweid%20Zentrum%205%2C%208630%20R%C3%BCti%2C%20Switzerland&z=15&output=embed"
-                    style={{ width: "100%", height: "100%", border: 0, display: "block" }}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                </div>
+                <MapEmbed />
               </div>
             </div>
           </div>

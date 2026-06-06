@@ -23,6 +23,7 @@ import "./components/Careers.jsx";
 import "./components/Contact.jsx";
 import "./components/Imprint.jsx";
 import "./components/Terms.jsx";
+import "./components/Privacy.jsx";
 import "./components/FaluRouter.jsx";
 
 const { FaluRouter } = window;

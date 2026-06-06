@@ -32,7 +32,7 @@ const MACHINE_IDS = ["rb2", "sv2x", "rb30a", "polybag", "sqb2a", "bl12", "wr600"
 function resolve(hash) {
   const {
     HomepageB, Machinery, CottonSwabMachinery, CottonPadMachinery,
-    MachineCB1, MachinePRX, MachineDetail, Services, About, Contact, Careers, PackingMachines, Imprint, Terms
+    MachineCB1, MachinePRX, MachineDetail, Services, About, Contact, Careers, PackingMachines, Imprint, Terms, Privacy
   } = window;
 
   // Normalise a few aliases.
@@ -54,6 +54,7 @@ function resolve(hash) {
     "contact": Contact,
     "imprint": Imprint,
     "terms": Terms,
+    "privacy": Privacy,
   };
 
   if (map[h]) return map[h];

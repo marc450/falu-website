@@ -109,7 +109,7 @@ window.FaluFooter = function FaluFooter() {
         <div className="falu-footer__bottom-links">
           <a href="#imprint">Imprint</a>
           <a href="#terms">Terms</a>
-          <a href="#">Privacy</a>
+          <a href="#privacy">Privacy</a>
         </div>
       </div>
     </footer>
