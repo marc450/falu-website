@@ -59,11 +59,11 @@ window.Contact = function Contact() {
       </section>
 
       {/* FORM + CONTACT RAIL */}
-      <section style={{ padding: "0 0 112px", borderTop: "1px solid var(--rule)", background: "var(--bg-alt)" }}>
+      <section style={{ padding: "0 0 112px", borderTop: "1px solid var(--rule)" }}>
         <div className="container" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 0, borderLeft: "1px solid var(--rule)", borderRight: "1px solid var(--rule)" }}>
 
           {/* FORM */}
-          <div style={{ padding: "56px", borderRight: "1px solid var(--rule)", background: "#fff" }}>
+          <div style={{ padding: "56px", borderRight: "1px solid var(--rule)" }}>
             <SectionLabel num="01">Your enquiry</SectionLabel>
 
             {/* Two-up: company / name */}
