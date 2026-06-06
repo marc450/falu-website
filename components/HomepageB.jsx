@@ -63,7 +63,7 @@ window.HomepageB = function HomepageB() {
           <SectionLabel num="01">Machinery</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "end", marginBottom: 72 }}>
             <h2 style={{ fontSize: 52, lineHeight: 1.0, letterSpacing: "-0.03em" }}>
-              From factory layout planning to fully integrated production lines.
+              Production machinery, from single machines to fully integrated lines.
             </h2>
             <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
               Three families of machines, each engineered as a complete production line. Choose
