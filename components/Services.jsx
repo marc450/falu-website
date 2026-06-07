@@ -41,15 +41,9 @@ window.Services = function Services() {
       <section style={{ padding: "96px 0", background: "var(--bg-band)", borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)" }}>
         <div className="container">
           <SectionLabel num="01">Lifecycle support</SectionLabel>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "end", marginBottom: 56, marginTop: 32 }}>
-            <h2 style={{ fontSize: 44, lineHeight: 1.05, letterSpacing: "-0.025em" }}>
-              One partner, from concept<br />to decades of operation.
-            </h2>
-            <p style={{ color: "var(--ink-soft)", fontSize: 16, lineHeight: 1.65 }}>
-              The same engineers who design and build your machine support it in production. Every
-              service below is delivered by FALU directly from Rüti, on-site or remote.
-            </p>
-          </div>
+          <h2 style={{ fontSize: 44, lineHeight: 1.05, letterSpacing: "-0.025em", marginTop: 32, marginBottom: 56 }}>
+            One partner, from concept<br />to decades of operation.
+          </h2>
 
           <div style={svc.grid}>
             {[
