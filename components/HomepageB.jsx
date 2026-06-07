@@ -261,7 +261,7 @@ window.HomepageB = function HomepageB() {
                 <ul style={journey.list}>
                   {p.items.map((it) =>
                 <li key={it} style={journey.item}>
-                      <span className="mono" style={journey.itemDot}>,</span>
+                      <span style={journey.itemDot} aria-hidden="true" />
                       <span>{it}</span>
                     </li>
                 )}
@@ -417,7 +417,7 @@ const journey = {
   phase: { fontSize: 11, color: "var(--falu-red)", letterSpacing: "0.2em", fontWeight: 500 },
   list: { marginTop: 24, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 12 },
   item: { display: "flex", gap: 12, alignItems: "flex-start", color: "var(--ink-soft)", fontSize: 15 },
-  itemDot: { color: "var(--falu-red)", marginTop: 2 }
+  itemDot: { width: 14, height: 1, background: "var(--falu-red)", marginTop: 10, flexShrink: 0 }
 };
 
 const ctaB = {
