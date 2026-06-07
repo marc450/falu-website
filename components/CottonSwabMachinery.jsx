@@ -55,8 +55,8 @@ as individual machines into existing lines.
               body="The PRX produces paper sticks in-house and feeds them directly into the cotton swab machine, significantly simplifying production logistics and cutting out supplier dependencies."
               note="The cotton swab machine also accepts paper or plastic sticks from external suppliers, so the PRX is only needed if you want to bring stick production in-house and increase production efficiency."
               image="PRX paper stick winder, full unit"
-              links={[
-              ["See our paper stick production machine", "#prx"]]
+              machines={[
+              ["PRX", "Paper stick winding", "#prx"]]
               } />
 
             <ProcessConnector />
@@ -65,8 +65,8 @@ as individual machines into existing lines.
               title="Cotton swab production"
               body="Cotton is applied to the sticks to form the finished swab. The cotton swab machine runs with both paper and plastic sticks, from a FALU paper stick machine or from any other supplier, so it works on its own in an existing line. It also integrates seamlessly with all FALU packing machines for a continuous, efficient flow."
               image="CB1 4.1 cotton swab production machine"
-              links={[
-              ["See our cotton swab production machine", "#cb1"]]
+              machines={[
+              ["CB1 4.1", "Cotton swab forming\nUp to 3'100 swabs/min", "#cb1"]]
               }
               flipped />
 
@@ -207,7 +207,7 @@ const lineRow = {
 };
 
 // ============ PROCESS BLOCK ============
-function ProcessBlock({ num, title, body, note, image, links, linksLabel, flipped }) {
+function ProcessBlock({ num, title, body, note, image, machines, links, linksLabel, flipped }) {
   const left =
   <div style={{ padding: "48px 48px" }}>
       <div className="mono" style={{ fontSize: 11, color: "var(--falu-red)", letterSpacing: "0.2em", marginBottom: 16 }}>
@@ -224,18 +224,33 @@ function ProcessBlock({ num, title, body, note, image, links, linksLabel, flippe
           {note}
         </div>
       }
-      <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 12, paddingTop: 24, borderTop: "1px solid var(--rule)", alignItems: "flex-start" }}>
-        {linksLabel &&
-      <div className="mono" style={{ fontSize: 10, color: "var(--ink-muted)", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 4 }}>
-            {linksLabel}
-          </div>
+      {machines &&
+      <div style={{ marginTop: 28, paddingTop: 24, borderTop: "1px solid var(--rule)", display: "flex", flexWrap: "wrap", gap: 14 }}>
+          {machines.map(([code, sub, href]) =>
+        <a key={code} href={href} style={{ flex: "1 1 0", minWidth: 160, display: "flex", flexDirection: "column", gap: 4, padding: "16px 20px", border: "1px solid var(--rule)", borderLeft: "3px solid var(--falu-red)", background: "#fff", textDecoration: "none" }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+                <span className="mono" style={{ fontSize: 15, fontWeight: 600, color: "var(--navy)", letterSpacing: "-0.01em" }}>{code}</span>
+                <span className="mono" style={{ fontSize: 12, color: "var(--falu-red)", fontWeight: 600 }}>→</span>
+              </div>
+              <span style={{ fontSize: 13, color: "var(--ink-soft)", whiteSpace: "pre-line", lineHeight: 1.45 }}>{sub}</span>
+            </a>
+        )}
+        </div>
       }
-        {links.map(([label, href]) =>
-      <a key={label} href={href} className="btn btn--primary">
-            {label}<span className="arrow" />
-          </a>
-      )}
-      </div>
+      {links &&
+      <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 12, paddingTop: 24, borderTop: "1px solid var(--rule)", alignItems: "flex-start" }}>
+          {linksLabel &&
+        <div className="mono" style={{ fontSize: 10, color: "var(--ink-muted)", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 4 }}>
+              {linksLabel}
+            </div>
+        }
+          {links.map(([label, href]) =>
+        <a key={label} href={href} className="btn btn--primary">
+              {label}<span className="arrow" />
+            </a>
+        )}
+        </div>
+      }
     </div>;
 
 
