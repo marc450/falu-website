@@ -126,7 +126,7 @@ as individual machines into existing lines.
                 <div style={lineRow.machine}>
                   <div className="mono" style={lineRow.code}>CB1 4.1 <span style={lineRow.linkArrow}>↗</span></div>
                   <div style={lineRow.label}>Cotton swab production</div>
-                  <p style={lineRow.note}>Forms swabs from cotton string and applicator sticks at up to 3'100/min.</p>
+                  <p style={lineRow.note}>Forms swabs from cotton string and applicator sticks at a mechanical speed of up to 3'100 swabs/min.</p>
                 </div>
               </a>
             </div>
