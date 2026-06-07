@@ -214,11 +214,12 @@ window.MachinePRX = function MachinePRX() {
             </div>
             <div style={prxLine.arrow}>→</div>
             <div style={prxLine.col}>
-              <div className="mono" style={prxLine.colHeader}>03 · PACKING · 5 FORMATS</div>
+              <div className="mono" style={prxLine.colHeader}>03 · PACKING · 6 MACHINES</div>
               <div style={prxLine.list}>
                 {[
-                ["BV/ABS", "Cardboard boxes", "#sv2x"],
-                ["Polybag", "Polybag packing", "#polybag"],
+                ["SV-2X", "Cardboard boxes", "#sv2x"],
+                ["BV-2M", "Polybag (semi-auto)", "#polybag"],
+                ["ABS-2", "Polybag (auto)", "#polybag"],
                 ["RB-30A", "Round boxes", "#rb30a"],
                 ["SQB-2A", "Square boxes", "#sqb2a"],
                 ["BL-12", "Blister packaging", "#bl12"]].

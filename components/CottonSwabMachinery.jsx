@@ -74,7 +74,7 @@ as individual machines into existing lines.
             <ProcessBlock
               num="03"
               title="Packing"
-              body="Finished swabs are packed either semi-automatically (auto-sorted, hand-placed) or fully automatically (sorted, filled and closed without manual intervention). Five formats supported, cardboard box, polybag, round box, square box, and blister."
+              body="Finished swabs are packed either semi-automatically (auto-sorted, hand-placed) or fully automatically (sorted, filled and closed without manual intervention). Six packing machines across five formats: cardboard box, polybag, round box, square box, and blister."
               image="Packing line, multiple format options"
               links={[
               ["See all packing machines", "#packing"]]
@@ -132,16 +132,17 @@ as individual machines into existing lines.
             </div>
             <div style={lineRow.arrow}>→</div>
             <div style={lineRow.col}>
-              <div className="mono" style={lineRow.colHeader}>03 · PACKING · 5 FORMATS</div>
+              <div className="mono" style={lineRow.colHeader}>03 · PACKING · 6 MACHINES</div>
               <div style={lineRow.list}>
                 {[
-                ["SV-2X", "Cardboard box packing"],
-                ["BV/ABS", "Polybag packing"],
-                ["RB-30A", "Round box packing"],
-                ["SQB-2A", "Square box packing"],
-                ["BL-12", "Blister packing"]].
-                map(([code, label]) =>
-                <a key={code} href={{ "SV-2X": "#sv2x", "BV/ABS": "#polybag", "RB-30A": "#rb30a", "SQB-2A": "#sqb2a", "BL-12": "#bl12" }[code] || "#sv2x"} style={lineRow.row}>
+                ["SV-2X", "Cardboard box packing", "#sv2x"],
+                ["BV-2M", "Polybag packing (semi-auto)", "#polybag"],
+                ["ABS-2", "Polybag packing (auto)", "#polybag"],
+                ["RB-30A", "Round box packing", "#rb30a"],
+                ["SQB-2A", "Square box packing", "#sqb2a"],
+                ["BL-12", "Blister packing", "#bl12"]].
+                map(([code, label, href]) =>
+                <a key={code} href={href} style={lineRow.row}>
                     <span className="mono" style={{ color: "#fff", fontWeight: 600 }}>{code} <span style={lineRow.linkArrow}>↗</span></span>
                     <span style={{ color: "#cfdcec", fontSize: 13 }}>{label}</span>
                   </a>

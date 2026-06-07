@@ -80,7 +80,7 @@ window.PackingMachines = function PackingMachines() {
             <h1 style={{ fontSize: 80, lineHeight: 0.98, letterSpacing: "-0.035em", color: "var(--navy)" }}>
               Swab packing machines.
             </h1>
-            <p style={{ fontSize: 18, lineHeight: 1.6, color: "var(--ink-soft)" }}>Five packing machines combine with cotton swab production to match any retail or bulk format. Each one connects to FALU CB and CT swab lines.
+            <p style={{ fontSize: 18, lineHeight: 1.6, color: "var(--ink-soft)" }}>Six packing machines across five formats combine with cotton swab production to match any retail or bulk format. Each one connects to FALU CB and CT swab lines.
 
 
             </p>
@@ -91,7 +91,7 @@ window.PackingMachines = function PackingMachines() {
       {/* MACHINE LIST */}
       <section style={{ padding: "0 0 96px", background: "var(--bg-band)", borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)" }}>
         <div className="container" style={{ paddingTop: 80 }}>
-          <SectionLabel num="01">Five formats</SectionLabel>
+          <SectionLabel num="01">Six packing machines</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginTop: 48 }}>
             {machines.map((m) =>
             <a key={m.code} href={m.href} style={pack.card}>
@@ -125,6 +125,34 @@ window.PackingMachines = function PackingMachines() {
         </div>
       </section>
 
+      {/* SPECIAL SOLUTIONS */}
+      <section style={{ padding: "96px 0 0" }}>
+        <div className="container">
+          <SectionLabel num="02">Beyond the standard formats</SectionLabel>
+          <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--ink-soft)", maxWidth: 760, marginTop: 24 }}>
+            Two further packing options are available in combination with the cotton swab machines, and additional formats can be developed on request.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24, marginTop: 48 }}>
+            <div style={pack.ghost}>
+              <div className="mono" style={pack.ghostLabel}>SPECIAL FORMAT</div>
+              <h3 style={pack.ghostTitle}>Flip-top boxes</h3>
+              <p style={pack.ghostDesc}>Hinged-lid retail box packing, available in combination with FALU cotton swab machines.</p>
+            </div>
+            <div style={pack.ghost}>
+              <div className="mono" style={pack.ghostLabel}>SPECIAL FORMAT</div>
+              <h3 style={pack.ghostTitle}>Flow packs</h3>
+              <p style={pack.ghostDesc}>Horizontal flow-wrap packing for individual swabs or counted multipacks.</p>
+            </div>
+            <a href="#contact" style={pack.ghostCta}>
+              <div className="mono" style={pack.ghostLabel}>CUSTOM SOLUTION</div>
+              <h3 style={pack.ghostTitle}>Tell us your requirements</h3>
+              <p style={pack.ghostDesc}>Further packing solutions are developed on request. Get in touch to discuss your specific format.</p>
+              <span style={pack.ghostArrow}>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section style={{ padding: "96px 0" }}>
         <div className="container" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 48, alignItems: "center" }}>
@@ -149,5 +177,11 @@ const pack = {
   body: { padding: "28px 28px 24px", display: "flex", flexDirection: "column", flex: 1 },
   code: { fontSize: 13, color: "var(--falu-red)", letterSpacing: "0.1em", fontWeight: 600 },
   format: { fontSize: 10, color: "var(--ink-muted)", letterSpacing: "0.16em", textTransform: "uppercase" },
-  foot: { marginTop: 22, paddingTop: 18, borderTop: "1px solid var(--rule)", display: "flex", justifyContent: "flex-end", alignItems: "center" }
+  foot: { marginTop: 22, paddingTop: 18, borderTop: "1px solid var(--rule)", display: "flex", justifyContent: "flex-end", alignItems: "center" },
+  ghost: { padding: "32px 28px", background: "#fff", border: "1px dashed var(--rule)", display: "flex", flexDirection: "column" },
+  ghostCta: { padding: "32px 28px", background: "#fff", border: "1px solid var(--navy)", display: "flex", flexDirection: "column", textDecoration: "none", color: "inherit", position: "relative" },
+  ghostLabel: { fontSize: 10, color: "var(--ink-muted)", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 },
+  ghostTitle: { fontSize: 22, lineHeight: 1.2, letterSpacing: "-0.015em", color: "var(--navy)" },
+  ghostDesc: { marginTop: 12, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)", flex: 1 },
+  ghostArrow: { position: "absolute", right: 28, bottom: 24, color: "var(--falu-red)", fontSize: 20, fontWeight: 600 }
 };

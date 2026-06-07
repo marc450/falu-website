@@ -397,11 +397,12 @@ window.MachineCB1 = function MachineCB1() {
             </div>
             <div style={lineInt.arrow}>→</div>
             <div style={lineInt.col}>
-              <div className="mono" style={lineInt.colHeader}>DOWNSTREAM · 6 FORMATS</div>
+              <div className="mono" style={lineInt.colHeader}>DOWNSTREAM · 6 MACHINES</div>
               <div style={lineInt.machineList}>
                 {[
-                ["SV2", "Cardboard boxes", "#sv2x"],
-                ["BV/ABS", "Polybags", "#polybag"],
+                ["SV-2X", "Cardboard boxes", "#sv2x"],
+                ["BV-2M", "Polybag (semi-auto)", "#polybag"],
+                ["ABS-2", "Polybag (auto)", "#polybag"],
                 ["RB-30A", "Round boxes", "#rb30a"],
                 ["SQB-2A", "Square boxes", "#sqb2a"],
                 ["BL-12", "Blister packaging", "#bl12"]].
