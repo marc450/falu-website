@@ -10,45 +10,35 @@ window.PackingMachines = function PackingMachines() {
   {
     code: "SV-2X",
     name: "Cardboard box packing",
-    format: "Cardboard boxes",
     desc: "Fully automatic cardboard box packing. Erects, fills, closes and seals flat cartons, replacing plastic packaging with cardboard.",
-    spec: "Retail cartons",
     href: "#sv2x",
     img: "SV-2X cardboard box packing machine"
   },
   {
     code: "BV-2M / ABS-2",
     name: "Polybag packing",
-    format: "Polybags",
     desc: "Semi-automatic (BV-2M) or fully automatic (ABS-2) polybag packing. Polyethylene or paper bags, optional zipper-lock closure.",
-    spec: "50 to 400 swabs/bag",
     href: "#polybag",
     img: "ABS-2 polybag packing machine"
   },
   {
     code: "RB-30A",
     name: "Round box packing",
-    format: "Round boxes",
     desc: "Fully automatic round box filling. Dispenses boxes, fills a predefined swab count, and closes them with their lids.",
-    spec: "Up to 25 boxes/min",
     href: "#rb30a",
     img: "RB-30A round box packing machine"
   },
   {
     code: "SQB-2A",
     name: "Square box packing",
-    format: "Square boxes",
     desc: "Fully automatic square box packing. Erects, fills and closes square folding cartons for retail distribution.",
-    spec: "Folding cartons",
     href: "#sqb2a",
     img: "SQB-2A square box packing machine"
   },
   {
     code: "BL-12",
     name: "Blister packing",
-    format: "Blister packs",
     desc: "Fully automatic blister packing. Thermoforms cavities, fills a counted set of swabs, and seals with card or foil for tamper-evident packs.",
-    spec: "Up to 12 cycles/min",
     href: "#bl12",
     img: "BL-12 blister packing machine"
   }];
@@ -97,10 +87,7 @@ window.PackingMachines = function PackingMachines() {
             <a key={m.code} href={m.href} style={pack.card}>
                 <ImageSlot label={m.img} ratio="16 / 9" />
                 <div style={pack.body}>
-                  <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 16 }}>
-                    <div className="mono" style={pack.code}>{m.code}</div>
-                    <div className="mono" style={pack.format}>{m.format}</div>
-                  </div>
+                  <div className="mono" style={pack.code}>{m.code}</div>
                   <h3 style={{ fontSize: 24, marginTop: 10, lineHeight: 1.15, letterSpacing: "-0.015em", color: "var(--navy)" }}>{m.name}</h3>
                   <p style={{ marginTop: 14, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)", flex: 1 }}>{m.desc}</p>
                 </div>
@@ -176,7 +163,6 @@ const pack = {
   card: { display: "flex", flexDirection: "column", background: "#fff", border: "1px solid var(--rule)", textDecoration: "none", color: "inherit" },
   body: { padding: "28px 28px 24px", display: "flex", flexDirection: "column", flex: 1 },
   code: { fontSize: 13, color: "var(--falu-red)", letterSpacing: "0.1em", fontWeight: 600 },
-  format: { fontSize: 10, color: "var(--ink-muted)", letterSpacing: "0.16em", textTransform: "uppercase" },
   foot: { marginTop: 22, paddingTop: 18, borderTop: "1px solid var(--rule)", display: "flex", justifyContent: "flex-end", alignItems: "center" },
   ghost: { padding: "32px 28px", background: "#fff", border: "1px dashed var(--rule)", display: "flex", flexDirection: "column" },
   ghostCta: { padding: "32px 28px", background: "#fff", border: "1px solid var(--navy)", display: "flex", flexDirection: "column", textDecoration: "none", color: "inherit", position: "relative" },
