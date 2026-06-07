@@ -237,7 +237,17 @@ window.MachineCB1 = function MachineCB1() {
       <section id="section-options" style={{ padding: "96px 0", borderTop: "1px solid var(--rule)" }}>
         <div className="container">
           <SectionLabel num="03">Options & available retrofits</SectionLabel>
-          <h2 style={{ marginBottom: 56 }}>Configure for your<br />product, market and line.</h2>
+          <h2 style={{ marginBottom: 28 }}>Configure for your<br />product, market and line.</h2>
+
+          {/* AVAILABILITY STATEMENT — applies to every option and retrofit below */}
+          <div style={availabilityNote.wrap}>
+            <p style={availabilityNote.text}>
+              <strong style={availabilityNote.strong}>Everything below is available for the CB1.</strong>{" "}
+              Every option and retrofit listed here can be specified when configuring a new CB1,
+              fitted to an existing CB1 as a field retrofit, and is fully compatible with the machine.
+              Mix and match freely, then talk to us about the combination that fits your line.
+            </p>
+          </div>
 
           {/* FEATURED RETROFITS — fact-sheet level detail */}
           <div className="mono" style={{ fontSize: 11, color: "var(--ink-muted)", letterSpacing: "0.18em", marginBottom: 20 }}>
@@ -253,7 +263,6 @@ window.MachineCB1 = function MachineCB1() {
               "No glue build-up, no cleaning cycles, cleaner machine interior",
               "No changeover when switching plastic to paper sticks",
               "Plastic sticks down to 130 g / 1'000"]}
-              compat="All FALU cotton swab machine models"
               mediaLabel="Hot melt unit + glue applicator head" />
 
             <RetroCard
@@ -265,7 +274,6 @@ window.MachineCB1 = function MachineCB1() {
               "Unaffected by dust and mechanical tolerances",
               "Image memory for review of rejected swabs and root-cause analysis",
               "Waste Reduction Mode: set a legal underfill threshold so near-full packs aren't rejected. The line tops up only when needed to keep the declared average"]}
-              compat="All FALU swab machines, all swab variants incl. baby and cosmetic"
               mediaLabel="Camera inspection module + HMI image review" />
 
             <RetroCard
@@ -277,7 +285,6 @@ window.MachineCB1 = function MachineCB1() {
               "No chain cleaning, degreasing or regreasing",
               "Extended drive component service life, higher uptime",
               "Less internal contamination means significantly lower required maintenance standstill time"]}
-              compat="Standard on new CB1 4.1. Retrofit available for all existing FALU swab machines."
               mediaLabel="Belt drive carrier on dry-running primary belt" />
 
             <RetroCard
@@ -289,7 +296,6 @@ window.MachineCB1 = function MachineCB1() {
               "Secondary Belt Module: Dust removal in transition to pickup",
               "Airflow Dust Removal: Controlled draft inside enclosed housing",
               "Belt & Chain Blow-Off: Four directed nozzles, adjustable timing"]}
-              compat="All FALU machine models featuring a closable machine housing"
               mediaLabel="Extraction nozzle at cotton feeder + airflow housing" />
           </div>
 
@@ -334,11 +340,7 @@ window.MachineCB1 = function MachineCB1() {
           <div style={retrofitBanner.wrap}>
             <div>
               <div className="mono" style={{ color: "var(--falu-red)", fontSize: 11, letterSpacing: "0.18em" }}>RETROFIT PROGRAMME</div>
-              <h3 style={{ marginTop: 8, color: "#fff", fontSize: 24, maxWidth: 720 }}>Already running a CB1? Any of the retrofits above can be installed on your existing line to lift output, quality and uptime. Reach out for a tailored quotation or a more detailed technical discussion.
-
-
-
-              </h3>
+              <h3 style={{ marginTop: 8, color: "#fff", fontSize: 24, maxWidth: 720 }}>Already running a CB1? Any of the retrofits above can be installed on your existing line to lift output, quality and uptime. Reach out for a tailored quotation or a more detailed technical discussion.</h3>
             </div>
             <a href="#contact" className="btn btn--primary">Reach out to our specialist team<span className="arrow" /></a>
           </div>
@@ -486,21 +488,25 @@ window.MachineCB1 = function MachineCB1() {
 
 };
 
+const availabilityNote = {
+  wrap: { background: "var(--bg-alt)", borderLeft: "3px solid var(--falu-red)", padding: "22px 28px", marginBottom: 56, maxWidth: 900 },
+  text: { fontSize: 15, lineHeight: 1.6, color: "var(--ink-soft)", margin: 0 },
+  strong: { color: "var(--navy)", fontWeight: 600 }
+};
+
 const featuredRetro = {
-  grid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 },
+  grid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, alignItems: "start" },
   card: { border: "1px solid var(--rule)", background: "#fff", display: "flex", flexDirection: "column" },
   media: { borderBottom: "1px solid var(--rule)" },
   head: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, padding: "28px 32px 0" },
   code: { fontSize: 10, color: "var(--falu-red)", letterSpacing: "0.18em", fontWeight: 500, fontFamily: "var(--font-mono)" },
   title: { fontSize: 22, marginTop: 14, color: "var(--navy)", letterSpacing: "-0.01em", padding: "0 32px" },
   lede: { marginTop: 12, fontSize: 14, color: "var(--ink-soft)", lineHeight: 1.6, padding: "0 32px" },
-  bullets: { marginTop: 18, padding: "18px 32px 0", listStyle: "none", display: "flex", flexDirection: "column", gap: 10, borderTop: "1px solid var(--rule-soft)" },
-  bullet: { fontSize: 13, color: "var(--ink)", lineHeight: 1.55, paddingLeft: 18, position: "relative" },
-  compat: { marginTop: 20, padding: "16px 32px 28px", borderTop: "1px solid var(--rule-soft)", fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--ink-muted)", letterSpacing: "0.04em", lineHeight: 1.5 },
-  compatLabel: { color: "var(--falu-red)", letterSpacing: "0.18em", marginRight: 8 }
+  bullets: { marginTop: 18, padding: "18px 32px 28px", listStyle: "none", display: "flex", flexDirection: "column", gap: 10, borderTop: "1px solid var(--rule-soft)" },
+  bullet: { fontSize: 13, color: "var(--ink)", lineHeight: 1.55, paddingLeft: 18, position: "relative" }
 };
 
-function RetroCard({ code, title, lede, bullets, compat, mediaLabel }) {
+function RetroCard({ code, title, lede, bullets, mediaLabel }) {
   return (
     <div style={featuredRetro.card}>
       <div style={featuredRetro.media}>
@@ -519,10 +525,6 @@ function RetroCard({ code, title, lede, bullets, compat, mediaLabel }) {
           </li>
         )}
       </ul>
-      <div style={featuredRetro.compat}>
-        <span style={featuredRetro.compatLabel}>COMPATIBILITY</span>
-        {compat}
-      </div>
     </div>);
 
 }
