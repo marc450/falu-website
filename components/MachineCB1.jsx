@@ -593,7 +593,7 @@ const techTable = {
 };
 
 const options = {
-  grid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 },
+  grid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, alignItems: "start" },
   group: { border: "1px solid var(--rule)", background: "#fff" },
   groupHeader: { padding: "20px 24px", borderBottom: "1px solid var(--rule)", background: "var(--bg-alt)" },
   groupCode: { fontSize: 10, color: "var(--falu-red)", letterSpacing: "0.18em", fontWeight: 500 },
