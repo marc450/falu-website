@@ -108,23 +108,14 @@ button, input, select, textarea, .card, .btn { border-radius: 0; }
   padding: 0 22px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--navy);
+  color: var(--ink-soft);
   letter-spacing: -0.005em;
   position: relative;
   transition: color 120ms ease;
   text-decoration: none;
 }
 .falu-nav a:hover { color: var(--falu-red-dark); }
-.falu-nav a.active { color: var(--navy); }
-.falu-nav a.active::after {
-  content: "";
-  position: absolute;
-  left: 22px;
-  right: 22px;
-  bottom: 0;
-  height: 2px;
-  background: var(--falu-red);
-}
+.falu-nav a.active { color: var(--navy); font-weight: 700; }
 .falu-nav a:focus-visible,
 .falu-phone:focus-visible,
 .btn:focus-visible {
@@ -409,7 +400,7 @@ iframe { height: auto; }
   border-top: 1px solid var(--rule-soft);
 }
 .falu-mobile-link:first-child { border-top: none; }
-.falu-mobile-link.active { color: var(--falu-red); }
+.falu-mobile-link.active { color: var(--navy); font-weight: 700; }
 .falu-mobile-sublink {
   padding: 12px 0 12px 18px;
   font-size: 14px;
