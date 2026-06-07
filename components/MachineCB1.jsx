@@ -237,15 +237,7 @@ window.MachineCB1 = function MachineCB1() {
       <section id="section-options" style={{ padding: "96px 0", borderTop: "1px solid var(--rule)" }}>
         <div className="container">
           <SectionLabel num="03">Options & available retrofits</SectionLabel>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "end", marginBottom: 56 }}>
-            <h2>Configure for your<br />product, market and line.</h2>
-            <p style={{ color: "var(--ink-soft)", fontSize: 16, lineHeight: 1.65 }}>
-              Four engineering upgrades make up the core of the CB1 retrofit programme. They are
-              available on new machines and as field retrofits on installations going back decades.
-              Beneath them, a wider catalogue of options covers stick types, drying, inspection variants
-              and special swab geometries.
-            </p>
-          </div>
+          <h2 style={{ marginBottom: 56 }}>Configure for your<br />product, market and line.</h2>
 
           {/* FEATURED RETROFITS — fact-sheet level detail */}
           <div className="mono" style={{ fontSize: 11, color: "var(--ink-muted)", letterSpacing: "0.18em", marginBottom: 20 }}>
