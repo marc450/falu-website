@@ -60,7 +60,8 @@ as individual machines into existing lines.
             <ProcessBlock
               num="01"
               title="Paper stick production"
-              body="The PRX produces paper sticks in-house and feeds them directly into the cotton swab machine, significantly simplifying production logistics and cutting out supplier dependencies. Already sourcing your own sticks, paper or plastic? Skip this step."
+              body="The PRX produces paper sticks in-house and feeds them directly into the cotton swab machine, significantly simplifying production logistics and cutting out supplier dependencies."
+              note="The CB1 also accepts paper or plastic sticks from external suppliers, so the PRX is only needed if you want to bring stick production in-house."
               image="PRX paper stick winder, full unit"
               links={[
               ["See our paper stick production machine", "#prx"]]
@@ -214,7 +215,7 @@ const lineRow = {
 };
 
 // ============ PROCESS BLOCK ============
-function ProcessBlock({ num, title, body, image, links, linksLabel, flipped }) {
+function ProcessBlock({ num, title, body, note, image, links, linksLabel, flipped }) {
   const left =
   <div style={{ padding: "48px 48px" }}>
       <div className="mono" style={{ fontSize: 11, color: "var(--falu-red)", letterSpacing: "0.2em", marginBottom: 16 }}>
@@ -226,6 +227,11 @@ function ProcessBlock({ num, title, body, image, links, linksLabel, flipped }) {
       <div style={{ marginTop: 20, fontSize: 15, lineHeight: 1.65, color: "var(--ink-soft)" }}>
         {body}
       </div>
+      {note &&
+      <div style={{ marginTop: 14, fontSize: 13, lineHeight: 1.55, color: "var(--ink-muted)", fontStyle: "italic" }}>
+          {note}
+        </div>
+      }
       <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 12, paddingTop: 24, borderTop: "1px solid var(--rule)", alignItems: "flex-start" }}>
         {linksLabel &&
       <div className="mono" style={{ fontSize: 10, color: "var(--ink-muted)", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 4 }}>
