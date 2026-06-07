@@ -529,8 +529,8 @@ function OptionGroup({ code, title, items }) {
         <h3 style={{ fontSize: 20, marginTop: 4 }}>{title}</h3>
       </div>
       <div style={options.itemList}>
-        {items.map(([t, b]) =>
-        <div key={t} style={options.item}>
+        {items.map(([t, b], i) =>
+        <div key={t} style={{ ...options.item, borderTop: i === 0 ? "none" : "1px solid var(--rule-soft)" }}>
             <div style={options.itemTitle}>{t}</div>
             <p style={options.itemBody}>{b}</p>
           </div>
@@ -585,12 +585,12 @@ const techTable = {
 };
 
 const options = {
-  grid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, alignItems: "start" },
-  group: { border: "1px solid var(--rule)", background: "#fff" },
+  grid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, alignItems: "stretch" },
+  group: { border: "1px solid var(--rule)", background: "#fff", display: "flex", flexDirection: "column" },
   groupHeader: { padding: "20px 24px", borderBottom: "1px solid var(--rule)", background: "var(--bg-alt)" },
   groupCode: { fontSize: 10, color: "var(--falu-red)", letterSpacing: "0.18em", fontWeight: 500 },
-  itemList: { display: "flex", flexDirection: "column" },
-  item: { padding: "20px 24px", borderBottom: "1px solid var(--rule-soft)" },
+  itemList: { display: "flex", flexDirection: "column", flex: 1 },
+  item: { padding: "20px 24px", flex: 1 },
   itemTitle: { color: "var(--navy)", fontSize: 15, fontWeight: 600 },
   itemBody: { marginTop: 6, color: "var(--ink-soft)", fontSize: 13, lineHeight: 1.6 }
 };
