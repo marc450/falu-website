@@ -43,17 +43,9 @@ as individual machines into existing lines.
       <section style={{ padding: "0 0 96px", background: "var(--bg-band)", borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)" }}>
         <div className="container" style={{ paddingTop: 80 }}>
           <SectionLabel num="01">Production process</SectionLabel>
-          <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 80, alignItems: "end", marginTop: 32, marginBottom: 64 }}>
-            <h2 style={{ fontSize: 48, lineHeight: 1.05, letterSpacing: "-0.025em", color: "var(--navy)" }}>
-              Three connected steps.<br />Run together, or independently.
-            </h2>
-            <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--ink-soft)" }}>
-              Cotton swab production consists of several processes that can run together or on
-              their own. The cotton swab machine is the core: it forms swabs from paper or plastic
-              sticks, whether you make the sticks in-house or buy them in. Add stick production and
-              packing around it, or drop a single machine into an existing line.
-            </p>
-          </div>
+          <h2 style={{ fontSize: 48, lineHeight: 1.05, letterSpacing: "-0.025em", color: "var(--navy)", marginTop: 32, marginBottom: 64 }}>
+            Three connected steps.<br />Run together, or independently.
+          </h2>
 
           {/* Vertical process stack */}
           <div style={{ position: "relative" }}>
