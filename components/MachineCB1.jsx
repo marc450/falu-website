@@ -237,12 +237,11 @@ window.MachineCB1 = function MachineCB1() {
       <section id="section-options" style={{ padding: "96px 0", borderTop: "1px solid var(--rule)" }}>
         <div className="container">
           <SectionLabel num="03">Options & available retrofits</SectionLabel>
-          <h2 style={{ marginBottom: 28 }}>Configure for your<br />product, market and line.</h2>
-
           {/* AVAILABILITY STATEMENT — applies to every option and retrofit below */}
-          <div style={availabilityNote.wrap}>
-            <p style={availabilityNote.text}>
-              <strong style={availabilityNote.strong}>Everything below is available for the CB1.</strong>{" "}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "start", marginBottom: 56 }}>
+            <h2>Configure for your<br />product, market and line.</h2>
+            <p style={{ color: "var(--ink-soft)", fontSize: 16, lineHeight: 1.65 }}>
+              <strong style={{ color: "var(--navy)", fontWeight: 600 }}>Everything below is available for the CB1.</strong>{" "}
               Every option and retrofit listed here can be specified when configuring a new CB1,
               fitted to an existing CB1 as a field retrofit, and is fully compatible with the machine.
               Mix and match freely, then talk to us about the combination that fits your line.
@@ -486,12 +485,6 @@ window.MachineCB1 = function MachineCB1() {
       <FaluFooter />
     </div>);
 
-};
-
-const availabilityNote = {
-  wrap: { background: "var(--bg-alt)", borderLeft: "3px solid var(--falu-red)", padding: "22px 28px", marginBottom: 56, maxWidth: 900 },
-  text: { fontSize: 15, lineHeight: 1.6, color: "var(--ink-soft)", margin: 0 },
-  strong: { color: "var(--navy)", fontWeight: 600 }
 };
 
 const featuredRetro = {
