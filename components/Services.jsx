@@ -109,7 +109,7 @@ window.Services = function Services() {
             />
             <RetroLine
               code="R-03"
-              title="Belt Drive Upgrade"
+              title="Belt Drive System"
               body="Replaces the lubricated primary chain with a dry-running belt. Eliminates oil and grease from the enclosure, reduces contamination risk, and lowers maintenance standstill time. Standard on new CB1 4.1."
               compat="Standard on new CB1 4.1. Retrofit available for all existing FALU swab machines."
             />
