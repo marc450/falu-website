@@ -253,7 +253,6 @@ window.MachineCB1 = function MachineCB1() {
           </div>
           <div style={featuredRetro.grid}>
             <RetroCard
-              code="R-01"
               title="Hot Melt System"
               lede="High-precision adhesive application that replaces heating bars and mechanical cold gluing. Speed-independent, fully metered, closed-loop."
               bullets={[
@@ -264,7 +263,6 @@ window.MachineCB1 = function MachineCB1() {
               mediaLabel="Hot melt unit + glue applicator head" />
 
             <RetroCard
-              code="R-02"
               title="Camera-based Quality Management"
               lede="Industrial-grade camera + centralised evaluation unit. Inspects swabs at up to 3'000 / min from a defined distance, replacing fibre-optic light guides."
               bullets={[
@@ -275,7 +273,6 @@ window.MachineCB1 = function MachineCB1() {
               mediaLabel="Camera inspection module + HMI image review" />
 
             <RetroCard
-              code="R-03"
               title="Belt Drive Upgrade"
               lede="Replaces the lubricated primary chain with a dry-running belt. Eliminates oil and grease entirely from the machine enclosure."
               bullets={[
@@ -286,7 +283,6 @@ window.MachineCB1 = function MachineCB1() {
               mediaLabel="Belt drive carrier on dry-running primary belt" />
 
             <RetroCard
-              code="R-04"
               title="Dust Extraction System"
               lede="Four extraction modules that remove airborne fibres and heavier particles at the points where they are generated."
               bullets={[
@@ -487,28 +483,24 @@ window.MachineCB1 = function MachineCB1() {
 };
 
 const featuredRetro = {
-  grid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, alignItems: "start" },
+  grid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, alignItems: "stretch", gridAutoRows: "1fr" },
   card: { border: "1px solid var(--rule)", background: "#fff", display: "flex", flexDirection: "column" },
   media: { borderBottom: "1px solid var(--rule)" },
-  head: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, padding: "28px 32px 0" },
-  code: { fontSize: 10, color: "var(--falu-red)", letterSpacing: "0.18em", fontWeight: 500, fontFamily: "var(--font-mono)" },
-  title: { fontSize: 22, marginTop: 14, color: "var(--navy)", letterSpacing: "-0.01em", padding: "0 32px" },
+  title: { fontSize: 22, marginTop: 28, color: "var(--navy)", letterSpacing: "-0.01em", padding: "0 32px" },
   lede: { marginTop: 12, fontSize: 14, color: "var(--ink-soft)", lineHeight: 1.6, padding: "0 32px" },
   bullets: { marginTop: 18, padding: "18px 32px 28px", listStyle: "none", display: "flex", flexDirection: "column", gap: 10, borderTop: "1px solid var(--rule-soft)" },
   bullet: { fontSize: 13, color: "var(--ink)", lineHeight: 1.55, paddingLeft: 18, position: "relative" }
 };
 
-function RetroCard({ code, title, lede, bullets, mediaLabel }) {
+function RetroCard({ title, lede, bullets, mediaLabel }) {
   return (
     <div style={featuredRetro.card}>
       <div style={featuredRetro.media}>
         <ImageSlot label={mediaLabel || title} ratio="16 / 9" />
       </div>
-      <div style={featuredRetro.head}>
-        <div className="mono" style={featuredRetro.code}>{code}</div>
-      </div>
       <h3 style={featuredRetro.title}>{title}</h3>
       <p style={featuredRetro.lede}>{lede}</p>
+      <div style={{ flex: 1 }} />
       <ul style={featuredRetro.bullets}>
         {bullets.map((b) =>
         <li key={b} style={featuredRetro.bullet}>
