@@ -159,10 +159,9 @@ window.MachineCB1 = function MachineCB1() {
             ["Belt transfer system", "Primary belt transfer replaces chain drive, longer lifetime, reduced cleaning effort, no contamination risk from grease."],
             ["Packaging interface", "Continuous moving packaging system ensures fast and smooth packing cycles into any of six FALU packing machines."],
             ["Encapsulation", "Full encapsulation reduces noise and cotton dust emissions. Improved guide rail system design throughout."]].
-            map(([title, body], i) =>
+            map(([title, body]) =>
             <div key={title} style={features.cell}>
-                <div className="mono" style={features.num}>F · {String(i + 1).padStart(2, "0")}</div>
-                <h4 style={{ marginTop: 12, fontSize: 16 }}>{title}</h4>
+                <h4 style={{ fontSize: 16 }}>{title}</h4>
                 <p style={{ marginTop: 10, color: "var(--ink-soft)", fontSize: 14, lineHeight: 1.6 }}>{body}</p>
               </div>
             )}
@@ -488,7 +487,7 @@ const featuredRetro = {
   media: { borderBottom: "1px solid var(--rule)" },
   title: { fontSize: 22, marginTop: 28, color: "var(--navy)", letterSpacing: "-0.01em", padding: "0 32px" },
   lede: { marginTop: 12, fontSize: 14, color: "var(--ink-soft)", lineHeight: 1.6, padding: "0 32px" },
-  bullets: { marginTop: 18, padding: "18px 32px 28px", listStyle: "none", display: "flex", flexDirection: "column", gap: 10, borderTop: "1px solid var(--rule-soft)" },
+  bullets: { marginTop: "auto", marginBottom: 0, padding: "18px 32px 28px", listStyle: "none", display: "flex", flexDirection: "column", gap: 10, borderTop: "1px solid var(--rule-soft)" },
   bullet: { fontSize: 13, color: "var(--ink)", lineHeight: 1.55, paddingLeft: 18, position: "relative" }
 };
 
@@ -500,7 +499,6 @@ function RetroCard({ title, lede, bullets, mediaLabel }) {
       </div>
       <h3 style={featuredRetro.title}>{title}</h3>
       <p style={featuredRetro.lede}>{lede}</p>
-      <div style={{ flex: 1 }} />
       <ul style={featuredRetro.bullets}>
         {bullets.map((b) =>
         <li key={b} style={featuredRetro.bullet}>
@@ -563,8 +561,7 @@ const subnav = {
 
 const features = {
   grid: { display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, borderTop: "1px solid var(--rule)", borderLeft: "1px solid var(--rule)" },
-  cell: { padding: "28px 24px", borderRight: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)" },
-  num: { fontSize: 10, color: "var(--falu-red)", letterSpacing: "0.18em", fontWeight: 500 }
+  cell: { padding: "28px 24px", borderRight: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)" }
 };
 
 const techTable = {
