@@ -298,7 +298,6 @@ window.MachineCB1 = function MachineCB1() {
           </div>
           <div style={options.grid}>
             <OptionGroup
-              code="O-A"
               title="Cotton head fixation"
               items={[
               ["Sticks heating device", "Polypropylene sticks. Four grooved guide rails with integrated heating cartridges. Auto-opens on machine stop to prevent uncontrolled melting."],
@@ -306,7 +305,6 @@ window.MachineCB1 = function MachineCB1() {
               } />
 
             <OptionGroup
-              code="O-B"
               title="Swab drying"
               items={[
               ["Swab heating unit", "Pre-dries the cotton swabs before packaging. Guide rails, tubes, heating coil and fan mounted on the secondary chain."],
@@ -314,7 +312,6 @@ window.MachineCB1 = function MachineCB1() {
               } />
 
             <OptionGroup
-              code="O-C"
               title="Diagnostics"
               items={[
               ["Remote access system", "Modem-based remote access for FALU technicians. Fast diagnostics and support, typically eliminates the need for on-site service visits."],
@@ -322,7 +319,6 @@ window.MachineCB1 = function MachineCB1() {
               } />
 
             <OptionGroup
-              code="O-D"
               title="Swab shaping kits"
               items={[
               ["Safety (baby) swabs", "Enlarged 10 mm cotton head for baby care. Cotton sliver 4.0 g/m. Capacity up to 1'000 swabs/min."],
@@ -511,12 +507,11 @@ function RetroCard({ title, lede, bullets, mediaLabel }) {
 
 }
 
-function OptionGroup({ code, title, items }) {
+function OptionGroup({ title, items }) {
   return (
     <div style={options.group}>
       <div style={options.groupHeader}>
-        <div className="mono" style={options.groupCode}>{code}</div>
-        <h3 style={{ fontSize: 20, marginTop: 4 }}>{title}</h3>
+        <h3 style={{ fontSize: 20 }}>{title}</h3>
       </div>
       <div style={options.itemList}>
         {items.map(([t, b], i) =>
@@ -577,7 +572,6 @@ const options = {
   grid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, alignItems: "stretch" },
   group: { border: "1px solid var(--rule)", background: "#fff", display: "flex", flexDirection: "column" },
   groupHeader: { padding: "20px 24px", borderBottom: "1px solid var(--rule)", background: "var(--bg-alt)" },
-  groupCode: { fontSize: 10, color: "var(--falu-red)", letterSpacing: "0.18em", fontWeight: 500 },
   itemList: { display: "flex", flexDirection: "column", flex: 1 },
   item: { padding: "20px 24px", flex: 1 },
   itemTitle: { color: "var(--navy)", fontSize: 15, fontWeight: 600 },
