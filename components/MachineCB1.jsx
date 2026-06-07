@@ -246,7 +246,6 @@ window.MachineCB1 = function MachineCB1() {
           <div style={featuredRetro.grid}>
             <RetroCard
               code="R-01"
-              status="RETROFIT"
               title="Hot Melt System"
               lede="High-precision adhesive application that replaces heating bars and mechanical cold gluing. Speed-independent, fully metered, closed-loop."
               bullets={[
@@ -259,7 +258,6 @@ window.MachineCB1 = function MachineCB1() {
 
             <RetroCard
               code="R-02"
-              status="RETROFIT"
               title="Camera-based Quality Management"
               lede="Industrial-grade camera + centralised evaluation unit. Inspects swabs at up to 3'000 / min from a defined distance, replacing fibre-optic light guides."
               bullets={[
@@ -272,8 +270,6 @@ window.MachineCB1 = function MachineCB1() {
 
             <RetroCard
               code="R-03"
-              status="STANDARD ON NEW CB1"
-              statusTone="navy"
               title="Belt Drive Upgrade"
               lede="Replaces the lubricated primary chain with a dry-running belt. Eliminates oil and grease entirely from the machine enclosure."
               bullets={[
@@ -286,7 +282,6 @@ window.MachineCB1 = function MachineCB1() {
 
             <RetroCard
               code="R-04"
-              status="RETROFIT"
               title="Dust Extraction System"
               lede="Four extraction modules that remove airborne fibres and heavier particles at the points where they are generated."
               bullets={[
@@ -497,8 +492,6 @@ const featuredRetro = {
   media: { borderBottom: "1px solid var(--rule)" },
   head: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, padding: "28px 32px 0" },
   code: { fontSize: 10, color: "var(--falu-red)", letterSpacing: "0.18em", fontWeight: 500, fontFamily: "var(--font-mono)" },
-  statusRetro: { fontSize: 10, color: "var(--ink-muted)", letterSpacing: "0.18em", fontWeight: 500, fontFamily: "var(--font-mono)", padding: "4px 10px", border: "1px solid var(--rule)" },
-  statusNavy: { fontSize: 10, color: "#fff", letterSpacing: "0.18em", fontWeight: 500, fontFamily: "var(--font-mono)", padding: "4px 10px", background: "var(--navy)" },
   title: { fontSize: 22, marginTop: 14, color: "var(--navy)", letterSpacing: "-0.01em", padding: "0 32px" },
   lede: { marginTop: 12, fontSize: 14, color: "var(--ink-soft)", lineHeight: 1.6, padding: "0 32px" },
   bullets: { marginTop: 18, padding: "18px 32px 0", listStyle: "none", display: "flex", flexDirection: "column", gap: 10, borderTop: "1px solid var(--rule-soft)" },
@@ -507,7 +500,7 @@ const featuredRetro = {
   compatLabel: { color: "var(--falu-red)", letterSpacing: "0.18em", marginRight: 8 }
 };
 
-function RetroCard({ code, status, statusTone, title, lede, bullets, compat, mediaLabel }) {
+function RetroCard({ code, title, lede, bullets, compat, mediaLabel }) {
   return (
     <div style={featuredRetro.card}>
       <div style={featuredRetro.media}>
@@ -515,7 +508,6 @@ function RetroCard({ code, status, statusTone, title, lede, bullets, compat, med
       </div>
       <div style={featuredRetro.head}>
         <div className="mono" style={featuredRetro.code}>{code}</div>
-        <div style={statusTone === "navy" ? featuredRetro.statusNavy : featuredRetro.statusRetro}>{status}</div>
       </div>
       <h3 style={featuredRetro.title}>{title}</h3>
       <p style={featuredRetro.lede}>{lede}</p>
