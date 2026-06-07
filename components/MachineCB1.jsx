@@ -84,7 +84,7 @@ window.MachineCB1 = function MachineCB1() {
             <p style={hero.lede}>
               Versatile high-speed swab former designed to integrate with the PRX paper stick
               machine upstream and any of six FALU packing machines downstream. Engineered for
-              continuous operation at production speeds approaching the mechanical limit.
+              decades of operation.
             </p>
 
             <div style={{ display: "flex", gap: 12, marginTop: 48 }}>
