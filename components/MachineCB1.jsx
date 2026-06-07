@@ -244,7 +244,6 @@ window.MachineCB1 = function MachineCB1() {
               <strong style={{ color: "var(--navy)", fontWeight: 600 }}>Everything below is available for the CB1.</strong>{" "}
               Every option and retrofit listed here can be specified when configuring a new CB1,
               fitted to an existing CB1 as a field retrofit, and is fully compatible with the machine.
-              Mix and match freely, then talk to us about the combination that fits your line.
             </p>
           </div>
 
