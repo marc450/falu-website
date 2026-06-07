@@ -123,8 +123,8 @@ as individual machines into existing lines.
             <div style={lineRow.col}>
               <div className="mono" style={lineRow.colHeader}>02 · SWAB PRODUCTION</div>
               <a href="#cb1" style={lineRow.link}>
-                <div style={{ ...lineRow.machine, ...lineRow.featured }}>
-                  <div className="mono" style={{ ...lineRow.code, color: "var(--falu-red)" }}>CB1 4.1 <span style={lineRow.linkArrow}>↗</span></div>
+                <div style={lineRow.machine}>
+                  <div className="mono" style={lineRow.code}>CB1 4.1 <span style={lineRow.linkArrow}>↗</span></div>
                   <div style={lineRow.label}>Cotton swab production</div>
                   <p style={lineRow.note}>Forms swabs from cotton string and applicator sticks at up to 3'100/min.</p>
                 </div>
@@ -197,7 +197,6 @@ const lineRow = {
   arrow: { display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.3)", fontSize: 24 },
   link: { display: "block", textDecoration: "none", color: "inherit" },
   machine: { padding: "20px 0" },
-  featured: { borderTop: "3px solid var(--falu-red)", paddingTop: 16 },
   code: { fontSize: 22, color: "#fff", fontWeight: 600, letterSpacing: "-0.01em", display: "flex", alignItems: "baseline", gap: 6 },
   label: { color: "#fff", marginTop: 4, fontSize: 14, fontWeight: 500 },
   note: { marginTop: 12, color: "#9ab3cc", fontSize: 13, lineHeight: 1.55 },
