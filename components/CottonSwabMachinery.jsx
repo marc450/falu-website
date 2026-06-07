@@ -48,9 +48,10 @@ as individual machines into existing lines.
               Three connected steps.<br />Run together, or independently.
             </h2>
             <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--ink-soft)" }}>
-              Cotton swab production consists of several interconnected processes. Depending on
-              your starting point, these processes can be planned together as a complete line or
-              addressed individually as separate machines feeding existing equipment.
+              Cotton swab production consists of several processes that can run together or on
+              their own. The cotton swab machine is the core: it forms swabs from paper or plastic
+              sticks, whether you make the sticks in-house or buy them in. Add stick production and
+              packing around it, or drop a single machine into an existing line.
             </p>
           </div>
 
@@ -59,7 +60,7 @@ as individual machines into existing lines.
             <ProcessBlock
               num="01"
               title="Paper stick production"
-              body="Paper sticks are produced as a separate upstream process and can be supplied directly to the cotton swab production machines. Alternatively, pre-produced paper sticks or other stick materials can be supplied to the next process step."
+              body="This step is optional. The PRX lets you produce paper sticks in-house and feed them straight into the cotton swab machine, instead of buying sticks from a supplier. If you already source your sticks, whether paper or plastic, you can skip it entirely."
               image="PRX paper stick winder, full unit"
               links={[
               ["See our paper stick production machine", "#prx"]]
@@ -69,7 +70,7 @@ as individual machines into existing lines.
             <ProcessBlock
               num="02"
               title="Cotton swab production"
-              body="In this step, cotton is applied to the sticks to form the finished cotton swab. Cotton swab production machines are designed to integrate seamlessly with all FALU packing machines, enabling a continuous and efficient production flow."
+              body="Cotton is applied to the sticks to form the finished swab. The cotton swab machine runs with both paper and plastic sticks, from a FALU paper stick machine or from any other supplier, so it works on its own in an existing line. It also integrates seamlessly with all FALU packing machines for a continuous, efficient flow."
               image="CB1 4.1 cotton swab production machine"
               links={[
               ["See our cotton swab production machine", "#cb1"]]
