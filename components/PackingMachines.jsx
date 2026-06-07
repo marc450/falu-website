@@ -162,9 +162,6 @@ window.PackingMachines = function PackingMachines() {
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "flex-end" }}>
             <a href="#contact" className="btn btn--primary btn--lg">Get in touch with our specialists<span className="arrow" /></a>
-            <a href="#cotton-swab-machinery" className="mono" style={{ color: "var(--ink-muted)", fontSize: 12, letterSpacing: "0.06em" }}>
-              Back to cotton swab machinery
-            </a>
           </div>
         </div>
       </section>
