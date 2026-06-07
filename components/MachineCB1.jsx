@@ -272,7 +272,7 @@ window.MachineCB1 = function MachineCB1() {
               mediaLabel="Camera inspection module + HMI image review" />
 
             <RetroCard
-              title="Belt Drive Upgrade"
+              title="Belt Drive System"
               lede="Replaces the lubricated primary chain with a dry-running belt. Eliminates oil and grease entirely from the machine enclosure."
               bullets={[
               "No product contamination from oil or grease",
@@ -482,7 +482,7 @@ const featuredRetro = {
   card: { border: "1px solid var(--rule)", background: "#fff", display: "flex", flexDirection: "column" },
   media: { borderBottom: "1px solid var(--rule)" },
   title: { fontSize: 22, marginTop: 28, color: "var(--navy)", letterSpacing: "-0.01em", padding: "0 32px" },
-  lede: { marginTop: 12, fontSize: 14, color: "var(--ink-soft)", lineHeight: 1.6, padding: "0 32px" },
+  lede: { marginTop: 12, marginBottom: 36, fontSize: 14, color: "var(--ink-soft)", lineHeight: 1.6, padding: "0 32px" },
   bullets: { marginTop: "auto", marginBottom: 0, padding: "18px 32px 28px", listStyle: "none", display: "flex", flexDirection: "column", gap: 10, borderTop: "1px solid var(--rule-soft)" },
   bullet: { fontSize: 13, color: "var(--ink)", lineHeight: 1.55, paddingLeft: 18, position: "relative" }
 };
