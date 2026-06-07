@@ -202,7 +202,7 @@ window.MachineCB1 = function MachineCB1() {
           <div style={techTable.wrap}>
             {[
             ["SPEED", "Mechanical speed", "> 3'100 swabs/min"],
-            ["", "Production speed", "~ 2'800 swabs/min (depending on packaging)"],
+            ["", "Recommended production speed", "~ 2'800 swabs/min (depending on packaging)"],
             ["APPLICATORS", "Materials", "Paper, wood or plastic sticks"],
             ["", "Length", "72.5 ± 0.5 mm"],
             ["", "Diameter", "2.5 ± 0.1 mm"],
