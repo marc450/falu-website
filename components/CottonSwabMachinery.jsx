@@ -60,7 +60,7 @@ as individual machines into existing lines.
             <ProcessBlock
               num="01"
               title="Paper stick production"
-              body="The PRX produces paper sticks in-house and feeds them straight into the cotton swab machine, cutting out supplier dependencies. Already sourcing your own sticks, paper or plastic? Skip this step."
+              body="The PRX produces paper sticks in-house and feeds them directly into the cotton swab machine, significantly simplifying production logistics and cutting out supplier dependencies. Already sourcing your own sticks, paper or plastic? Skip this step."
               image="PRX paper stick winder, full unit"
               links={[
               ["See our paper stick production machine", "#prx"]]
