@@ -53,7 +53,7 @@ as individual machines into existing lines.
               num="01"
               title="Paper stick production"
               body="The PRX produces paper sticks in-house and feeds them directly into the cotton swab machine, significantly simplifying production logistics and cutting out supplier dependencies."
-              note="The cotton swab machine also accepts paper or plastic sticks from external suppliers, so a dedicated stick production machine is only needed if you want to bring stick production in-house and increase production efficiency."
+              note="The cotton swab machine also accepts paper or plastic sticks from external suppliers, so the PRX is only needed if you want to bring stick production in-house and increase production efficiency."
               image="PRX paper stick winder, full unit"
               links={[
               ["See our paper stick production machine", "#prx"]]
