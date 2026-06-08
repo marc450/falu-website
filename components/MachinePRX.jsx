@@ -124,7 +124,7 @@ window.MachinePRX = function MachinePRX() {
             ["Biodegradable & compostable", "Produces biodegradable, compostable paper sticks for cotton swabs, cosmetic and safety (baby) swabs, and lollipops."],
             ["Standalone or integrated", "Operates as a stand-alone stick line, or connects directly to FALU CT and CB series swab machines for fully automated stick supply."],
             ["Eliminates manual loading", "Produces, buffers and feeds sticks directly to the swab machine, removing manual carton loading and the operator errors that come with it."],
-            ["Integrated buffer", "A buffer of 75'000 sticks harmonises stick and swab line speeds, around 30 minutes of swab production at 2'800/min."],
+            ["Integrated buffer", "A buffer of 75'000 sticks harmonises stick and swab line speeds, around 30 minutes of swab production at 2'800 swabs/min."],
             ["Forming, drying, buffering, packing", "Conditioned paper is shaped, dried to remove excess humidity, buffered, then packed or fed onward, all in one machine."]].
             map(([title, body]) =>
             <div key={title} style={prxFeatures.cell}>
