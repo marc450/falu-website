@@ -29,9 +29,9 @@ window.About = function About() {
               Sixty years of<br />Swiss machine manufacturing.
             </h1>
             <p style={{ fontSize: 18, lineHeight: 1.6, color: "var(--ink-soft)" }}>
-              FALU has built machinery for cotton swabs, cotton pads and paper sticks since 1965,
-              from a single site in Rüti, Switzerland. We do one thing, and we have done it for
-              three generations.
+              FALU has built machinery for cotton swabs, cotton pads and paper sticks in
+              Switzerland since 1965, today from a single site in Rüti. We do one thing, and we
+              have done it for three generations.
             </p>
           </div>
         </div>

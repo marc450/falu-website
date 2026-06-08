@@ -110,7 +110,7 @@ window.FaluFooter = function FaluFooter() {
           </div>
           <p>
             Swiss-engineered production and packaging machinery for cotton swabs, cotton pads,
-            and paper sticks. Built in Rüti since 1965.
+            and paper sticks. Built in Switzerland since 1965.
           </p>
           <p style={{ marginTop: 4, fontSize: 12, color: "#8fa1b3" }}>
             Joweidzentrum 5, 8630 Rüti, Switzerland<br/>
