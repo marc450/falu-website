@@ -99,7 +99,7 @@ as individual machines into existing lines.
               The three steps as one inline FALU line.
             </h2>
             <p style={{ color: "#cfdcec", fontSize: 16, lineHeight: 1.65 }}>
-              Stick winding, swab forming and packing, all engineered and serviced by FALU.
+              Stick production, swab forming and packing, all engineered and serviced by FALU.
               Click any model below to see its product page.
             </p>
           </div>
@@ -152,7 +152,7 @@ as individual machines into existing lines.
           </div>
           {/* WHY A COMPLETE FALU LINE — benefits */}
           <div style={lineBenefits.wrap}>
-            <div className="mono" style={lineBenefits.label}>WHY A COMPLETE FALU LINE</div>
+            <h2 className="mono" style={lineBenefits.label}>WHY A COMPLETE FALU LINE</h2>
             <p style={lineBenefits.lede}>
               When the PRX feeds sticks directly into the CB1, the cardboard box and the operator who handles it disappear from the process. The result is a measurably better business case, less standstill, lower material cost, less waste.
             </p>
@@ -182,7 +182,7 @@ as individual machines into existing lines.
 
 const lineBenefits = {
   wrap: { marginTop: 64, paddingTop: 48, borderTop: "1px solid rgba(255,255,255,0.15)" },
-  label: { fontSize: 11, color: "var(--falu-red)", letterSpacing: "0.22em", marginBottom: 16 },
+  label: { fontSize: 11, fontWeight: 400, color: "var(--falu-red)", letterSpacing: "0.22em", marginTop: 0, marginBottom: 16 },
   lede: { color: "#cfdcec", fontSize: 16, lineHeight: 1.65, maxWidth: 820, marginBottom: 32 },
   grid: { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 },
   benefit: { paddingTop: 20, borderTop: "2px solid var(--falu-red)" },

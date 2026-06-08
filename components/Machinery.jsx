@@ -69,7 +69,7 @@ window.Machinery = function Machinery() {
             <FamilyCard
               num="03"
               title="Paper stick production"
-              image="Paper stick winding machine, PRX"
+              image="Paper stick production machine, PRX"
               bullets={[
               "Fully automatic systems",
               "Integration into swab production lines",

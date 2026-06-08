@@ -65,10 +65,6 @@ window.HomepageB = function HomepageB() {
             <h2 style={{ fontSize: 52, lineHeight: 1.0, letterSpacing: "-0.03em" }}>
               Production machinery, from single machines to fully integrated lines.
             </h2>
-            <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
-              Three families of machines, each engineered as a complete production line. Choose
-              the family that matches your product and we'll specify the line around it.
-            </p>
           </div>
 
           <div style={famB.list}>
@@ -76,7 +72,7 @@ window.HomepageB = function HomepageB() {
             {
               num: "01",
               title: "Cotton Swab Production",
-              desc: "Machinery and integrated production systems for automated cotton swab manufacturing. Flexible packaging formats, scalable automation, compatible with paper, wood and polypropylene sticks.",
+              desc: "Machinery and integrated production systems for automated and semi-automated cotton swab manufacturing. Flexible packaging formats, scalable automation, compatible with paper, wood and plastic sticks.",
               machines: "CB1 · SV2 · BV/ABS · RB-30A · SQB-2A · BL-12",
               cta: "Cotton Swab Machinery",
               href: "#cotton-swab-machinery",
@@ -85,7 +81,7 @@ window.HomepageB = function HomepageB() {
             {
               num: "02",
               title: "Cotton Pad Production",
-              desc: "Machinery for round and square cosmetic pads. Two production capacities for entry and high-volume operations, plus a dedicated automated packing line.",
+              desc: "Machinery for automatic and semi-automatic round and square cosmetic pads. Two production capacities for lower- and high-volume operations, plus a dedicated automated packing line.",
               machines: "WR-600 V · WR-2100 · VP",
               cta: "Cotton Pad Machinery",
               href: "#cotton-pad-machinery",
@@ -130,7 +126,7 @@ window.HomepageB = function HomepageB() {
                 scalability. Before a single machine is specified, our engineers help structure
                 the plant around your output target, footprint and capacity roadmap.
               </p>
-              <a href="#machinery" className="btn btn--primary" style={{ marginTop: 32 }}>Production Planning & Layout<span className="arrow" /></a>
+              <a href="#machinery" className="btn btn--primary" style={{ marginTop: 32 }}>Discuss your setup<span className="arrow" /></a>
             </div>
             <div style={planning.right}>
               {[

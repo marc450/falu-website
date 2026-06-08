@@ -111,7 +111,7 @@ window.About = function About() {
         <div className="container">
           <SectionLabel num="03" tone="dark">What guides us</SectionLabel>
           <h2 style={{ fontSize: 44, color: "#fff", letterSpacing: "-0.025em", lineHeight: 1.1, maxWidth: 820, marginTop: 32, marginBottom: 56 }}>
-            Build machines that outlast the people who specified them.
+            Manufacturing machines that outlast the people who specified them.
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 }}>
             {[
