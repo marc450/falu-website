@@ -129,8 +129,8 @@ window.FaluFooter = function FaluFooter() {
         <div>
           <h4>Company</h4>
           <ul>
-            <li><a href="#about">About Falu</a></li>
-            <li><a href="#about">Why Falu</a></li>
+            <li><a href="#about">About FALU</a></li>
+            <li><a href="#about">Why FALU</a></li>
             <li><a href="#about">Proven in production worldwide</a></li>
             <li><a href="#careers">Careers</a></li>
           </ul>

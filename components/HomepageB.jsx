@@ -149,12 +149,12 @@ window.HomepageB = function HomepageB() {
       {/* 5. WHY FALU */}
       <section style={{ padding: "120px 0", borderTop: "1px solid var(--rule)" }}>
         <div className="container">
-          <SectionLabel num="02">Why Falu</SectionLabel>
+          <SectionLabel num="02">Why FALU</SectionLabel>
           <h2 style={{ fontSize: 56, maxWidth: 1000, lineHeight: 1.02, letterSpacing: "-0.03em" }}>
             Market leader in product quality, efficiency, and total cost of ownership.
           </h2>
           <p style={{ marginTop: 28, fontSize: 17, color: "var(--ink-soft)", maxWidth: 720, lineHeight: 1.65 }}>
-            Since 1965, Falu machines have been designed and assembled in Switzerland and operate
+            Since 1965, FALU machines have been designed and assembled in Switzerland and operate
             in more than 70 countries, valued for longevity, reliability and serviceability.
           </p>
 
@@ -162,7 +162,7 @@ window.HomepageB = function HomepageB() {
             {[
             {
               head: "Designed for long-term value",
-              body: "Falu supports manufacturers with a long-term focus on total cost of ownership and operational stability. Machines are designed for extended service lives, many installations have been operating reliably for over 40 years."
+              body: "FALU supports manufacturers with a long-term focus on total cost of ownership and operational stability. Machines are designed for extended service lives, many installations have been operating reliably for over 40 years."
             },
             {
               head: "Engineering excellence",
@@ -170,11 +170,11 @@ window.HomepageB = function HomepageB() {
             },
             {
               head: "Spare parts guarantee",
-              body: "Falu ensures spare parts availability across the entire machine lifecycle, independent of installation date. Long-term production security for existing and future systems, a guarantee, not a warranty window."
+              body: "FALU ensures spare parts availability across the entire machine lifecycle, independent of installation date. Long-term production security for existing and future systems, a guarantee, not a warranty window."
             },
             {
               head: "Global support",
-              body: "Falu supports customers worldwide through commissioning, training and operation. On-site and remote assistance keeps production stable wherever machines are installed."
+              body: "FALU supports customers worldwide through commissioning, training and operation. On-site and remote assistance keeps production stable wherever machines are installed."
             }].
             map((v, i) =>
             <div key={i} style={whyB.cell}>
@@ -193,10 +193,10 @@ window.HomepageB = function HomepageB() {
           <SectionLabel num="03">Proven worldwide</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "end", marginBottom: 64 }}>
             <h2 style={{ fontSize: 52, lineHeight: 1.05, letterSpacing: "-0.03em" }}>
-              Falu machines run in more than 70 countries.
+              FALU machines run in more than 70 countries.
             </h2>
             <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
-              From single CB1 installations to fully integrated multi-line plants, Falu equipment
+              From single CB1 installations to fully integrated multi-line plants, FALU equipment
               is in operation across the health, beauty and food industries on six continents.
             </p>
           </div>
@@ -213,7 +213,7 @@ window.HomepageB = function HomepageB() {
             <h2 style={{ fontSize: 56, lineHeight: 1.0, letterSpacing: "-0.03em" }}>
               One partner from concept to operation.
             </h2>
-            <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>Falu delivers support across planning, commissioning and long-term production, by the same engineers who built your machine.
+            <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>FALU delivers support across planning, commissioning and long-term production, by the same engineers who built your machine.
 
 
             </p>
@@ -342,7 +342,7 @@ function WorldMap() {
       </svg>
       <div style={{ marginTop: 16, paddingTop: 16, borderTop: "1px solid #0c3056", display: "flex", gap: 24, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.06em", color: "#9ab3cc", textTransform: "uppercase", flexWrap: "wrap" }}>
         <span><span style={{ display: "inline-block", width: 10, height: 10, background: "var(--falu-red)", marginRight: 8, verticalAlign: "middle" }} />HQ, Rüti CH</span>
-        <span><span style={{ display: "inline-block", width: 10, height: 10, background: "#d1d5db", marginRight: 8, verticalAlign: "middle" }} />Country with Falu installations</span>
+        <span><span style={{ display: "inline-block", width: 10, height: 10, background: "#d1d5db", marginRight: 8, verticalAlign: "middle" }} />Country with FALU installations</span>
         <span style={{ marginLeft: "auto" }}>70+ countries served since 1965</span>
       </div>
     </div>);
