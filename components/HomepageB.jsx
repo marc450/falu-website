@@ -73,7 +73,7 @@ window.HomepageB = function HomepageB() {
               num: "01",
               title: "Cotton Swab Production",
               desc: "Machinery and integrated production systems for automated and semi-automated cotton swab manufacturing. Flexible packaging formats, scalable automation, compatible with paper, wood and plastic sticks.",
-              machines: "CB1 · SV2 · BV/ABS · RB-30A · SQB-2A · BL-12",
+              machines: "CB1 · SV2 · BV/ABS · RB-30A · SQB-2A · BL-12 · Round table",
               cta: "Cotton Swab Machinery",
               href: "#cotton-swab-machinery",
               imgLabel: "Cotton swab production line"
