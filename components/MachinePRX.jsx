@@ -126,10 +126,9 @@ window.MachinePRX = function MachinePRX() {
             ["Eliminates manual loading", "Produces, buffers and feeds sticks directly to the swab machine, removing manual carton loading and the operator errors that come with it."],
             ["Integrated buffer", "A buffer of 75'000 sticks harmonises stick and swab line speeds, around 30 minutes of swab production at 2'800/min."],
             ["Forming, drying, buffering, packing", "Conditioned paper is shaped, dried to remove excess humidity, buffered, then packed or fed onward, all in one machine."]].
-            map(([title, body], i) =>
+            map(([title, body]) =>
             <div key={title} style={prxFeatures.cell}>
-              <div className="mono" style={prxFeatures.num}>F · {String(i + 1).padStart(2, "0")}</div>
-              <h4 style={{ marginTop: 12, fontSize: 16 }}>{title}</h4>
+              <h4 style={{ fontSize: 16 }}>{title}</h4>
               <p style={{ marginTop: 10, color: "var(--ink-soft)", fontSize: 14, lineHeight: 1.6 }}>{body}</p>
             </div>
             )}
@@ -271,8 +270,7 @@ const prxSubnav = {
 
 const prxFeatures = {
   grid: { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 0, borderTop: "1px solid var(--rule)", borderLeft: "1px solid var(--rule)" },
-  cell: { padding: "28px 24px", borderRight: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)" },
-  num: { fontSize: 10, color: "var(--falu-red)", letterSpacing: "0.18em", fontWeight: 500 }
+  cell: { padding: "28px 24px", borderRight: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)" }
 };
 
 const prxTable = {
