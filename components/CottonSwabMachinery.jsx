@@ -67,8 +67,7 @@ as individual machines into existing lines.
               image="CB1 4.1 cotton swab production machine"
               links={[
               ["See our cotton swab production machine", "#cb1"]]
-              }
-              flipped />
+              } />
 
             <ProcessConnector />
             <ProcessBlock
