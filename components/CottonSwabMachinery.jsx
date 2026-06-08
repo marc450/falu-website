@@ -63,7 +63,7 @@ as individual machines into existing lines.
             <ProcessBlock
               num="02"
               title="Cotton swab production"
-              body="Cotton is applied to the sticks to form the finished swab. The cotton swab machine runs with both paper and plastic sticks, from a FALU paper stick machine or from any other supplier, so it works on its own in an existing line. It also integrates seamlessly with all FALU packing machines for a continuous, efficient flow."
+              body="Cotton is applied to the sticks to form the finished swab. The cotton swab machine operates fully standalone — it does not require the PRX and runs with both paper and plastic sticks from any supplier, so it slots straight into an existing line. It also integrates seamlessly with all FALU packing machines for a continuous, efficient flow."
               image="CB1 4.1 cotton swab production machine"
               links={[
               ["See our cotton swab production machine", "#cb1"]]
