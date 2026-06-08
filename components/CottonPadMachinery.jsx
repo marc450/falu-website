@@ -69,8 +69,7 @@ window.CottonPadMachinery = function CottonPadMachinery() {
               image="RB-2 cotton pad polybag packing machine"
               links={[
               ["RB-2", "Polybag & paper bag", "#rb2"]]
-              }
-              flipped />
+              } />
           </div>
 
           <div style={{ marginTop: 64, paddingTop: 40, borderTop: "1px solid var(--rule)", textAlign: "center" }}>
