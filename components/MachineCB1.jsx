@@ -203,9 +203,9 @@ window.MachineCB1 = function MachineCB1() {
           <div style={swabFormats.grid}>
             {[
             ["Standard cotton swabs", "Round cotton head on both ends. The universal everyday swab format."],
-            ["Baby / safety swabs", "Enlarged 10 mm cotton head for baby care. Cotton sliver 4.0 g/m. Capacity up to 1'000 swabs/min."],
+            ["Baby / safety swabs", "Enlarged cotton head up to 10 mm in diameter for baby care. Cotton sliver 4.0 g/m. Capacity up to 1'000 swabs/min."],
             ["Cosmetic swabs", "One pointed tip + one flat tip per swab for precision cosmetics. Sliver 3.0 g/m flat / 1.2 g/m pointed. Capacity up to 1'000 swabs/min."],
-            ["Medical swabs", "Swab formats for medical and diagnostic applications."]].
+            ["Medical swabs", "Swab formats for medical and diagnostic applications. Heads up to 10 mm in diameter and up to 150 mm in length."]].
             map(([title, body]) =>
             <div key={title} style={swabFormats.card}>
               <ImageSlot label={title} ratio="3 / 4" />
