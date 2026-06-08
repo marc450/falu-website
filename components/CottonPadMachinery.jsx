@@ -43,15 +43,10 @@ window.CottonPadMachinery = function CottonPadMachinery() {
       <section style={{ padding: "0 0 96px", background: "var(--bg-band)", borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)" }}>
         <div className="container" style={{ paddingTop: 80 }}>
           <SectionLabel num="01">Production process</SectionLabel>
-          <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 80, alignItems: "end", marginTop: 32, marginBottom: 64 }}>
+          <div style={{ marginTop: 32, marginBottom: 64 }}>
             <h2 style={{ fontSize: 48, lineHeight: 1.05, letterSpacing: "-0.025em", color: "var(--navy)" }}>
               Two connected steps.<br />Run together, or independently.
             </h2>
-            <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--ink-soft)" }}>
-              Cotton pad production runs as two interconnected processes. Depending on your starting
-              point, they can be planned together as a complete line or addressed individually as
-              separate machines feeding existing equipment.
-            </p>
           </div>
 
           <div style={{ position: "relative" }}>
