@@ -13,9 +13,9 @@ window.MachineCB1 = function MachineCB1() {
 
   const TABS = [
     ["features", "Features"],
+    ["formats", "Swab formats"],
     ["tech", "Technical data"],
     ["options", "Options & retrofits"],
-    ["formats", "Swab formats"],
     ["line", "Line integration"]
   ];
 
@@ -30,7 +30,7 @@ window.MachineCB1 = function MachineCB1() {
 
   // Track which section is in view to highlight the right tab.
   useEffect(() => {
-    const ids = ["overview", "features", "tech", "options", "formats", "line"];
+    const ids = ["overview", "features", "formats", "tech", "options", "line"];
     const els = ids.map((id) => document.getElementById(`section-${id}`)).filter(Boolean);
     if (!els.length) return;
 
@@ -188,10 +188,39 @@ window.MachineCB1 = function MachineCB1() {
         </div>
       </section>
 
-      {/* TECHNICAL DATA */}
-      <section id="section-tech" style={{ padding: "96px 0", background: "var(--bg-band)", borderTop: "1px solid var(--rule)" }}>
+      {/* SWAB FORMATS */}
+      <section id="section-formats" style={{ padding: "96px 0", borderTop: "1px solid var(--rule)", background: "var(--bg-band)" }}>
         <div className="container">
-          <SectionLabel num="02">Technical data</SectionLabel>
+          <SectionLabel num="02">Swab formats</SectionLabel>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "start", marginBottom: 56 }}>
+            <h2>One machine,<br />every swab format.</h2>
+            <p style={{ color: "var(--ink-soft)", fontSize: 16, lineHeight: 1.65 }}>
+              All swabs can be dimensioned according to customer requirements. Each swab type comes
+              with its own tooling kit, one of which is included in every CB1 order.
+            </p>
+          </div>
+
+          <div style={swabFormats.grid}>
+            {[
+            ["Standard cotton swabs", "Round cotton head on both ends. The universal everyday swab format."],
+            ["Baby / safety swabs", "Enlarged 10 mm cotton head for baby care. Cotton sliver 4.0 g/m. Capacity up to 1'000 swabs/min."],
+            ["Cosmetic swabs", "One pointed tip + one flat tip per swab for precision cosmetics. Sliver 3.0 g/m flat / 1.2 g/m pointed. Capacity up to 1'000 swabs/min."],
+            ["Medical swabs", "Swab formats for medical and diagnostic applications."]].
+            map(([title, body]) =>
+            <div key={title} style={swabFormats.card}>
+              <ImageSlot label={title} ratio="3 / 4" />
+              <h4 style={{ marginTop: 16, fontSize: 16, color: "var(--navy)" }}>{title}</h4>
+              <p style={{ marginTop: 8, color: "var(--ink-soft)", fontSize: 13, lineHeight: 1.55 }}>{body}</p>
+            </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* TECHNICAL DATA */}
+      <section id="section-tech" style={{ padding: "96px 0", borderTop: "1px solid var(--rule)" }}>
+        <div className="container">
+          <SectionLabel num="03">Technical data</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "end", marginBottom: 48 }}>
             <h2>Specifications.</h2>
             <p style={{ color: "var(--ink-soft)", fontSize: 16, lineHeight: 1.65 }}>
@@ -235,9 +264,9 @@ window.MachineCB1 = function MachineCB1() {
       </section>
 
       {/* OPTIONS & RETROFITS */}
-      <section id="section-options" style={{ padding: "96px 0", borderTop: "1px solid var(--rule)" }}>
+      <section id="section-options" style={{ padding: "96px 0", background: "var(--bg-band)", borderTop: "1px solid var(--rule)" }}>
         <div className="container">
-          <SectionLabel num="03">Options & available retrofits</SectionLabel>
+          <SectionLabel num="04">Options & available retrofits</SectionLabel>
           {/* AVAILABILITY STATEMENT — applies to every option and retrofit below */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "start", marginBottom: 56 }}>
             <h2>Configure for your<br />product, market and line.</h2>
@@ -327,35 +356,6 @@ window.MachineCB1 = function MachineCB1() {
               <h3 style={{ marginTop: 8, color: "#fff", fontSize: 24, maxWidth: 720 }}>Already running a CB1? Any of the retrofits above can be installed on your existing line to lift output, quality and uptime. Reach out for a tailored quotation or a more detailed technical discussion.</h3>
             </div>
             <a href="#contact" className="btn btn--primary">Reach out to our specialist team<span className="arrow" /></a>
-          </div>
-        </div>
-      </section>
-
-      {/* SWAB FORMATS */}
-      <section id="section-formats" style={{ padding: "96px 0", borderTop: "1px solid var(--rule)", background: "var(--bg-band)" }}>
-        <div className="container">
-          <SectionLabel num="04">Swab formats</SectionLabel>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "start", marginBottom: 56 }}>
-            <h2>One machine,<br />every swab format.</h2>
-            <p style={{ color: "var(--ink-soft)", fontSize: 16, lineHeight: 1.65 }}>
-              All swabs can be dimensioned according to customer requirements. Each swab type comes
-              with its own tooling kit, one of which is included in every CB1 order.
-            </p>
-          </div>
-
-          <div style={swabFormats.grid}>
-            {[
-            ["Standard cotton swabs", "Round cotton head on both ends. The universal everyday swab format."],
-            ["Baby / safety swabs", "Enlarged 10 mm cotton head for baby care. Cotton sliver 4.0 g/m. Capacity up to 1'000 swabs/min."],
-            ["Cosmetic swabs", "One pointed tip + one flat tip per swab for precision cosmetics. Sliver 3.0 g/m flat / 1.2 g/m pointed. Capacity up to 1'000 swabs/min."],
-            ["Medical swabs", "Swab formats for medical and diagnostic applications."]].
-            map(([title, body]) =>
-            <div key={title} style={swabFormats.card}>
-              <ImageSlot label={title} ratio="3 / 4" />
-              <h4 style={{ marginTop: 16, fontSize: 16, color: "var(--navy)" }}>{title}</h4>
-              <p style={{ marginTop: 8, color: "var(--ink-soft)", fontSize: 13, lineHeight: 1.55 }}>{body}</p>
-            </div>
-            )}
           </div>
         </div>
       </section>
