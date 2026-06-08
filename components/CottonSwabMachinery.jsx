@@ -63,7 +63,7 @@ as individual machines into existing lines.
             <ProcessBlock
               num="02"
               title="Cotton swab production"
-              body="Cotton is applied to the sticks to form the finished swab. The cotton swab machine operates fully standalone — it does not require the PRX and runs with both paper and plastic sticks from any supplier, so it slots straight into an existing line. It also integrates seamlessly with all FALU packing machines for a continuous, efficient flow."
+              body="Cotton is applied to the sticks to form the finished swab. The cotton swab machine can operate standalone without a paper stick production machine. It runs with both paper and plastic sticks from any supplier. It integrates seamlessly with all FALU packing and paper stick production machinery for a continuous, efficient flow."
               image="CB1 4.1 cotton swab production machine"
               links={[
               ["See our cotton swab production machine", "#cb1"]]
@@ -152,7 +152,7 @@ as individual machines into existing lines.
           </div>
           {/* WHY A COMPLETE FALU LINE — benefits */}
           <div style={lineBenefits.wrap}>
-            <h2 className="mono" style={lineBenefits.label}>WHY A COMPLETE FALU LINE</h2>
+            <h2 style={lineBenefits.label}>Why a complete FALU line.</h2>
             <p style={lineBenefits.lede}>
               When the PRX feeds sticks directly into the CB1, the cardboard box and the operator who handles it disappear from the process. The result is a measurably better business case, less standstill, lower material cost, less waste.
             </p>
@@ -182,7 +182,7 @@ as individual machines into existing lines.
 
 const lineBenefits = {
   wrap: { marginTop: 64, paddingTop: 48, borderTop: "1px solid rgba(255,255,255,0.15)" },
-  label: { fontSize: 11, fontWeight: 400, color: "var(--falu-red)", letterSpacing: "0.22em", marginTop: 0, marginBottom: 16 },
+  label: { fontSize: 44, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#fff", maxWidth: 760, marginTop: 0, marginBottom: 24 },
   lede: { color: "#cfdcec", fontSize: 16, lineHeight: 1.65, maxWidth: 820, marginBottom: 32 },
   grid: { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 },
   benefit: { paddingTop: 20, borderTop: "2px solid var(--falu-red)" },

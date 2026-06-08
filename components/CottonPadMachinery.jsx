@@ -134,7 +134,7 @@ window.CottonPadMachinery = function CottonPadMachinery() {
           </div>
 
           <div style={padBenefits.wrap}>
-            <h2 className="mono" style={padBenefits.label}>WHY A COMPLETE FALU LINE</h2>
+            <h2 style={padBenefits.label}>Why a complete FALU line.</h2>
             <div style={padBenefits.grid}>
               {[
                 ["Continuous inline flow", "Pads pass straight from the WR-2100 S into the RB-2 packer via metal cassettes, with no manual transfer between production and packing."],
@@ -173,7 +173,7 @@ const padLine = {
 
 const padBenefits = {
   wrap: { marginTop: 64, paddingTop: 48, borderTop: "1px solid rgba(255,255,255,0.15)" },
-  label: { fontSize: 11, fontWeight: 400, color: "var(--falu-red)", letterSpacing: "0.22em", marginTop: 0, marginBottom: 32 },
+  label: { fontSize: 44, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#fff", maxWidth: 760, marginTop: 0, marginBottom: 32 },
   grid: { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 },
   benefit: { paddingTop: 20, borderTop: "2px solid var(--falu-red)" },
   benefitTitle: { color: "#fff", fontSize: 16, fontWeight: 600, lineHeight: 1.3, marginBottom: 12 },

@@ -396,7 +396,7 @@ window.MachineCB1 = function MachineCB1() {
 
           {/* COMPLETE INLINE PRODUCTION — benefits */}
           <div style={lineInt.benefits}>
-            <h2 className="mono" style={lineInt.benefitsLabel}>WHY A COMPLETE INLINE FALU LINE</h2>
+            <h2 style={lineInt.benefitsLabel}>Why a complete inline FALU line.</h2>
             <p style={lineInt.benefitsLede}>
               When the PRX feeds sticks directly into the CB1, the cardboard box and the operator who handles it disappear from the process. The result is a measurably better business case &mdash; less standstill, lower material cost, less waste.
             </p>
@@ -599,7 +599,7 @@ const lineInt = {
   linkArrow: { fontSize: 12, color: "#9ab3cc", fontWeight: 400 },
   youAreHere: { marginTop: 16, fontSize: 9, color: "var(--falu-red)", letterSpacing: "0.18em" },
   benefits: { marginTop: 64, paddingTop: 48, borderTop: "1px solid rgba(255,255,255,0.15)" },
-  benefitsLabel: { fontSize: 11, fontWeight: 400, color: "var(--falu-red)", letterSpacing: "0.22em", marginTop: 0, marginBottom: 16 },
+  benefitsLabel: { fontSize: 44, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#fff", maxWidth: 760, marginTop: 0, marginBottom: 24 },
   benefitsLede: { color: "#cfdcec", fontSize: 16, lineHeight: 1.65, maxWidth: 820, marginBottom: 32 },
   benefitsGrid: { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 },
   benefit: { paddingTop: 20, borderTop: "2px solid var(--falu-red)" },
