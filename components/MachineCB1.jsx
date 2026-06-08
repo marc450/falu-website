@@ -15,6 +15,7 @@ window.MachineCB1 = function MachineCB1() {
     ["features", "Features"],
     ["tech", "Technical data"],
     ["options", "Options & retrofits"],
+    ["formats", "Swab formats"],
     ["line", "Line integration"]
   ];
 
@@ -29,7 +30,7 @@ window.MachineCB1 = function MachineCB1() {
 
   // Track which section is in view to highlight the right tab.
   useEffect(() => {
-    const ids = ["overview", "features", "tech", "options", "line"];
+    const ids = ["overview", "features", "tech", "options", "formats", "line"];
     const els = ids.map((id) => document.getElementById(`section-${id}`)).filter(Boolean);
     if (!els.length) return;
 
@@ -318,13 +319,6 @@ window.MachineCB1 = function MachineCB1() {
               ["Remote access system", "Modem-based remote access for FALU technicians. Fast diagnostics and support, typically eliminates the need for on-site service visits."],
               ["Cotton feeding drive", "Stable cotton feeding process. Helps prevent sliver breakage."]]
               } />
-
-            <OptionGroup
-              title="Swab shaping kits"
-              items={[
-              ["Safety (baby) swabs", "Enlarged 10 mm cotton head for baby care. Cotton sliver 4.0 g/m. Capacity up to 1'000 swabs/min."],
-              ["Cosmetic swabs", "One pointed tip + one flat tip per swab for precision cosmetics. Sliver 3.0 g/m flat / 1.2 g/m pointed. Capacity up to 1'000 swabs/min."]]
-              } />
           </div>
 
           <div style={retrofitBanner.wrap}>
@@ -337,10 +331,39 @@ window.MachineCB1 = function MachineCB1() {
         </div>
       </section>
 
+      {/* SWAB FORMATS */}
+      <section id="section-formats" style={{ padding: "96px 0", borderTop: "1px solid var(--rule)", background: "var(--bg-band)" }}>
+        <div className="container">
+          <SectionLabel num="04">Swab formats</SectionLabel>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "start", marginBottom: 56 }}>
+            <h2>One machine,<br />every swab format.</h2>
+            <p style={{ color: "var(--ink-soft)", fontSize: 16, lineHeight: 1.65 }}>
+              All swabs can be dimensioned according to customer requirements. Each swab type comes
+              with its own tooling kit, one of which is included in every CB1 order.
+            </p>
+          </div>
+
+          <div style={swabFormats.grid}>
+            {[
+            ["Standard cotton swabs", "Round cotton head on both ends. The universal everyday swab format."],
+            ["Baby / safety swabs", "Enlarged 10 mm cotton head for baby care. Cotton sliver 4.0 g/m. Capacity up to 1'000 swabs/min."],
+            ["Cosmetic swabs", "One pointed tip + one flat tip per swab for precision cosmetics. Sliver 3.0 g/m flat / 1.2 g/m pointed. Capacity up to 1'000 swabs/min."],
+            ["Medical swabs", "Swab formats for medical and diagnostic applications."]].
+            map(([title, body]) =>
+            <div key={title} style={swabFormats.card}>
+              <ImageSlot label={title} ratio="3 / 4" />
+              <h4 style={{ marginTop: 16, fontSize: 16, color: "var(--navy)" }}>{title}</h4>
+              <p style={{ marginTop: 8, color: "var(--ink-soft)", fontSize: 13, lineHeight: 1.55 }}>{body}</p>
+            </div>
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* LINE INTEGRATION */}
       <section id="section-line" style={{ padding: "112px 0", background: "var(--navy)", borderTop: "1px solid var(--navy)", color: "#fff" }}>
         <div className="container">
-          <SectionLabel num="04" tone="dark">Line integration</SectionLabel>
+          <SectionLabel num="05" tone="dark">Line integration</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 64, alignItems: "end", marginBottom: 48 }}>
             <h2 style={{ color: "#fff", maxWidth: 720 }}>The CB1 sits at the centre of a complete swab production line.</h2>
             <p style={{ color: "#cfdcec", fontSize: 16, lineHeight: 1.65 }}>
@@ -419,40 +442,6 @@ window.MachineCB1 = function MachineCB1() {
           </div>
         </div>
       </section>
-      <section style={{ padding: "96px 0", borderTop: "1px solid var(--rule)", background: "var(--bg-band)" }}>
-        <div className="container">
-          <SectionLabel num="05">Downloads &amp; documentation</SectionLabel>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: 64, alignItems: "start", marginBottom: 48 }}>
-            <h2>Specifications, options<br />&amp; product information.</h2>
-            <p style={{ color: "var(--ink-soft)", fontSize: 16, lineHeight: 1.65 }}>
-              Public technical documentation for the CB1 4.1. For commercial questions, line
-              integration drawings or detailed engineering files, contact your FALU representative.
-            </p>
-          </div>
-
-          {/* Document grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
-            {[
-              ["Fact Sheet, CB1 4.1", "EN · PDF · 2 pages", "FS"],
-              ["Options &amp; Retrofits List", "EN · PDF · 4 pages", "OP"],
-              ["Brochure, FALU swab line", "EN / DE · PDF · 12 pages", "BR"]
-            ].map(([title, meta, code]) => (
-              <a href="#" key={title} style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 18, alignItems: "center", padding: "22px 24px", background: "#fff", border: "1px solid var(--rule)", textDecoration: "none", color: "inherit" }}>
-                <div className="mono" style={{ width: 44, height: 56, border: "1px solid var(--rule)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, letterSpacing: "0.1em", color: "var(--ink-soft)", background: "var(--bg-band)", position: "relative" }}>
-                  <span style={{ position: "absolute", top: 0, right: 0, width: 10, height: 10, background: "var(--rule)", clipPath: "polygon(0 0, 100% 100%, 100% 0)" }} />
-                  {code}
-                </div>
-                <div>
-                  <div style={{ color: "var(--navy)", fontWeight: 500, fontSize: 15 }} dangerouslySetInnerHTML={{ __html: title }} />
-                  <div className="mono" style={{ fontSize: 11, color: "var(--ink-muted)", letterSpacing: "0.08em", marginTop: 6 }}>{meta}</div>
-                </div>
-                <span className="mono" style={{ color: "var(--falu-red)", fontSize: 11, letterSpacing: "0.14em" }}>↓</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section style={cta.wrap}>
         <div className="container" style={cta.inner}>
@@ -577,6 +566,11 @@ const options = {
   item: { padding: "20px 24px", flex: 1 },
   itemTitle: { color: "var(--navy)", fontSize: 15, fontWeight: 600 },
   itemBody: { marginTop: 6, color: "var(--ink-soft)", fontSize: 13, lineHeight: 1.6 }
+};
+
+const swabFormats = {
+  grid: { display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 },
+  card: { display: "flex", flexDirection: "column" }
 };
 
 const retrofitBanner = {
