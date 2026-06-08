@@ -108,19 +108,23 @@ window.PackingMachines = function PackingMachines() {
               </a>
             )}
 
-            {/* Semi-automated packing card */}
-            <div style={{ ...pack.card, cursor: "default", justifyContent: "center", padding: "40px 40px", background: "#fff" }}>
-              <div className="mono" style={{ fontSize: 10, color: "var(--ink-muted)", letterSpacing: "0.18em", marginBottom: 14 }}>
-                SEMI-AUTOMATED
+            {/* Round table packing card */}
+            <div style={pack.card}>
+              <ImageSlot label="Round table semi-automatic packing" ratio="16 / 9" />
+              <div style={pack.body}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
+                  <div className="mono" style={pack.code}>ROUND TABLE</div>
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                    <span className="mono" style={pack.pill}>Semi-automatic</span>
+                  </div>
+                </div>
+                <h3 style={{ fontSize: 24, marginTop: 10, lineHeight: 1.15, letterSpacing: "-0.015em", color: "var(--navy)" }}>Round table packing</h3>
+                <p style={{ marginTop: 14, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)", flex: 1 }}>
+                  The swab machine places finished swabs onto a rotating round table. Factory workers
+                  pick them up and place them into the container by hand. Lower investment, full
+                  format flexibility for low to mid volumes.
+                </p>
               </div>
-              <h3 style={{ fontSize: 24, lineHeight: 1.15, letterSpacing: "-0.015em", color: "var(--navy)" }}>
-                Semi-automated packing
-              </h3>
-              <p style={{ marginTop: 14, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)" }}>
-                The swab machine places finished swabs onto a rotating round table. Factory workers
-                pick them up and place them into the container by hand. Lower investment, full
-                format flexibility for low to mid volumes.
-              </p>
             </div>
           </div>
         </div>
