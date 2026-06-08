@@ -134,7 +134,10 @@ window.PackingMachines = function PackingMachines() {
       <section style={{ padding: "96px 0 0" }}>
         <div className="container">
           <SectionLabel num="02">Beyond the standard formats</SectionLabel>
-          <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--ink-soft)", maxWidth: 760, marginTop: 24 }}>
+          <h2 style={{ fontSize: 44, lineHeight: 1.1, letterSpacing: "-0.025em", color: "var(--navy)", marginTop: 32, marginBottom: 20, maxWidth: 760 }}>
+            Special and custom formats.
+          </h2>
+          <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--ink-soft)", maxWidth: 760 }}>
             Two further packing options are available in combination with the cotton swab machines, and additional formats can be developed on request.
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24, marginTop: 48 }}>
