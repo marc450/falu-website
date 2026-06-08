@@ -175,8 +175,9 @@ window.MachineCB1 = function MachineCB1() {
                 Spare parts guaranteed for the entire lifecycle of the machine.
               </h3>
               <p style={{ marginTop: 22, color: "rgba(255,255,255,0.78)", fontSize: 16, lineHeight: 1.65, maxWidth: 760 }}>
-                FALU continues to manufacture spare parts for CB1 machines built decades ago. Your
-                line keeps running on the day the original engineer retires, and on the day the one after them retires too.
+                FALU commits to manufacturing spare parts for every CB1 throughout its entire service
+                life, independent of installation date. Your line will keep running on the day the
+                original engineer retires, and on the day the one after them retires too.
               </p>
             </div>
             <a href="#services" className="btn" style={{ background: "var(--falu-red)", color: "#fff", border: "none", whiteSpace: "nowrap" }}>
