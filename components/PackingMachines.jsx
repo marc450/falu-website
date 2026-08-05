@@ -90,9 +90,9 @@ window.PackingMachines = function PackingMachines() {
         <div className="container" style={{ paddingTop: 80 }}>
           <SectionLabel num="01">Six packing machines</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginTop: 48 }}>
-            {machines.map((m) =>
+            {machines.map((m, i) =>
             <a key={m.code} href={m.href} style={pack.card}>
-                <ImageSlot label={m.img} ratio="16 / 9" />
+                <ImageSlot id={`PACK-0${i + 1}`} label={m.img} ratio="16 / 9" />
                 <div style={pack.body}>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
                     <div className="mono" style={pack.code}>{m.code}</div>
@@ -110,7 +110,7 @@ window.PackingMachines = function PackingMachines() {
 
             {/* Round table packing card */}
             <div style={pack.card}>
-              <ImageSlot label="Round table semi-automatic packing" ratio="16 / 9" />
+              <ImageSlot id="PACK-06" label="Round table semi-automatic packing" ratio="16 / 9" />
               <div style={pack.body}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
                   <div className="mono" style={pack.code}>ROUND TABLE</div>

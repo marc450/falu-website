@@ -13,7 +13,7 @@ window.HomepageB = function HomepageB() {
       {/* 1. HERO */}
       <section style={{ background: "#fff" }}>
         <div style={heroB.wrap}>
-          <ImageSlot label="CB1 line, Rüti production floor wide shot" height={620} />
+          <ImageSlot id="HOME-01" label="CB1 line, Rüti production floor wide shot" height={620} />
           <div style={heroB.overlay}>
             <div className="container" style={heroB.overlayInner}>
               <h1 style={heroB.title}>
@@ -53,7 +53,7 @@ window.HomepageB = function HomepageB() {
             </p>
             <a href="#cb1" className="btn btn--primary" style={{ marginTop: 36 }}>View CB1 specification<span className="arrow" /></a>
           </div>
-          <ImageSlot label="CB1 4.1, front 3/4 product shot" ratio="4 / 5" />
+          <ImageSlot id="HOME-02" label="CB1 4.1, front 3/4 product shot" ratio="4 / 5" />
         </div>
       </section>
 
@@ -99,7 +99,7 @@ window.HomepageB = function HomepageB() {
             map((f, i) =>
             <div key={f.num} style={{ ...famB.row, flexDirection: i % 2 ? "row-reverse" : "row" }}>
                 <div style={famB.imageCol}>
-                  <ImageSlot label={f.imgLabel} ratio="4 / 3" />
+                  <ImageSlot id={`HOME-0${i + 3}`} label={f.imgLabel} ratio="4 / 3" />
                 </div>
                 <div style={famB.textCol}>
                   <h3 style={{ fontSize: 36, lineHeight: 1.1, letterSpacing: "-0.02em" }}>{f.title}</h3>

@@ -54,6 +54,7 @@ as individual machines into existing lines.
               title="Paper stick production"
               body="The PRX produces paper sticks in-house and feeds them directly into the cotton swab machine, significantly simplifying production logistics and cutting out supplier dependencies."
               note="The cotton swab machine also accepts paper or plastic sticks from external suppliers, so the PRX is only needed if you want to bring stick production in-house and increase production efficiency."
+              imgId="SWAB-01"
               image="PRX paper stick winder, full unit"
               links={[
               ["See our paper stick production machine", "#prx"]]
@@ -64,6 +65,7 @@ as individual machines into existing lines.
               num="02"
               title="Cotton swab production"
               body="Cotton is applied to the sticks to form the finished swab. The cotton swab machine can operate standalone without a paper stick production machine. It runs with both paper and plastic sticks from any supplier. It integrates seamlessly with all FALU packing and paper stick production machinery for a continuous, efficient flow."
+              imgId="SWAB-02"
               image="CB1 4.1 cotton swab production machine"
               links={[
               ["See our cotton swab production machine", "#cb1"]]
@@ -74,6 +76,7 @@ as individual machines into existing lines.
               num="03"
               title="Packing"
               body="Finished swabs are packed either semi-automatically (auto-sorted, hand-placed) or fully automatically (sorted, filled and closed without manual intervention). Six packing machines across five formats: cardboard box, polybag, round box, square box, and blister."
+              imgId="SWAB-03"
               image="Packing line, multiple format options"
               links={[
               ["See all packing machines", "#packing"]]
@@ -104,7 +107,7 @@ as individual machines into existing lines.
           </div>
 
           <div style={{ marginBottom: 32, border: "1px solid rgba(255,255,255,0.15)" }}>
-            <ImageSlot label="Complete CB1 production line, video walkthrough" ratio="16 / 9" dark />
+            <ImageSlot id="SWAB-04" label="Complete CB1 production line, video walkthrough" ratio="16 / 9" dark />
           </div>
 
           <div style={lineRow.wrap}>
@@ -206,7 +209,7 @@ const lineRow = {
 };
 
 // ============ PROCESS BLOCK ============
-function ProcessBlock({ num, title, body, note, image, links, linksLabel, flipped }) {
+function ProcessBlock({ num, title, body, note, imgId, image, links, linksLabel, flipped }) {
   const left =
   <div style={{ padding: "48px 48px" }}>
       <div className="mono" style={{ fontSize: 11, color: "var(--falu-red)", letterSpacing: "0.2em", marginBottom: 16 }}>
@@ -238,7 +241,7 @@ function ProcessBlock({ num, title, body, note, image, links, linksLabel, flippe
     </div>;
 
 
-  const right = <ImageSlot label={image} height="100%" />;
+  const right = <ImageSlot id={imgId} label={image} height="100%" />;
 
   return (
     <div style={{

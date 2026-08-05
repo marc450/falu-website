@@ -75,7 +75,7 @@ window.About = function About() {
                 the answer almost always already exists somewhere in six decades of FALU machines.
               </p>
             </div>
-            <ImageSlot label="FALU engineering team / archive photograph" ratio="4 / 3" />
+            <ImageSlot id="ABOUT-01" label="FALU engineering team / archive photograph" ratio="4 / 3" />
           </div>
         </div>
       </section>
@@ -84,7 +84,7 @@ window.About = function About() {
       <section style={{ padding: "96px 0", borderBottom: "1px solid var(--rule)" }}>
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
-            <ImageSlot label="FALU factory, Rüti, Switzerland, exterior" ratio="4 / 3" />
+            <ImageSlot id="ABOUT-02" label="FALU factory, Rüti, Switzerland, exterior" ratio="4 / 3" />
             <div>
               <SectionLabel num="02">Rüti, Switzerland</SectionLabel>
               <h2 style={{ fontSize: 40, lineHeight: 1.1, letterSpacing: "-0.025em", marginTop: 32 }}>

@@ -71,11 +71,11 @@ window.MachinePRX = function MachinePRX() {
             </div>
           </div>
           <div>
-            <ImageSlot label="PRX, full unit, side view" ratio="4 / 5" />
+            <ImageSlot id="PRX-01" label="PRX, full unit, side view" ratio="4 / 5" />
             <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
-              <ImageSlot label="Forming head" ratio="1 / 1" />
-              <ImageSlot label="Paper infeed" ratio="1 / 1" />
-              <ImageSlot label="Drying & buffer" ratio="1 / 1" />
+              <ImageSlot id="PRX-02" label="Forming head" ratio="1 / 1" />
+              <ImageSlot id="PRX-03" label="Paper infeed" ratio="1 / 1" />
+              <ImageSlot id="PRX-04" label="Drying & buffer" ratio="1 / 1" />
             </div>
           </div>
         </div>

@@ -10,6 +10,8 @@ const { useState: useStateMD, useEffect: useEffectMD } = React;
 
 window.MachineDetail = function MachineDetail({ id }) {
   const m = (window.FALU_MACHINES || {})[id];
+  // Placeholder shot numbers are namespaced per machine: RB2-01, RB2-02, ...
+  const imgPrefix = String(id || "").toUpperCase();
   const [activeTab, setActiveTab] = useStateMD("overview");
   const SCROLL_OFFSET = 140;
 
@@ -94,10 +96,10 @@ window.MachineDetail = function MachineDetail({ id }) {
             </div>
           </div>
           <div>
-            <ImageSlot label={m.heroImage} ratio="4 / 5" />
+            <ImageSlot id={`${imgPrefix}-01`} label={m.heroImage} ratio="4 / 5" />
             {m.thumbs &&
             <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: `repeat(${m.thumbs.length}, 1fr)`, gap: 8 }}>
-                {m.thumbs.map((t) => <ImageSlot key={t} label={t} ratio="1 / 1" />)}
+                {m.thumbs.map((t, i) => <ImageSlot key={t} id={`${imgPrefix}-0${i + 2}`} label={t} ratio="1 / 1" />)}
               </div>
             }
           </div>

@@ -95,11 +95,11 @@ window.MachineCB1 = function MachineCB1() {
           </div>
 
           <div style={hero.right}>
-            <ImageSlot label="CB1 4.1, front 3/4 product shot" ratio="4 / 5" />
+            <ImageSlot id="CB1-01" label="CB1 4.1, front 3/4 product shot" ratio="4 / 5" />
             <div style={hero.thumbs}>
-              <ImageSlot label="HMI panel" ratio="1 / 1" />
-              <ImageSlot label="Stick magazine" ratio="1 / 1" />
-              <ImageSlot label="Encapsulation" ratio="1 / 1" />
+              <ImageSlot id="CB1-02" label="HMI panel" ratio="1 / 1" />
+              <ImageSlot id="CB1-03" label="Stick magazine" ratio="1 / 1" />
+              <ImageSlot id="CB1-04" label="Encapsulation" ratio="1 / 1" />
             </div>
           </div>
         </div>
@@ -206,9 +206,9 @@ window.MachineCB1 = function MachineCB1() {
             ["Baby / safety swabs", "Enlarged cotton head up to 10 mm in diameter for baby care. Cotton sliver 4.0 g/m. Capacity up to 1'000 swabs/min."],
             ["Cosmetic swabs", "One pointed tip + one flat tip per swab for precision cosmetics. Sliver 3.0 g/m flat / 1.2 g/m pointed. Capacity up to 1'000 swabs/min."],
             ["Medical swabs", "Swab formats for medical and diagnostic applications. Heads up to 10 mm in diameter and up to 150 mm in length."]].
-            map(([title, body]) =>
+            map(([title, body], i) =>
             <div key={title} style={swabFormats.card}>
-              <ImageSlot label={title} ratio="3 / 4" />
+              <ImageSlot id={`CB1-0${i + 5}`} label={title} ratio="3 / 4" />
               <h4 style={{ marginTop: 16, fontSize: 16, color: "var(--navy)" }}>{title}</h4>
               <p style={{ marginTop: 8, color: "var(--ink-soft)", fontSize: 13, lineHeight: 1.55 }}>{body}</p>
             </div>
@@ -290,6 +290,7 @@ window.MachineCB1 = function MachineCB1() {
               "No glue build-up, no cleaning cycles, cleaner machine interior",
               "No changeover when switching plastic to paper sticks",
               "Plastic sticks down to 130 g / 1'000"]}
+              imgId="CB1-09"
               mediaLabel="Hot melt unit + glue applicator head" />
 
             <RetroCard
@@ -300,6 +301,7 @@ window.MachineCB1 = function MachineCB1() {
               "Unaffected by dust and mechanical tolerances",
               "Image memory for review of rejected swabs and root-cause analysis",
               "Waste Reduction Mode: set a legal underfill threshold so near-full packs aren't rejected. The line tops up only when needed to keep the declared average"]}
+              imgId="CB1-10"
               mediaLabel="Camera inspection module + HMI image review" />
 
             <RetroCard
@@ -310,6 +312,7 @@ window.MachineCB1 = function MachineCB1() {
               "No chain cleaning, degreasing or regreasing",
               "Extended drive component service life, higher uptime",
               "Less internal contamination means significantly lower required maintenance standstill time"]}
+              imgId="CB1-11"
               mediaLabel="Belt drive carrier on dry-running primary belt" />
 
             <RetroCard
@@ -320,6 +323,7 @@ window.MachineCB1 = function MachineCB1() {
               "Secondary Belt Module: Dust removal in transition to pickup",
               "Airflow Dust Removal: Controlled draft inside enclosed housing",
               "Belt & Chain Blow-Off: Four directed nozzles, adjustable timing"]}
+              imgId="CB1-12"
               mediaLabel="Extraction nozzle at cotton feeder + airflow housing" />
           </div>
 
@@ -373,7 +377,7 @@ window.MachineCB1 = function MachineCB1() {
           </div>
 
           <div style={lineInt.video}>
-            <ImageSlot label="Complete CB1 production line, video walkthrough" ratio="16 / 9" dark />
+            <ImageSlot id="CB1-13" label="Complete CB1 production line, video walkthrough" ratio="16 / 9" dark />
           </div>
 
           <div style={lineInt.wrap}>
@@ -477,11 +481,11 @@ const featuredRetro = {
   bullet: { fontSize: 13, color: "var(--ink)", lineHeight: 1.55, paddingLeft: 18, position: "relative" }
 };
 
-function RetroCard({ title, lede, bullets, mediaLabel }) {
+function RetroCard({ title, lede, bullets, imgId, mediaLabel }) {
   return (
     <div style={featuredRetro.card}>
       <div style={featuredRetro.media}>
-        <ImageSlot label={mediaLabel || title} ratio="16 / 9" />
+        <ImageSlot id={imgId} label={mediaLabel || title} ratio="16 / 9" />
       </div>
       <h3 style={featuredRetro.title}>{title}</h3>
       <p style={featuredRetro.lede}>{lede}</p>

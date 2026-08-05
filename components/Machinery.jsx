@@ -45,6 +45,7 @@ window.Machinery = function Machinery() {
             <FamilyCard
               num="01"
               title="Cotton swab production"
+              imgId="MACH-01"
               image="Cotton swab production line, CB1 4.1"
               bullets={[
               "Single machines or complete lines",
@@ -57,6 +58,7 @@ window.Machinery = function Machinery() {
             <FamilyCard
               num="02"
               title="Cotton pad production"
+              imgId="MACH-02"
               image="Cotton pad production line, WR-2100 + VP"
               bullets={[
               "Single machines or complete lines",
@@ -69,6 +71,7 @@ window.Machinery = function Machinery() {
             <FamilyCard
               num="03"
               title="Paper stick production"
+              imgId="MACH-03"
               image="Paper stick production machine, PRX"
               bullets={[
               "Fully automatic systems",
@@ -124,10 +127,10 @@ window.Machinery = function Machinery() {
 };
 
 // ============ FAMILY CARD ============
-function FamilyCard({ num, title, image, bullets, ctaLabel, href }) {
+function FamilyCard({ num, title, imgId, image, bullets, ctaLabel, href }) {
   return (
     <a href={href} style={{ display: "flex", flexDirection: "column", textDecoration: "none", color: "inherit", background: "#fff", border: "1px solid var(--rule)" }}>
-      <ImageSlot label={image} ratio="4 / 3" />
+      <ImageSlot id={imgId} label={image} ratio="4 / 3" />
       <div style={{ padding: "32px 32px 36px", display: "flex", flexDirection: "column", flex: 1 }}>
         <h3 style={{ fontSize: 26, lineHeight: 1.15, letterSpacing: "-0.015em", color: "var(--navy)" }}>
           {title}

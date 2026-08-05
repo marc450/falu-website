@@ -170,8 +170,9 @@ window.SectionLabel = function SectionLabel({ num, children, tone }) {
   );
 };
 
-// Labelled image placeholder, diagonal stripes, mono caption
-window.ImageSlot = function ImageSlot({ label, ratio = "16 / 10", height, dark = false, style = {} }) {
+// Labelled image placeholder, diagonal stripes, mono caption.
+// `id` is the shot number the team uses to hand images back (e.g. "CB1-01").
+window.ImageSlot = function ImageSlot({ id, label, ratio = "16 / 10", height, dark = false, style = {} }) {
   const bg = dark
     ? "repeating-linear-gradient(135deg, #00213f 0 8px, #002e5b 8px 16px)"
     : "repeating-linear-gradient(135deg, #eaeef2 0 8px, #f1f4f7 8px 16px)";
@@ -210,13 +211,16 @@ window.ImageSlot = function ImageSlot({ label, ratio = "16 / 10", height, dark =
           position: "absolute",
           top: 10, left: 10,
           fontFamily: "var(--font-mono)",
-          fontSize: 10,
+          fontSize: id ? 13 : 10,
+          fontWeight: id ? 700 : 400,
           letterSpacing: "0.14em",
-          color: fg,
+          color: id ? "#fff" : fg,
+          background: id ? "var(--falu-red)" : "transparent",
+          padding: id ? "5px 9px" : 0,
           textTransform: "uppercase",
         }}
       >
-        IMG · placeholder
+        {id || "IMG · placeholder"}
       </div>
     </div>
   );

@@ -286,7 +286,7 @@ window.Careers = function Careers() {
       <section style={{ padding: "96px 0", borderBottom: "1px solid var(--rule)" }}>
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
-            <ImageSlot label="FALU team at work in Rüti" ratio="4 / 3" />
+            <ImageSlot id="CAREERS-01" label="FALU team at work in Rüti" ratio="4 / 3" />
             <div>
               <SectionLabel num="02">Who we look for</SectionLabel>
               <h2 style={{ fontSize: 40, lineHeight: 1.1, letterSpacing: "-0.025em", marginTop: 32 }}>

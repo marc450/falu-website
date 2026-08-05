@@ -54,6 +54,7 @@ window.CottonPadMachinery = function CottonPadMachinery() {
               num="01"
               title="Cotton pad production"
               body="Cotton pads are formed and cut from raw cotton. FALU offers three machines: the compact WR-600 V and high-volume WR-2100 S form round and oval pads from a web, while the VP-2 stamps square and rectangular pads from a roll without waste."
+              imgId="PAD-01"
               image="WR-2100 cotton pad production machine"
               links={[
               ["WR-2100 S", "Round / oval\n2'100 pcs/min", "#wr2100"],
@@ -66,6 +67,7 @@ window.CottonPadMachinery = function CottonPadMachinery() {
               num="02"
               title="Packing"
               body="The RB-2 fills polybags or paper bags with cotton pads, fully automatically. It connects to the WR-2100 S interface and receives pads via metal cassettes that stack them flawlessly, then pushes them through packaging molds into bags. Filled bags pass to the sealing unit and are closed by heat stamp. Up to 52 bags per minute, typically 50 to 120 pads per bag."
+              imgId="PAD-02"
               image="RB-2 cotton pad polybag packing machine"
               links={[
               ["RB-2", "Polybag & paper bag", "#rb2"]]
@@ -95,7 +97,7 @@ window.CottonPadMachinery = function CottonPadMachinery() {
           </div>
 
           <div style={{ marginBottom: 32, border: "1px solid rgba(255,255,255,0.15)" }}>
-            <ImageSlot label="Complete WR-2100 S + RB-2 pad line, video walkthrough" ratio="16 / 9" dark />
+            <ImageSlot id="PAD-03" label="Complete WR-2100 S + RB-2 pad line, video walkthrough" ratio="16 / 9" dark />
           </div>
 
           <div style={padLine.wrap}>
@@ -174,7 +176,7 @@ const padBenefits = {
   benefitBody: { color: "#9ab3cc", fontSize: 13, lineHeight: 1.6 }
 };
 
-function PadBlock({ num, title, body, image, links, flipped }) {
+function PadBlock({ num, title, body, imgId, image, links, flipped }) {
   const left =
   <div style={{ padding: "48px 48px" }}>
       <div className="mono" style={{ fontSize: 11, color: "var(--falu-red)", letterSpacing: "0.2em", marginBottom: 16 }}>
@@ -199,7 +201,7 @@ function PadBlock({ num, title, body, image, links, flipped }) {
       </div>
     </div>;
 
-  const right = <ImageSlot label={image} height="100%" />;
+  const right = <ImageSlot id={imgId} label={image} height="100%" />;
 
   return (
     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", background: "#fff", border: "1px solid var(--rule)", alignItems: "stretch" }}>
