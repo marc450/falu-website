@@ -15,10 +15,12 @@ permissions:
 # mid-deploy strands a pending deployment on the Pages side. This matches
 # GitHub's own Pages starter workflow.
 #
-# Note: deploy-pages can still fail with "Timeout reached" after 10 minutes of
-# `deployment_queued`. That is GitHub's Pages queue, not this repo — the build
-# job always passes, and the next push deploys normally. Its `timeout` input is
-# capped at 600000 ms, so it cannot be raised.
+# Note: the Pages backend has been taking 3-7 minutes to process a 360 KB
+# artifact, and occasionally longer than deploy-pages' fixed 10-minute timeout
+# (its `timeout` input is capped at 600000 ms, so it cannot be raised). That is
+# GitHub's side, not this repo — the build job always passes. The deploy job
+# retries once so a slow queue does not leave the run red and the commit
+# undeployed.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -44,7 +46,22 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment-retry.outputs.page_url }}
     steps:
       - id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      # A timed-out attempt leaves its deployment behind, and Pages refuses to
+      # start a new one while it is still in flight. Clear it, then try again.
+      - name: Clear the timed-out deployment
+        if: steps.deployment.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.sha }}
+          REPO: ${{ github.repository }}
+        run: gh api --method POST "repos/$REPO/pages/deployments/$SHA/cancel" || true
+
+      - id: deployment-retry
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4
