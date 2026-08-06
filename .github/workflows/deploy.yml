@@ -5,28 +5,21 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# The built site is force-pushed to the gh-pages branch, which Pages serves.
+# We used to deploy through actions/deploy-pages, but that route queues on the
+# Pages deployment API — which spent 3-12 minutes on a 360 KB artifact and
+# regularly overran the action's fixed, unraisable 10-minute timeout. A commit
+# gets only one deployment there (the deployment id is the commit sha), so a
+# timeout meant that commit simply never published.
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
-# One deployment at a time. Queued runs are skipped in favour of the newest,
-# but a run that already started deploying is left to finish: cancelling it
-# mid-deploy strands a pending deployment on the Pages side. This matches
-# GitHub's own Pages starter workflow.
-#
-# Note: the Pages backend has been taking 3-7 minutes to process a 360 KB
-# artifact, and occasionally longer than deploy-pages' fixed 10-minute timeout
-# (its `timeout` input is capped at 600000 ms, so it cannot be raised). That is
-# GitHub's side, not this repo — the build job always passes. The deploy job
-# retries once so a slow queue does not leave the run red and the commit
-# undeployed.
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -36,21 +29,18 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      # Not retryable: the Pages deployment id IS the commit sha, so a second
-      # attempt on the same commit is rejected — either as "in progress
-      # deployment" if the first one is still live, or as "Deployment
-      # cancelled" if it was cleared. One attempt per commit is all there is.
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Publish dist to gh-pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          touch dist/.nojekyll
+          cd dist
+          git init -q
+          git checkout -qb gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "Deploy $GITHUB_SHA"
+          git push -q --force \
+            "https://x-access-token:$GH_TOKEN@github.com/$GITHUB_REPOSITORY.git" gh-pages
