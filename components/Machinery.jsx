@@ -50,7 +50,7 @@ window.Machinery = function Machinery() {
               bullets={[
               "Single machines or complete lines",
               "Integrated packaging options",
-              "Manual to high-output automation"]
+              "Semi-automatic and fully automatic options"]
               }
               ctaLabel="View Cotton Swab Machinery"
               href="#cotton-swab-machinery" />
@@ -63,7 +63,7 @@ window.Machinery = function Machinery() {
               bullets={[
               "Single machines or complete lines",
               "Integrated packaging options",
-              "Manual to high-output automation"]
+              "Semi-automatic and fully automatic options"]
               }
               ctaLabel="View Cotton Pad Machinery"
               href="#cotton-pad-machinery" />
@@ -88,7 +88,7 @@ window.Machinery = function Machinery() {
       {/* PRODUCTION PLANNING — visually separate */}
       <section style={{ padding: "112px 0", background: "#fff" }}>
         <div className="container">
-          <SectionLabel num="04">Production planning</SectionLabel>
+          <SectionLabel num="02">Production planning</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 80, alignItems: "start", marginTop: 32 }}>
             <div>
               <h2 style={{ fontSize: 56, lineHeight: 1.0, letterSpacing: "-0.03em", color: "var(--navy)" }}>
