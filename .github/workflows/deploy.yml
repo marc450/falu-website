@@ -46,22 +46,11 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url || steps.deployment-retry.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # Not retryable: the Pages deployment id IS the commit sha, so a second
+      # attempt on the same commit is rejected — either as "in progress
+      # deployment" if the first one is still live, or as "Deployment
+      # cancelled" if it was cleared. One attempt per commit is all there is.
       - id: deployment
-        uses: actions/deploy-pages@v4
-        continue-on-error: true
-
-      # A timed-out attempt leaves its deployment behind, and Pages refuses to
-      # start a new one while it is still in flight. Clear it, then try again.
-      - name: Clear the timed-out deployment
-        if: steps.deployment.outcome == 'failure'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          SHA: ${{ github.sha }}
-          REPO: ${{ github.repository }}
-        run: gh api --method POST "repos/$REPO/pages/deployments/$SHA/cancel" || true
-
-      - id: deployment-retry
-        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4
