@@ -299,7 +299,7 @@ window.HomepageB = function HomepageB() {
 const FALU_COUNTRIES = new Set([
 "US", "CA", "MX", "BR", "CL", "PE", "PR", "PA", "CO", "VE", "EC", "UY", "AR",
 "IS", "IE", "GB", "FR", "BE", "CH", "DE", "AT", "DK", "SE", "FI",
-"UA", "RU", "GR", "BG", "RS", "RO", "HU", "CZ", "IT", "ES", "PT", "LT", "MK", "HR",
+"UA", "RU", "GR", "BG", "RS", "RO", "HU", "CZ", "PL", "IT", "ES", "PT", "LT", "MK", "HR",
 "TR", "AM", "IR", "IQ", "IL", "JO", "LB", "AE", "BH",
 "EG", "LY", "TN", "DZ", "ML", "CI", "BJ", "NG", "KE", "ZW", "ZA",
 "PK", "IN", "TH", "VN", "MY", "ID", "PH",
