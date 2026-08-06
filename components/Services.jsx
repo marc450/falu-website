@@ -141,9 +141,11 @@ window.Services = function Services() {
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "flex-end" }}>
             <a href="#contact" className="btn btn--primary btn--lg">Get in touch with our specialists<span className="arrow" /></a>
-            <a href="mailto:sales@falu.com" className="mono" style={{ color: "var(--ink-muted)", fontSize: 12, letterSpacing: "0.06em" }}>
-              sales@falu.com · +41 55 225 51 51
-            </a>
+            <div className="mono" style={{ color: "var(--ink-muted)", fontSize: 12, letterSpacing: "0.06em" }}>
+              <a href="mailto:sales@falu.com" style={{ color: "inherit" }}>sales@falu.com</a>
+              {" · "}
+              <a href="tel:+41552255151" style={{ color: "inherit" }}>+41 55 225 51 51</a>
+            </div>
           </div>
         </div>
       </section>

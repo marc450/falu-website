@@ -6,7 +6,12 @@ so there is never any doubt which slot an image belongs in.
 
 **File naming:** `CB1-01.jpg`, `HOME-03.jpg`, … one file per number.
 
-**77 shots total.** Numbers are namespaced per page, so adding a shot to one page never
+**Videos.** Every machine page now carries a single hero video instead of a cluster of
+stills. Those slots are numbered `<PAGE>-VIDEO` and are listed in their own table below.
+Deliver them as MP4 (H.264, 16:9, **no audio track**) — the player is always muted, and
+autoplays, loops, and offers pause, scrubbing and full screen.
+
+**32 stills + 12 videos.** Numbers are namespaced per page, so adding a shot to one page never
 renumbers another.
 
 | Prefix | Page | Shots |
@@ -16,11 +21,11 @@ renumbers another.
 | `SWAB-` | Cotton swab machinery (`#cotton-swab-machinery`) | 4 |
 | `PAD-` | Cotton pad machinery (`#cotton-pad-machinery`) | 3 |
 | `PACK-` | Packing machines (`#packing`) | 6 |
-| `CB1-` | CB1 4.1 product page (`#cb1`) | 13 |
-| `PRX-` | PRX product page (`#prx`) | 4 |
+| `CB1-` | CB1 4.1 product page (`#cb1`) | 8 stills + 2 videos |
+| `PRX-` | PRX product page (`#prx`) | 1 video |
 | `ABOUT-` | About (`#about`) | 2 |
 | `CAREERS-` | Careers (`#careers`) | 1 |
-| per machine | 9 machine detail pages | 36 |
+| per machine | 9 machine detail pages | 1 video each |
 
 ---
 
@@ -74,10 +79,6 @@ renumbers another.
 
 | ID | Shot | Format |
 |---|---|---|
-| `CB1-01` | CB1 4.1, front 3/4 product shot | Portrait 4:5 |
-| `CB1-02` | HMI panel | Square 1:1 |
-| `CB1-03` | Stick magazine | Square 1:1 |
-| `CB1-04` | Encapsulation | Square 1:1 |
 | `CB1-05` | Standard cotton swabs | Portrait 3:4 |
 | `CB1-06` | Baby / safety swabs | Portrait 3:4 |
 | `CB1-07` | Cosmetic swabs | Portrait 3:4 |
@@ -86,16 +87,34 @@ renumbers another.
 | `CB1-10` | Camera inspection module + HMI image review | Landscape 16:9 |
 | `CB1-11` | Belt drive carrier on dry-running primary belt | Landscape 16:9 |
 | `CB1-12` | Extraction nozzle at cotton feeder + airflow housing | Landscape 16:9 |
-| `CB1-13` | Complete CB1 production line, **video walkthrough** | Video 16:9 |
+
+The two CB1 videos are in the video table below. `CB1-01` to `CB1-04` were the old hero
+stills and are retired, do not shoot them.
 
 ## PRX — `#prx`
 
-| ID | Shot | Format |
+No stills. The PRX hero is a video, see the video table below.
+
+## Machine hero videos
+
+One per machine page. MP4, H.264, 16:9, no audio track. Drop the file in
+`public/assets/video/` and point the page at it (`heroVideo` in `machines-data.jsx` for the
+nine detail pages, the `src` prop on `MachineHeroVideo` for CB1 and PRX).
+
+| ID | Clip | Page |
 |---|---|---|
-| `PRX-01` | PRX, full unit, side view | Portrait 4:5 |
-| `PRX-02` | Forming head | Square 1:1 |
-| `PRX-03` | Paper infeed | Square 1:1 |
-| `PRX-04` | Drying & buffer | Square 1:1 |
+| `CB1-VIDEO` | CB1 4.1 cotton swab machine running | `#cb1` |
+| `CB1-LINE-VIDEO` | Complete CB1 production line walkthrough | `#cb1` |
+| `PRX-VIDEO` | PRX paper stick machine running | `#prx` |
+| `RB2-VIDEO` | RB-2 running | `#rb2` |
+| `SV2X-VIDEO` | SV-2X running | `#sv2x` |
+| `RB30A-VIDEO` | RB-30A running | `#rb30a` |
+| `POLYBAG-VIDEO` | ABS-2 running | `#polybag` |
+| `SQB2A-VIDEO` | SQB-2A running | `#sqb2a` |
+| `BL12-VIDEO` | BL-12 running | `#bl12` |
+| `WR600-VIDEO` | WR-600 V running | `#wr600` |
+| `WR2100-VIDEO` | WR-2100 S running | `#wr2100` |
+| `VP2-VIDEO` | VP-2 running | `#vp2` |
 
 ## About — `#about`
 
@@ -112,20 +131,7 @@ renumbers another.
 
 ## Machine detail pages
 
-All nine machine pages follow the same pattern: one portrait hero (4:5) plus three
-square detail shots (1:1). The prefix is the machine's page name.
-
-| Page | Hero (portrait 4:5) | Detail 1 (1:1) | Detail 2 (1:1) | Detail 3 (1:1) |
-|---|---|---|---|---|
-| `#rb2` | `RB2-01` RB-2, full unit | `RB2-02` Cassette infeed | `RB2-03` Bagging mold | `RB2-04` Heat-seal unit |
-| `#sv2x` | `SV2X-01` SV-2X, full unit | `SV2X-02` Carton magazine | `SV2X-03` Press module | `SV2X-04` Hotmelt sealing |
-| `#rb30a` | `RB30A-01` RB-30A, full unit | `RB30A-02` Box dispenser | `RB30A-03` Transfer wheel | `RB30A-04` Lid closing unit |
-| `#polybag` | `POLYBAG-01` ABS-2, full unit | `POLYBAG-02` Filling cavity | `POLYBAG-03` Bag station | `POLYBAG-04` Zipper-lock seal |
-| `#sqb2a` | `SQB2A-01` SQB-2A, full unit | `SQB2A-02` Carton magazine | `SQB2A-03` Filling station | `SQB2A-04` Lid closing unit |
-| `#bl12` | `BL12-01` BL-12, full unit | `BL12-02` Forming station | `BL12-03` Filling station | `BL12-04` Sealing unit |
-| `#wr600` | `WR600-01` WR-600 V, full unit | `WR600-02` Cotton web infeed | `WR600-03` Embossing roller | `WR600-04` Stacking unit |
-| `#wr2100` | `WR2100-01` WR-2100 S, full unit | `WR2100-02` Cotton web infeed | `WR2100-03` Embossing roller | `WR2100-04` Stacking unit |
-| `#vp2` | `VP2-01` VP-2, full unit | `VP2-02` Cotton roll infeed | `VP2-03` Embossing cassette | `VP2-04` Stamping unit |
+All nine machine pages are now a single hero video and no stills. See the video table above.
 
 ---
 
@@ -138,6 +144,9 @@ numbered automatically.
 
 A placeholder with no `id` falls back to the old `IMG · placeholder` caption, which is the
 signal that it still needs a number.
+
+Video slots come from `MachineHeroVideo` (same file). Without a `src` it renders a labelled
+placeholder; with one it plays the file, muted and looping, with the FALU control bar.
 
 `components/HomepageA.jsx` is an unused alternative homepage layout (not reachable through the
 router), so its three placeholders are deliberately left unnumbered.

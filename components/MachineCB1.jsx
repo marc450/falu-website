@@ -1,4 +1,4 @@
-/* global React, FaluHeader, FaluFooter, SectionLabel, ImageSlot */
+/* global React, FaluHeader, FaluFooter, SectionLabel, ImageSlot, MachineHeroVideo */
 const { useState, useEffect, useRef, useLayoutEffect } = React;
 
 // ============================================================
@@ -95,12 +95,7 @@ window.MachineCB1 = function MachineCB1() {
           </div>
 
           <div style={hero.right}>
-            <ImageSlot id="CB1-01" label="CB1 4.1, front 3/4 product shot" ratio="4 / 5" />
-            <div style={hero.thumbs}>
-              <ImageSlot id="CB1-02" label="HMI panel" ratio="1 / 1" />
-              <ImageSlot id="CB1-03" label="Stick magazine" ratio="1 / 1" />
-              <ImageSlot id="CB1-04" label="Encapsulation" ratio="1 / 1" />
-            </div>
+            <MachineHeroVideo id="CB1-VIDEO" label="CB1 4.1 cotton swab machine, hero video" />
           </div>
         </div>
       </section>
@@ -377,7 +372,7 @@ window.MachineCB1 = function MachineCB1() {
           </div>
 
           <div style={lineInt.video}>
-            <ImageSlot id="CB1-13" label="Complete CB1 production line, video walkthrough" ratio="16 / 9" dark />
+            <MachineHeroVideo id="CB1-LINE-VIDEO" label="Complete CB1 production line, video walkthrough" />
           </div>
 
           <div style={lineInt.wrap}>
@@ -459,9 +454,11 @@ window.MachineCB1 = function MachineCB1() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "flex-end" }}>
             <a href="#contact" className="btn btn--primary btn--lg">Request a quotation<span className="arrow" /></a>
-            <a href="mailto:sales@falu.com" className="mono" style={{ color: "#9ab3cc", fontSize: 12, letterSpacing: "0.06em" }}>
-              sales@falu.com · +41 55 225 51 51
-            </a>
+            <div className="mono" style={{ color: "#9ab3cc", fontSize: 12, letterSpacing: "0.06em" }}>
+              <a href="mailto:sales@falu.com" style={{ color: "inherit" }}>sales@falu.com</a>
+              {" · "}
+              <a href="tel:+41552255151" style={{ color: "inherit" }}>+41 55 225 51 51</a>
+            </div>
           </div>
         </div>
       </section>
@@ -530,7 +527,7 @@ const crumb = {
 
 const hero = {
   wrap: { padding: "64px 0 80px" },
-  inner: { display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 80, alignItems: "center" },
+  inner: { display: "grid", gridTemplateColumns: "1fr 1.15fr", gap: 64, alignItems: "center" },
   left: {},
   eyebrow: { fontSize: 11, letterSpacing: "0.18em" },
   lede: { marginTop: 28, fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.6, maxWidth: 580 },
@@ -538,8 +535,7 @@ const hero = {
   specNum: { fontSize: 56, color: "var(--navy)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1 },
   specUnit: { fontSize: 16, color: "var(--ink-soft)" },
   specLabel: { fontSize: 11, color: "var(--ink-muted)", textTransform: "uppercase", letterSpacing: "0.18em", fontFamily: "var(--font-mono)" },
-  right: {},
-  thumbs: { marginTop: 16, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }
+  right: {}
 };
 
 const subnav = {

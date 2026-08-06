@@ -354,9 +354,11 @@ window.Careers = function Careers() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "flex-end" }}>
             <a href="mailto:jobs@falu.com" className="btn btn--primary btn--lg">Send a speculative application<span className="arrow" /></a>
-            <a href="mailto:jobs@falu.com" className="mono" style={{ color: "#9ab3cc", fontSize: 12, letterSpacing: "0.06em" }}>
-              jobs@falu.com · +41 55 225 51 51
-            </a>
+            <div className="mono" style={{ color: "#9ab3cc", fontSize: 12, letterSpacing: "0.06em" }}>
+              <a href="mailto:jobs@falu.com" style={{ color: "inherit" }}>jobs@falu.com</a>
+              {" · "}
+              <a href="tel:+41552255151" style={{ color: "inherit" }}>+41 55 225 51 51</a>
+            </div>
           </div>
         </div>
       </section>

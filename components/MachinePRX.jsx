@@ -1,4 +1,4 @@
-/* global React, FaluHeader, FaluFooter, SectionLabel, ImageSlot */
+/* global React, FaluHeader, FaluFooter, SectionLabel, MachineHeroVideo */
 const { useState: useStatePRX, useEffect: useEffectPRX } = React;
 
 // ============================================================
@@ -52,7 +52,7 @@ window.MachinePRX = function MachinePRX() {
 
       {/* HERO */}
       <section id="prx-overview" style={{ padding: "64px 0 80px" }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 80, alignItems: "center" }}>
+        <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1.15fr", gap: 64, alignItems: "center" }}>
           <div>
             <h1 style={{ fontSize: 64, lineHeight: 1.02 }}>
               PRX<br />
@@ -60,10 +60,11 @@ window.MachinePRX = function MachinePRX() {
                 Paper stick production machine
               </span>
             </h1>
-            <p style={{ marginTop: 28, fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.6, maxWidth: 580 }}>Fully automatic production of biodegradable, compostable paper sticks. Runs as a standalone stick line, or feeds a FALU cotton swab machine inline, removing the carton and the operator who loads it from the process entirely.
-
-
-
+            <p style={{ marginTop: 28, fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.6, maxWidth: 580 }}>
+              Fully automatic production of biodegradable, compostable paper sticks. Runs as a
+              standalone stick line, or feeds a FALU cotton swab machine inline, removing the
+              carton, the operator who loads it, and the standstill time from missing sticks
+              from the process entirely.
             </p>
             <div style={{ display: "flex", gap: 12, marginTop: 48 }}>
               <a className="btn btn--primary btn--lg" href="#contact">Request a quotation<span className="arrow" /></a>
@@ -71,12 +72,7 @@ window.MachinePRX = function MachinePRX() {
             </div>
           </div>
           <div>
-            <ImageSlot id="PRX-01" label="PRX, full unit, side view" ratio="4 / 5" />
-            <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
-              <ImageSlot id="PRX-02" label="Forming head" ratio="1 / 1" />
-              <ImageSlot id="PRX-03" label="Paper infeed" ratio="1 / 1" />
-              <ImageSlot id="PRX-04" label="Drying & buffer" ratio="1 / 1" />
-            </div>
+            <MachineHeroVideo id="PRX-VIDEO" label="PRX paper stick machine, hero video" />
           </div>
         </div>
       </section>
@@ -110,7 +106,7 @@ window.MachinePRX = function MachinePRX() {
         <div className="container">
           <SectionLabel num="01">Machine features</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "start", marginBottom: 56 }}>
-            <h2>From conditioned paper<br />to finished sticks.</h2>
+            <h2>From paper rolls<br />to finished sticks.</h2>
             <p style={{ color: "var(--ink-soft)", fontSize: 16, lineHeight: 1.65 }}>
               The PRX runs forming, drying, buffering and packing as one integrated system. It can
               supply other downstream processes, or sit directly upstream of a FALU swab machine so
@@ -120,12 +116,12 @@ window.MachinePRX = function MachinePRX() {
 
           <div style={prxFeatures.grid}>
             {[
-            ["Virtually zero paper waste", "FALU's uniquely optimised forming process makes the PRX the only paper stick machine on the market that produces virtually zero paper waste."],
+            ["Minimal paper waste", "FALU's optimised forming process uses nearly the entire paper web, so material loss stays far below what conventional paper stick lines produce."],
             ["Biodegradable & compostable", "Produces biodegradable, compostable paper sticks for cotton swabs, cosmetic and safety (baby) swabs, and lollipops."],
             ["Standalone or integrated", "Operates as a stand-alone stick line, or connects directly to FALU CT and CB series swab machines for fully automated stick supply."],
             ["Eliminates manual loading", "Produces, buffers and feeds sticks directly to the swab machine, removing manual carton loading and the operator errors that come with it."],
             ["Integrated buffer", "A buffer of 75'000 sticks harmonises stick and swab line speeds, around 30 minutes of swab production at 2'800 swabs/min."],
-            ["Forming, drying, buffering, packing", "Conditioned paper is shaped, dried to remove excess humidity, buffered, then packed or fed onward, all in one machine."]].
+            ["Forming, drying, buffering, packing", "Paper is shaped, dried to remove excess humidity, buffered, then packed or fed onward, all in one machine."]].
             map(([title, body]) =>
             <div key={title} style={prxFeatures.cell}>
               <h4 style={{ fontSize: 16 }}>{title}</h4>
@@ -196,7 +192,7 @@ window.MachinePRX = function MachinePRX() {
               <div style={{ ...prxLine.machine, ...prxLine.featured }}>
                 <div className="mono" style={{ ...prxLine.code, color: "var(--falu-red)" }}>PRX</div>
                 <div style={prxLine.label}>Paper stick production</div>
-                <p style={prxLine.note}>Forms paper sticks from conditioned paper and feeds the swab machine magazine directly.</p>
+                <p style={prxLine.note}>Forms paper sticks straight from the paper roll and feeds the swab machine magazine directly.</p>
                 <div className="mono" style={prxLine.here}>YOU ARE HERE</div>
               </div>
             </div>
@@ -213,7 +209,7 @@ window.MachinePRX = function MachinePRX() {
             </div>
             <div style={prxLine.arrow}>→</div>
             <div style={prxLine.col}>
-              <div className="mono" style={prxLine.colHeader}>03 · PACKING · 6 MACHINES</div>
+              <div className="mono" style={prxLine.colHeader}>03 · PACKING · 7 OPTIONS</div>
               <div style={prxLine.list}>
                 {[
                 ["SV-2X", "Cardboard boxes", "#sv2x"],
@@ -221,7 +217,8 @@ window.MachinePRX = function MachinePRX() {
                 ["ABS-2", "Polybag (auto)", "#polybag"],
                 ["RB-30A", "Round boxes", "#rb30a"],
                 ["SQB-2A", "Square boxes", "#sqb2a"],
-                ["BL-12", "Blister packaging", "#bl12"]].
+                ["BL-12", "Blister packaging", "#bl12"],
+                ["ROUND TABLE", "Manual placing (semi-auto)", "#packing"]].
                 map(([code, l, href]) =>
                 <a key={code} href={href} style={prxLine.row}>
                   <span className="mono" style={{ color: "#fff", fontWeight: 600 }}>{code} <span style={prxLine.linkArrow}>↗</span></span>
@@ -242,9 +239,11 @@ window.MachinePRX = function MachinePRX() {
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "flex-end" }}>
             <a href="#contact" className="btn btn--primary btn--lg">Request a quotation<span className="arrow" /></a>
-            <a href="mailto:sales@falu.com" className="mono" style={{ color: "var(--ink-muted)", fontSize: 12, letterSpacing: "0.06em" }}>
-              sales@falu.com · +41 55 225 51 51
-            </a>
+            <div className="mono" style={{ color: "var(--ink-muted)", fontSize: 12, letterSpacing: "0.06em" }}>
+              <a href="mailto:sales@falu.com" style={{ color: "inherit" }}>sales@falu.com</a>
+              {" · "}
+              <a href="tel:+41552255151" style={{ color: "inherit" }}>+41 55 225 51 51</a>
+            </div>
           </div>
         </div>
       </section>

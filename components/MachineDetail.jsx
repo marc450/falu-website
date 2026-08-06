@@ -1,4 +1,4 @@
-/* global React, FaluHeader, FaluFooter, SectionLabel, ImageSlot */
+/* global React, FaluHeader, FaluFooter, SectionLabel, MachineHeroVideo */
 const { useState: useStateMD, useEffect: useEffectMD } = React;
 
 // ============================================================
@@ -72,7 +72,7 @@ window.MachineDetail = function MachineDetail({ id }) {
 
       {/* HERO */}
       <section id="md-overview" style={{ padding: "64px 0 80px" }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 80, alignItems: "center" }}>
+        <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1.15fr", gap: 64, alignItems: "center" }}>
           <div>
             <h1 style={{ fontSize: 64, lineHeight: 1.02 }}>
               {m.code}<br />
@@ -96,12 +96,7 @@ window.MachineDetail = function MachineDetail({ id }) {
             </div>
           </div>
           <div>
-            <ImageSlot id={`${imgPrefix}-01`} label={m.heroImage} ratio="4 / 5" />
-            {m.thumbs &&
-            <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: `repeat(${m.thumbs.length}, 1fr)`, gap: 8 }}>
-                {m.thumbs.map((t, i) => <ImageSlot key={t} id={`${imgPrefix}-0${i + 2}`} label={t} ratio="1 / 1" />)}
-              </div>
-            }
+            <MachineHeroVideo id={`${imgPrefix}-VIDEO`} src={m.heroVideo} label={`${m.code}, hero video`} />
           </div>
         </div>
       </section>
@@ -200,9 +195,11 @@ window.MachineDetail = function MachineDetail({ id }) {
           <h2 style={{ color: "var(--navy)", maxWidth: 720 }}>{m.ctaHeadline}</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "flex-end" }}>
             <a href="#contact" className="btn btn--primary btn--lg">Request a quotation<span className="arrow" /></a>
-            <a href="mailto:sales@falu.com" className="mono" style={{ color: "var(--ink-muted)", fontSize: 12, letterSpacing: "0.06em" }}>
-              sales@falu.com · +41 55 225 51 51
-            </a>
+            <div className="mono" style={{ color: "var(--ink-muted)", fontSize: 12, letterSpacing: "0.06em" }}>
+              <a href="mailto:sales@falu.com" style={{ color: "inherit" }}>sales@falu.com</a>
+              {" · "}
+              <a href="tel:+41552255151" style={{ color: "inherit" }}>+41 55 225 51 51</a>
+            </div>
           </div>
         </div>
       </section>

@@ -2,6 +2,9 @@
  * Each entry is grounded in supplied fact sheets / live-site content.
  * RB-2 is from falu.com live site. Others marked PLACEHOLDER await
  * fact sheets, hard specs shown as [TBC].
+ *
+ * `heroVideo` is the single hero video every machine page carries. Leave it
+ * null and the hero renders a labelled placeholder until the file exists.
  */
 window.FALU_MACHINES = {
 
@@ -11,8 +14,7 @@ window.FALU_MACHINES = {
     family: "Cotton Pad Machinery",
     name: "Cotton pad bagging machine",
     lede: "Fully automatic packing machine that fills polybags or paper bags with cotton pads. Designed to run with the WR-2100 S cutting machine, receiving pads through metal cassettes and sealing each bag by heat stamp.",
-    heroImage: "RB-2, full unit",
-    thumbs: ["Cassette infeed", "Bagging mold", "Heat-seal unit"],
+    heroVideo: null, // "assets/video/<machine>-hero.mp4" once the footage is cut
     featuresHeadline: "Automated bagging,\nfrom cassette to sealed bag.",
     featuresLede: "The RB-2 connects to the WR-2100 S interface and takes over once pads are cut: it stacks, fills and seals without manual handling.",
     features: [
@@ -49,8 +51,7 @@ window.FALU_MACHINES = {
     family: "Cotton Swab Machinery",
     name: "Cardboard box packing machine",
     lede: "Fully automatic cardboard box packing machine for FALU CT and CB swab lines. It erects, fills, closes and seals flat pre-glued cartons, turning bulk swab output into a compact, retail-ready package and replacing plastic packaging with cardboard.",
-    heroImage: "SV-2X, full unit",
-    thumbs: ["Carton magazine", "Press module", "Hotmelt sealing"],
+    heroVideo: null, // "assets/video/<machine>-hero.mp4" once the footage is cut
     featuresHeadline: "Bulk swab output to\nsealed retail carton.",
     featuresLede: "The SV-2X synchronises directly with the CB1, taking swabs straight from production and presenting them in a printable cardboard box, all without manual handling.",
     features: [
@@ -89,8 +90,7 @@ window.FALU_MACHINES = {
     family: "Cotton Swab Machinery",
     name: "Round box packing machine",
     lede: "Fully automatic packing machine that fills round boxes with cotton swabs. Combines with all FALU CT and CB swab machines to dispense boxes, fill a predefined swab count, and close them with their lids.",
-    heroImage: "RB-30A, full unit",
-    thumbs: ["Box dispenser", "Transfer wheel", "Lid closing unit"],
+    heroVideo: null, // "assets/video/<machine>-hero.mp4" once the footage is cut
     featuresHeadline: "Round boxes, dispensed,\nfilled and closed.",
     featuresLede: "The RB-30A handles the full round-box cycle, gently and consistently, from box dispensing through gripper-placed filling to automatic lid closing.",
     features: [
@@ -129,8 +129,7 @@ window.FALU_MACHINES = {
     family: "Cotton Swab Machinery",
     name: "Polybag packing machines",
     lede: "Two polybag packing machines for the CB1 series: the BV-2M is semi-automatic with manual sealing, the ABS-2 is fully automatic with automated sealing. Both pack cotton swabs into polyethylene or paper bags.",
-    heroImage: "ABS-2, full unit",
-    thumbs: ["Filling cavity", "Bag station", "Zipper-lock seal"],
+    heroVideo: null, // "assets/video/<machine>-hero.mp4" once the footage is cut
     featuresHeadline: "Polybag packing,\nsemi or fully automatic.",
     featuresLede: "Swabs transfer from the production machine into a cavity, then push into the bag at the filling station. Choose manual sealing with the BV-2M or fully automated sealing with the ABS-2.",
     features: [
@@ -168,8 +167,7 @@ window.FALU_MACHINES = {
     family: "Cotton Swab Machinery",
     name: "Square box packing machine",
     lede: "Fully automatic packing machine that fills square boxes with cotton swabs. Combines with all FALU CT and CB swab machines to erect cartons, fill a predefined swab count, and close them, producing a compact, retail-ready square pack.",
-    heroImage: "SQB-2A, full unit",
-    thumbs: ["Carton magazine", "Filling station", "Lid closing unit"],
+    heroVideo: null, // "assets/video/<machine>-hero.mp4" once the footage is cut
     featuresHeadline: "Square boxes, erected,\nfilled and closed.",
     featuresLede: "The SQB-2A handles the full square-carton cycle automatically, from carton erection through gently filled, counted swab loads to lid closing.",
     features: [
@@ -207,8 +205,7 @@ window.FALU_MACHINES = {
     family: "Cotton Swab Machinery",
     name: "Blister packing machine",
     lede: "Fully automatic blister packing machine for cotton swabs. Forms blister cavities from film, fills them with a counted set of swabs, and seals them with a backing card or foil, producing tamper-evident retail blister packs.",
-    heroImage: "BL-12, full unit",
-    thumbs: ["Forming station", "Filling station", "Sealing unit"],
+    heroVideo: null, // "assets/video/<machine>-hero.mp4" once the footage is cut
     featuresHeadline: "Blister packs, formed,\nfilled and sealed.",
     featuresLede: "The BL-12 handles the full blister cycle automatically, from thermoforming the cavity through counted swab filling to sealing a retail-ready, tamper-evident pack.",
     features: [
@@ -245,8 +242,7 @@ window.FALU_MACHINES = {
     family: "Cotton Pad Machinery",
     name: "Cotton pad production machine",
     lede: "Entry-capacity cotton pad production machine. Forms, embosses and cuts round or oval cosmetic pads from a cotton web, then stacks them ready for packing. A compact, flexible choice for emerging and specialty production.",
-    heroImage: "WR-600 V, full unit",
-    thumbs: ["Cotton web infeed", "Embossing roller", "Stacking unit"],
+    heroVideo: null, // "assets/video/<machine>-hero.mp4" once the footage is cut
     featuresHeadline: "Round and oval pads,\nformed, embossed and cut.",
     featuresLede: "The WR-600 V turns a cotton web into finished, embossed and stacked cosmetic pads, with format flexibility for round and oval shapes.",
     features: [
@@ -282,8 +278,7 @@ window.FALU_MACHINES = {
     family: "Cotton Pad Machinery",
     name: "Cotton pad production machine",
     lede: "High-volume cotton pad production machine. Forms, embosses and cuts round or oval cosmetic pads from a cotton web at high speed, then stacks them ready for packing. The flagship pad machine for established, high-output operations.",
-    heroImage: "WR-2100 S, full unit",
-    thumbs: ["Cotton web infeed", "Embossing roller", "Stacking unit"],
+    heroVideo: null, // "assets/video/<machine>-hero.mp4" once the footage is cut
     featuresHeadline: "High-volume pads,\nformed, embossed and cut.",
     featuresLede: "The WR-2100 S turns a cotton web into finished, embossed and stacked cosmetic pads at high output, with format flexibility for round and oval shapes.",
     features: [
@@ -319,8 +314,7 @@ window.FALU_MACHINES = {
     family: "Cotton Pad Machinery",
     name: "Cotton pad cutting machine",
     lede: "Semi-automatic cutting machine for square and rectangular cotton pads. Pulls cotton from a roll, embosses an optional pattern, then stamps pads to size with no material waste. Up to 1'000 pads per minute, filled into bags by an operator.",
-    heroImage: "VP-2, full unit",
-    thumbs: ["Cotton roll infeed", "Embossing cassette", "Stamping unit"],
+    heroVideo: null, // "assets/video/<machine>-hero.mp4" once the footage is cut
     featuresHeadline: "Square and rectangular pads,\ncut without waste.",
     featuresLede: "The VP-2 draws cotton from a roll, applies an optional embossed pattern, and stamps square or rectangular pads to measure. A semi-automatic machine where the operator handles final packaging.",
     features: [

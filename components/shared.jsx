@@ -297,3 +297,228 @@ window.ImageSlot = function ImageSlot({ id, label, ratio = "16 / 10", height, da
     </div>
   );
 };
+
+// ============ MACHINE HERO VIDEO ============
+// Every machine page carries one hero video instead of a cluster of stills.
+// It autoplays on load, loops, and is always muted: browsers block autoplay with
+// sound, and the delivered files are cut without an audio track anyway. Controls
+// are custom rather than the browser default so the bar matches the site: play /
+// pause, scrub, and full screen.
+//
+// `src` is the video file (e.g. "assets/video/cb1-hero.mp4"). Until the footage
+// exists, leave it off and the slot renders as a labelled placeholder, the same
+// way ImageSlot does.
+window.MachineHeroVideo = function MachineHeroVideo({ id, src, poster, label, ratio = "16 / 9" }) {
+  const wrapRef = React.useRef(null);
+  const videoRef = React.useRef(null);
+  const [playing, setPlaying] = React.useState(true);
+  const [time, setTime] = React.useState(0);
+  const [duration, setDuration] = React.useState(0);
+  const [full, setFull] = React.useState(false);
+
+  React.useEffect(() => {
+    const onChange = () => setFull(
+      (document.fullscreenElement || document.webkitFullscreenElement) === wrapRef.current
+    );
+    document.addEventListener("fullscreenchange", onChange);
+    document.addEventListener("webkitfullscreenchange", onChange);
+    return () => {
+      document.removeEventListener("fullscreenchange", onChange);
+      document.removeEventListener("webkitfullscreenchange", onChange);
+    };
+  }, []);
+
+  if (!src) return <VideoPlaceholder id={id} label={label} ratio={ratio} />;
+
+  const toggle = () => {
+    const el = videoRef.current;
+    if (!el) return;
+    if (el.paused) el.play(); else el.pause();
+  };
+
+  const seek = (e) => {
+    const el = videoRef.current;
+    if (!el || !duration) return;
+    el.currentTime = Number(e.target.value) / 1000 * duration;
+  };
+
+  const toggleFull = () => {
+    const box = wrapRef.current;
+    const el = videoRef.current;
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+      (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+      return;
+    }
+    // Fullscreen the wrapper so the FALU control bar stays visible. iPhone Safari
+    // has no element fullscreen at all and only fullscreens the video itself,
+    // with its native controls, so that is the fallback everywhere it fails.
+    const native = () => {if (el && el.webkitEnterFullscreen) el.webkitEnterFullscreen();};
+    const request = box && (box.requestFullscreen || box.webkitRequestFullscreen);
+    if (!request) { native(); return; }
+    try {
+      const pending = request.call(box);
+      if (pending && pending.catch) pending.catch(native);
+    } catch (err) {
+      native();
+    }
+  };
+
+  const pct = duration ? Math.round(time / duration * 1000) : 0;
+
+  return (
+    <div
+      ref={wrapRef}
+      style={{
+        position: "relative",
+        background: "#00213f",
+        border: "1px solid #103e6c",
+        aspectRatio: full ? undefined : ratio,
+        height: full ? "100%" : undefined,
+        overflow: "hidden",
+      }}
+    >
+      <video
+        ref={videoRef}
+        src={src}
+        poster={poster}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+        onTimeUpdate={(e) => setTime(e.currentTarget.currentTime)}
+        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration || 0)}
+        onClick={toggle}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: full ? "contain" : "cover",
+          display: "block",
+          cursor: "pointer",
+        }}
+      />
+      <div style={vid.bar}>
+        <button type="button" onClick={toggle} aria-label={playing ? "Pause" : "Play"} style={vid.btn}>
+          {playing ? "❚❚" : "▶"}
+        </button>
+        <input
+          type="range"
+          min="0"
+          max="1000"
+          value={pct}
+          onChange={seek}
+          aria-label="Seek"
+          style={vid.range}
+        />
+        <span className="mono" style={vid.time}>{faluClock(time)} / {faluClock(duration)}</span>
+        <button
+          type="button"
+          onClick={toggleFull}
+          aria-label={full ? "Exit full screen" : "Full screen"}
+          style={vid.btn}
+        >
+          {full ? "⤡" : "⤢"}
+        </button>
+      </div>
+    </div>
+  );
+};
+
+function VideoPlaceholder({ id, label, ratio }) {
+  return (
+    <div
+      style={{
+        background: "repeating-linear-gradient(135deg, #00213f 0 8px, #002e5b 8px 16px)",
+        border: "1px solid #103e6c",
+        aspectRatio: ratio,
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 14,
+      }}
+    >
+      <div style={{ ...vid.btn, width: 52, height: 52, fontSize: 18, border: "1px solid #103e6c", background: "rgba(0,33,63,0.85)" }}>▶</div>
+      <div
+        style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: 11,
+          textTransform: "uppercase",
+          letterSpacing: "0.16em",
+          color: "#9ab3cc",
+          background: "rgba(0,33,63,0.85)",
+          padding: "8px 14px",
+          border: "1px solid #103e6c",
+          textAlign: "center",
+        }}
+      >
+        {label}
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: 10,
+          left: 10,
+          fontFamily: "var(--font-mono)",
+          fontSize: 13,
+          fontWeight: 700,
+          letterSpacing: "0.14em",
+          color: "#fff",
+          background: "var(--falu-red)",
+          padding: "5px 9px",
+          textTransform: "uppercase",
+        }}
+      >
+        {id || "VIDEO · placeholder"}
+      </div>
+    </div>
+  );
+}
+
+function faluClock(seconds) {
+  const s = Math.max(0, Math.floor(seconds || 0));
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+}
+
+const vid = {
+  bar: {
+    position: "absolute",
+    left: 0, right: 0, bottom: 0,
+    display: "flex",
+    alignItems: "center",
+    gap: 14,
+    padding: "14px 16px",
+    background: "linear-gradient(180deg, transparent, rgba(0,20,40,0.85) 45%)",
+  },
+  btn: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 32,
+    height: 32,
+    flexShrink: 0,
+    padding: 0,
+    border: "1px solid rgba(255,255,255,0.35)",
+    background: "rgba(0,33,63,0.6)",
+    color: "#fff",
+    fontSize: 12,
+    lineHeight: 1,
+    cursor: "pointer",
+  },
+  range: {
+    flex: 1,
+    minWidth: 0,
+    height: 4,
+    accentColor: "var(--falu-red)",
+    cursor: "pointer",
+  },
+  time: {
+    flexShrink: 0,
+    fontSize: 11,
+    letterSpacing: "0.08em",
+    color: "#fff",
+  },
+};
