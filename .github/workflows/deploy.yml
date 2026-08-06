@@ -10,10 +10,13 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment, cancelling in-progress runs.
+# One deployment at a time. Queued runs are skipped in favour of the newest,
+# but a run that already started deploying is left to finish: cancelling it
+# mid-deploy strands a pending deployment on the Pages side, and every run
+# behind it then sits in `deployment_queued` until it times out.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -40,3 +43,6 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # Default is 10 min, which the Pages queue can exceed on a busy day.
+          timeout: 1800000
