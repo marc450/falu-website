@@ -5,21 +5,31 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# The built site is force-pushed to the gh-pages branch, which Pages serves.
-# We used to deploy through actions/deploy-pages, but that route queues on the
-# Pages deployment API — which spent 3-12 minutes on a 360 KB artifact and
-# regularly overran the action's fixed, unraisable 10-minute timeout. A commit
-# gets only one deployment there (the deployment id is the commit sha), so a
-# timeout meant that commit simply never published.
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
+# One deployment at a time, and never cancel one that is already deploying:
+# cancelling mid-deploy strands the deployment, and Pages then refuses every
+# later one for that commit.
+#
+# Known failure mode, entirely on GitHub's side: the deploy step can sit in
+# `deployment_queued` and abort after 10 minutes. It is not this repo — the
+# build takes ~20s and the artifact is 360 KB across 5 files. Verified on
+# 2026-08-06 that GitHub's own `pages build and deployment` workflow, on a
+# fresh commit via a gh-pages branch, times out identically: both routes go
+# through the same Pages deployment API. deploy-pages' `timeout` input is
+# capped at 600000 ms, and a commit gets exactly one deployment attempt (the
+# deployment id is the commit sha), so this cannot be retried or waited out
+# from here. When it happens, the site keeps serving the last good deploy and
+# the next push publishes.
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -29,18 +39,17 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
-      - name: Publish dist to gh-pages
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          touch dist/.nojekyll
-          cd dist
-          git init -q
-          git checkout -qb gh-pages
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -qm "Deploy $GITHUB_SHA"
-          git push -q --force \
-            "https://x-access-token:$GH_TOKEN@github.com/$GITHUB_REPOSITORY.git" gh-pages
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
