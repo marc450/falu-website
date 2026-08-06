@@ -1,5 +1,4 @@
 /* global React, FaluHeader, FaluFooter, SectionLabel, ImageSlot, MachineHeroVideo */
-const { useState, useEffect, useRef, useLayoutEffect } = React;
 
 // ============================================================
 // CB1 4.1, MACHINE DETAIL PAGE
@@ -7,56 +6,6 @@ const { useState, useEffect, useRef, useLayoutEffect } = React;
 // ============================================================
 
 window.MachineCB1 = function MachineCB1() {
-  const [activeTab, setActiveTab] = useState("features");
-  const tabRefs = useRef({});
-  const [underline, setUnderline] = useState({ left: 0, width: 0, visible: false });
-
-  const TABS = [
-    ["features", "Features"],
-    ["formats", "Swab formats"],
-    ["tech", "Technical data"],
-    ["options", "Options & retrofits"],
-    ["line", "Line integration"]
-  ];
-
-  // Smooth-scroll to a section, accounting for the sticky header (~84px) + subnav (56px).
-  const SCROLL_OFFSET = 140;
-  const scrollToSection = (id) => {
-    const el = document.getElementById(`section-${id}`);
-    if (!el) return;
-    const top = el.getBoundingClientRect().top + window.pageYOffset - SCROLL_OFFSET;
-    window.scrollTo({ top, behavior: "smooth" });
-  };
-
-  // Track which section is in view to highlight the right tab.
-  useEffect(() => {
-    const ids = ["overview", "features", "formats", "tech", "options", "line"];
-    const els = ids.map((id) => document.getElementById(`section-${id}`)).filter(Boolean);
-    if (!els.length) return;
-
-    const onScroll = () => {
-      const probe = SCROLL_OFFSET + 80; // a bit below the bar
-      let current = ids[0];
-      for (const el of els) {
-        if (el.getBoundingClientRect().top <= probe) current = el.id.replace("section-", "");
-      }
-      setActiveTab(current);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Slide the red underline to the active tab (hidden while in the hero/overview).
-  useLayoutEffect(() => {
-    const el = tabRefs.current[activeTab];
-    if (el) {
-      setUnderline({ left: el.offsetLeft, width: el.offsetWidth, visible: true });
-    } else {
-      setUnderline((u) => ({ ...u, visible: false }));
-    }
-  }, [activeTab]);
-
   return (
     <div style={{ background: "#fff" }}>
       <FaluHeader active="machinery" />
@@ -73,7 +22,7 @@ window.MachineCB1 = function MachineCB1() {
       </div>
 
       {/* HERO */}
-      <section id="section-overview" style={hero.wrap}>
+      <section style={hero.wrap}>
         <div className="container" style={hero.inner}>
           <div style={hero.left}>
             <h1 style={{ fontSize: 64, lineHeight: 1.02 }}>
@@ -100,39 +49,8 @@ window.MachineCB1 = function MachineCB1() {
         </div>
       </section>
 
-      {/* STICKY SUB-NAV */}
-      <div style={subnav.wrap}>
-        <div className="container" style={subnav.inner}>
-          {TABS.map(([id, label]) =>
-          <button
-            key={id}
-            ref={(el) => { tabRefs.current[id] = el; }}
-            onClick={() => {setActiveTab(id);scrollToSection(id);}}
-            style={{
-              ...subnav.tab,
-              color: activeTab === id ? "var(--falu-red)" : "var(--navy)"
-            }}>
-              {label}
-            </button>
-          )}
-          <span style={{ flex: 1 }} />
-          <span
-            style={{
-              position: "absolute",
-              bottom: 0,
-              left: underline.left,
-              width: underline.width,
-              height: 2,
-              background: "var(--falu-red)",
-              opacity: underline.visible ? 1 : 0,
-              transition: "left 280ms cubic-bezier(0.4, 0, 0.2, 1), width 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 160ms ease",
-              pointerEvents: "none"
-            }} />
-        </div>
-      </div>
-
       {/* FEATURES */}
-      <section id="section-features" style={{ padding: "96px 0", borderTop: "1px solid var(--rule)" }}>
+      <section style={{ padding: "96px 0", borderTop: "1px solid var(--rule)" }}>
         <div className="container">
           <SectionLabel num="01">Machine features</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "start", marginBottom: 56 }}>
@@ -184,7 +102,7 @@ window.MachineCB1 = function MachineCB1() {
       </section>
 
       {/* SWAB FORMATS */}
-      <section id="section-formats" style={{ padding: "96px 0", borderTop: "1px solid var(--rule)", background: "var(--bg-band)" }}>
+      <section style={{ padding: "96px 0", borderTop: "1px solid var(--rule)", background: "var(--bg-band)" }}>
         <div className="container">
           <SectionLabel num="02">Swab formats</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "start", marginBottom: 56 }}>
@@ -213,7 +131,7 @@ window.MachineCB1 = function MachineCB1() {
       </section>
 
       {/* TECHNICAL DATA */}
-      <section id="section-tech" style={{ padding: "96px 0", borderTop: "1px solid var(--rule)" }}>
+      <section style={{ padding: "96px 0", borderTop: "1px solid var(--rule)" }}>
         <div className="container">
           <SectionLabel num="03">Technical data</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "end", marginBottom: 48 }}>
@@ -259,7 +177,7 @@ window.MachineCB1 = function MachineCB1() {
       </section>
 
       {/* OPTIONS & RETROFITS */}
-      <section id="section-options" style={{ padding: "96px 0", background: "var(--bg-band)", borderTop: "1px solid var(--rule)" }}>
+      <section style={{ padding: "96px 0", background: "var(--bg-band)", borderTop: "1px solid var(--rule)" }}>
         <div className="container">
           <SectionLabel num="04">Options & available retrofits</SectionLabel>
           {/* AVAILABILITY STATEMENT — applies to every option and retrofit below */}
@@ -360,7 +278,7 @@ window.MachineCB1 = function MachineCB1() {
       </section>
 
       {/* LINE INTEGRATION */}
-      <section id="section-line" style={{ padding: "112px 0", background: "var(--navy)", borderTop: "1px solid var(--navy)", color: "#fff" }}>
+      <section style={{ padding: "112px 0", background: "var(--navy)", borderTop: "1px solid var(--navy)", color: "#fff" }}>
         <div className="container">
           <SectionLabel num="05" tone="dark">Line integration</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 64, alignItems: "end", marginBottom: 48 }}>
@@ -536,12 +454,6 @@ const hero = {
   specUnit: { fontSize: 16, color: "var(--ink-soft)" },
   specLabel: { fontSize: 11, color: "var(--ink-muted)", textTransform: "uppercase", letterSpacing: "0.18em", fontFamily: "var(--font-mono)" },
   right: {}
-};
-
-const subnav = {
-  wrap: { borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)", background: "#fff", position: "sticky", top: 84, zIndex: 40 },
-  inner: { display: "flex", alignItems: "center", gap: 4, height: 56, position: "relative" },
-  tab: { background: "transparent", border: "none", padding: "0 18px", height: "100%", fontFamily: "var(--font-sans)", fontSize: 13, fontWeight: 500, cursor: "pointer", letterSpacing: "-0.005em", transition: "color 160ms ease" }
 };
 
 const features = {
