@@ -1,5 +1,4 @@
 /* global React, FaluHeader, FaluFooter, SectionLabel, MachineHeroVideo */
-const { useState: useStatePRX, useEffect: useEffectPRX } = React;
 
 // ============================================================
 // PRX, PAPER STICK PRODUCTION MACHINE, DETAIL PAGE
@@ -8,33 +7,6 @@ const { useState: useStatePRX, useEffect: useEffectPRX } = React;
 // ============================================================
 
 window.MachinePRX = function MachinePRX() {
-  const [activeTab, setActiveTab] = useStatePRX("overview");
-  const SCROLL_OFFSET = 140;
-
-  const scrollToSection = (id) => {
-    const el = document.getElementById(`prx-${id}`);
-    if (!el) return;
-    const top = el.getBoundingClientRect().top + window.pageYOffset - SCROLL_OFFSET;
-    window.scrollTo({ top, behavior: "smooth" });
-  };
-
-  useEffectPRX(() => {
-    const ids = ["overview", "features", "tech", "line"];
-    const els = ids.map((id) => document.getElementById(`prx-${id}`)).filter(Boolean);
-    if (!els.length) return;
-    const onScroll = () => {
-      const probe = SCROLL_OFFSET + 80;
-      let current = ids[0];
-      for (const el of els) {
-        if (el.getBoundingClientRect().top <= probe) current = el.id.replace("prx-", "");
-      }
-      setActiveTab(current);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <div style={{ background: "#fff" }}>
       <FaluHeader active="machinery" />
@@ -51,7 +23,7 @@ window.MachinePRX = function MachinePRX() {
       </div>
 
       {/* HERO */}
-      <section id="prx-overview" style={{ padding: "64px 0 80px" }}>
+      <section style={{ padding: "64px 0 80px" }}>
         <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1.15fr", gap: 64, alignItems: "center" }}>
           <div>
             <h1 style={{ fontSize: 64, lineHeight: 1.02 }}>
@@ -77,32 +49,8 @@ window.MachinePRX = function MachinePRX() {
         </div>
       </section>
 
-      {/* STICKY SUB-NAV */}
-      <div style={prxSubnav.wrap}>
-        <div className="container" style={prxSubnav.inner}>
-          {[
-          ["overview", "Overview"],
-          ["features", "Features"],
-          ["tech", "Technical data"],
-          ["line", "Line integration"]].
-          map(([id, label]) =>
-          <button
-            key={id}
-            onClick={() => {setActiveTab(id);scrollToSection(id);}}
-            style={{
-              ...prxSubnav.tab,
-              color: activeTab === id ? "var(--falu-red)" : "var(--navy)",
-              borderBottomColor: activeTab === id ? "var(--falu-red)" : "transparent"
-            }}>
-            {label}
-          </button>
-          )}
-          <span style={{ flex: 1 }} />
-        </div>
-      </div>
-
       {/* FEATURES */}
-      <section id="prx-features" style={{ padding: "96px 0", borderTop: "1px solid var(--rule)" }}>
+      <section style={{ padding: "96px 0", borderTop: "1px solid var(--rule)" }}>
         <div className="container">
           <SectionLabel num="01">Machine features</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "start", marginBottom: 56 }}>
@@ -133,7 +81,7 @@ window.MachinePRX = function MachinePRX() {
       </section>
 
       {/* TECHNICAL DATA */}
-      <section id="prx-tech" style={{ padding: "96px 0", background: "var(--bg-band)", borderTop: "1px solid var(--rule)" }}>
+      <section style={{ padding: "96px 0", background: "var(--bg-band)", borderTop: "1px solid var(--rule)" }}>
         <div className="container">
           <SectionLabel num="02">Technical data</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "end", marginBottom: 48 }}>
@@ -175,7 +123,7 @@ window.MachinePRX = function MachinePRX() {
       </section>
 
       {/* LINE INTEGRATION */}
-      <section id="prx-line" style={{ padding: "112px 0", background: "var(--navy)", color: "#fff" }}>
+      <section style={{ padding: "112px 0", background: "var(--navy)", color: "#fff" }}>
         <div className="container">
           <SectionLabel num="03" tone="dark">Line integration</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 64, alignItems: "end", marginBottom: 48, marginTop: 32 }}>
@@ -259,12 +207,6 @@ const prxCrumb = {
   link: { color: "var(--ink-soft)" },
   sep: { color: "var(--rule)" },
   current: { color: "var(--navy)", fontWeight: 600 }
-};
-
-const prxSubnav = {
-  wrap: { borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)", background: "#fff", position: "sticky", top: 84, zIndex: 40 },
-  inner: { display: "flex", alignItems: "center", gap: 4, height: 56 },
-  tab: { background: "transparent", border: "none", borderBottom: "2px solid transparent", padding: "0 18px", height: "100%", fontFamily: "var(--font-sans)", fontSize: 13, fontWeight: 500, cursor: "pointer", letterSpacing: "-0.005em" }
 };
 
 const prxFeatures = {

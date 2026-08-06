@@ -1,45 +1,16 @@
 /* global React, FaluHeader, FaluFooter, SectionLabel, MachineHeroVideo */
-const { useState: useStateMD, useEffect: useEffectMD } = React;
 
 // ============================================================
 //  Generic, data-driven MACHINE DETAIL page.
 //  Each machine is a data object in window.FALU_MACHINES.
-//  Mirrors the CB1 / PRX template: breadcrumb, hero, sticky
-//  subnav, features, technical data, line context, CTA.
+//  Mirrors the CB1 / PRX template: breadcrumb, hero, features,
+//  technical data, line context, CTA.
 // ============================================================
 
 window.MachineDetail = function MachineDetail({ id }) {
   const m = (window.FALU_MACHINES || {})[id];
   // Placeholder shot numbers are namespaced per machine: RB2-01, RB2-02, ...
   const imgPrefix = String(id || "").toUpperCase();
-  const [activeTab, setActiveTab] = useStateMD("overview");
-  const SCROLL_OFFSET = 140;
-
-  const sections = [["overview", "Overview"], ["features", "Features"], ["tech", "Technical data"], ["line", "Line context"]];
-
-  const scrollToSection = (sid) => {
-    const el = document.getElementById(`md-${sid}`);
-    if (!el) return;
-    const top = el.getBoundingClientRect().top + window.pageYOffset - SCROLL_OFFSET;
-    window.scrollTo({ top, behavior: "smooth" });
-  };
-
-  useEffectMD(() => {
-    const ids = sections.map((s) => s[0]);
-    const els = ids.map((sid) => document.getElementById(`md-${sid}`)).filter(Boolean);
-    if (!els.length) return;
-    const onScroll = () => {
-      const probe = SCROLL_OFFSET + 80;
-      let current = ids[0];
-      for (const el of els) {
-        if (el.getBoundingClientRect().top <= probe) current = el.id.replace("md-", "");
-      }
-      setActiveTab(current);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [id]);
 
   if (!m) {
     return (
@@ -66,12 +37,19 @@ window.MachineDetail = function MachineDetail({ id }) {
           <span style={md.crumbSep}>/</span>
           <a href={familyHref} style={md.crumbLink}>{m.family}</a>
           <span style={md.crumbSep}>/</span>
+          {/* Machines that live under an overview page, e.g. the packaging machines. */}
+          {m.parent &&
+          <React.Fragment>
+              <a href={m.parent.href} style={md.crumbLink}>{m.parent.label}</a>
+              <span style={md.crumbSep}>/</span>
+            </React.Fragment>
+          }
           <span style={md.crumbCurrent}>{m.code}</span>
         </div>
       </div>
 
       {/* HERO */}
-      <section id="md-overview" style={{ padding: "64px 0 80px" }}>
+      <section style={{ padding: "64px 0 80px" }}>
         <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1.15fr", gap: 64, alignItems: "center" }}>
           <div>
             <h1 style={{ fontSize: 64, lineHeight: 1.02 }}>
@@ -101,28 +79,8 @@ window.MachineDetail = function MachineDetail({ id }) {
         </div>
       </section>
 
-      {/* STICKY SUB-NAV */}
-      <div style={md.subnavWrap}>
-        <div className="container" style={md.subnavInner}>
-          {sections.map(([sid, label]) =>
-          <button
-            key={sid}
-            onClick={() => {setActiveTab(sid);scrollToSection(sid);}}
-            style={{
-              ...md.tab,
-              color: activeTab === sid ? "var(--falu-red)" : "var(--navy)",
-              borderBottomColor: activeTab === sid ? "var(--falu-red)" : "transparent"
-            }}>
-            
-              {label}
-            </button>
-          )}
-          <span style={{ flex: 1 }} />
-        </div>
-      </div>
-
       {/* FEATURES */}
-      <section id="md-features" style={{ padding: "96px 0", borderTop: "1px solid var(--rule)" }}>
+      <section style={{ padding: "96px 0", borderTop: "1px solid var(--rule)" }}>
         <div className="container">
           <SectionLabel num="01">Machine features</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "start", marginBottom: 56 }}>
@@ -142,7 +100,7 @@ window.MachineDetail = function MachineDetail({ id }) {
       </section>
 
       {/* TECHNICAL DATA */}
-      <section id="md-tech" style={{ padding: "96px 0", background: "var(--bg-band)", borderTop: "1px solid var(--rule)" }}>
+      <section style={{ padding: "96px 0", background: "var(--bg-band)", borderTop: "1px solid var(--rule)" }}>
         <div className="container">
           <SectionLabel num="02">Technical data</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "end", marginBottom: 48 }}>
@@ -164,7 +122,7 @@ window.MachineDetail = function MachineDetail({ id }) {
       </section>
 
       {/* LINE CONTEXT */}
-      <section id="md-line" style={{ padding: "112px 0", background: "var(--navy)", color: "#fff" }}>
+      <section style={{ padding: "112px 0", background: "var(--navy)", color: "#fff" }}>
         <div className="container">
           <SectionLabel num="03" tone="dark">Line context</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 64, alignItems: "end", marginBottom: 48, marginTop: 32 }}>
@@ -219,10 +177,6 @@ const md = {
   statLabel: { fontSize: 11, color: "var(--ink-muted)", textTransform: "uppercase", letterSpacing: "0.18em", fontFamily: "var(--font-mono)" },
   statNum: { fontSize: 48, color: "var(--navy)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1 },
   statUnit: { fontSize: 15, color: "var(--ink-soft)" },
-
-  subnavWrap: { borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)", background: "#fff", position: "sticky", top: 84, zIndex: 40 },
-  subnavInner: { display: "flex", alignItems: "center", gap: 4, height: 56 },
-  tab: { background: "transparent", border: "none", borderBottom: "2px solid transparent", padding: "0 18px", height: "100%", fontFamily: "var(--font-sans)", fontSize: 13, fontWeight: 500, cursor: "pointer", letterSpacing: "-0.005em" },
 
   featGrid: (n) => ({ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 0, borderTop: "1px solid var(--rule)", borderLeft: "1px solid var(--rule)" }),
   featCell: { padding: "28px 24px", borderRight: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)" },

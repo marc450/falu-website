@@ -49,6 +49,7 @@ window.FALU_MACHINES = {
   "sv2x": {
     code: "SV-2X",
     family: "Cotton Swab Machinery",
+    parent: { label: "Packaging", href: "#packing" },
     name: "Cardboard box packaging machine",
     lede: "Fully automatic cardboard box packaging machine for FALU CT and CB swab lines. It erects, fills, closes and seals flat pre-glued cartons, turning bulk swab output into a compact, retail-ready package and replacing plastic packaging with cardboard.",
     heroVideo: null, // "assets/video/<machine>-hero.mp4" once the footage is cut
@@ -88,6 +89,7 @@ window.FALU_MACHINES = {
   "rb30a": {
     code: "RB-30A",
     family: "Cotton Swab Machinery",
+    parent: { label: "Packaging", href: "#packing" },
     name: "Round box packaging machine",
     lede: "Fully automatic packaging machine that fills round boxes with cotton swabs. Combines with all FALU CT and CB swab machines to dispense boxes, fill a predefined swab count, and close them with their lids.",
     heroVideo: null, // "assets/video/<machine>-hero.mp4" once the footage is cut
@@ -127,6 +129,7 @@ window.FALU_MACHINES = {
   "polybag": {
     code: "BV-2M / ABS-2",
     family: "Cotton Swab Machinery",
+    parent: { label: "Packaging", href: "#packing" },
     name: "Polybag packaging machines",
     lede: "Two polybag packaging machines for the CB1 series: the BV-2M is semi-automatic with manual sealing, the ABS-2 is fully automatic with automated sealing. Both pack cotton swabs into polyethylene or paper bags.",
     heroVideo: null, // "assets/video/<machine>-hero.mp4" once the footage is cut
@@ -165,6 +168,7 @@ window.FALU_MACHINES = {
   "sqb2a": {
     code: "SQB-2A",
     family: "Cotton Swab Machinery",
+    parent: { label: "Packaging", href: "#packing" },
     name: "Square box packaging machine",
     lede: "Fully automatic packaging machine that fills square boxes with cotton swabs. Combines with all FALU CT and CB swab machines to erect cartons, fill a predefined swab count, and close them, producing a compact, retail-ready square pack.",
     heroVideo: null, // "assets/video/<machine>-hero.mp4" once the footage is cut
@@ -203,6 +207,7 @@ window.FALU_MACHINES = {
   "bl12": {
     code: "BL-12",
     family: "Cotton Swab Machinery",
+    parent: { label: "Packaging", href: "#packing" },
     name: "Blister packaging machine",
     lede: "Fully automatic blister packaging machine for cotton swabs. Forms blister cavities from film, fills them with a counted set of swabs, and seals them with a backing card or foil, producing tamper-evident retail blister packs.",
     heroVideo: null, // "assets/video/<machine>-hero.mp4" once the footage is cut
