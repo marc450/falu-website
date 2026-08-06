@@ -12,8 +12,13 @@ permissions:
 
 # One deployment at a time. Queued runs are skipped in favour of the newest,
 # but a run that already started deploying is left to finish: cancelling it
-# mid-deploy strands a pending deployment on the Pages side, and every run
-# behind it then sits in `deployment_queued` until it times out.
+# mid-deploy strands a pending deployment on the Pages side. This matches
+# GitHub's own Pages starter workflow.
+#
+# Note: deploy-pages can still fail with "Timeout reached" after 10 minutes of
+# `deployment_queued`. That is GitHub's Pages queue, not this repo — the build
+# job always passes, and the next push deploys normally. Its `timeout` input is
+# capped at 600000 ms, so it cannot be raised.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -43,6 +48,3 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          # Default is 10 min, which the Pages queue can exceed on a busy day.
-          timeout: 1800000
