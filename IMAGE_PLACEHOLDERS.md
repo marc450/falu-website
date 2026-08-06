@@ -20,7 +20,7 @@ renumbers another.
 | `MACH-` | Machinery index (`#machinery`) | 3 |
 | `SWAB-` | Cotton swab machinery (`#cotton-swab-machinery`) | 4 |
 | `PAD-` | Cotton pad machinery (`#cotton-pad-machinery`) | 3 |
-| `PACK-` | Packing machines (`#packing`) | 6 |
+| `PACK-` | Packaging machines (`#packing`) | 6 |
 | `CB1-` | CB1 4.1 product page (`#cb1`) | 8 stills + 2 videos |
 | `PRX-` | PRX product page (`#prx`) | 1 video |
 | `ABOUT-` | About (`#about`) | 2 |
@@ -53,7 +53,7 @@ renumbers another.
 |---|---|---|
 | `SWAB-01` | PRX paper stick winder, full unit | Landscape, fills half the block |
 | `SWAB-02` | CB1 4.1 cotton swab production machine | Landscape, fills half the block |
-| `SWAB-03` | Packing line, multiple format options | Landscape, fills half the block |
+| `SWAB-03` | Packaging line, multiple format options | Landscape, fills half the block |
 | `SWAB-04` | Complete CB1 production line, **video walkthrough** | Video 16:9 |
 
 ## Cotton pad machinery — `#cotton-pad-machinery`
@@ -61,19 +61,19 @@ renumbers another.
 | ID | Shot | Format |
 |---|---|---|
 | `PAD-01` | WR-2100 cotton pad production machine | Landscape, fills half the block |
-| `PAD-02` | RB-2 cotton pad polybag packing machine | Landscape, fills half the block |
+| `PAD-02` | RB-2 cotton pad polybag packaging machine | Landscape, fills half the block |
 | `PAD-03` | Complete WR-2100 S + RB-2 pad line, **video walkthrough** | Video 16:9 |
 
-## Packing machines — `#packing`
+## Packaging machines — `#packing`
 
 | ID | Shot | Format |
 |---|---|---|
-| `PACK-01` | SV-2X cardboard box packing machine | Landscape 16:9 |
-| `PACK-02` | ABS-2 polybag packing machine | Landscape 16:9 |
-| `PACK-03` | RB-30A round box packing machine | Landscape 16:9 |
-| `PACK-04` | SQB-2A square box packing machine | Landscape 16:9 |
-| `PACK-05` | BL-12 blister packing machine | Landscape 16:9 |
-| `PACK-06` | Round table semi-automatic packing | Landscape 16:9 |
+| `PACK-01` | SV-2X cardboard box packaging machine | Landscape 16:9 |
+| `PACK-02` | ABS-2 polybag packaging machine | Landscape 16:9 |
+| `PACK-03` | RB-30A round box packaging machine | Landscape 16:9 |
+| `PACK-04` | SQB-2A square box packaging machine | Landscape 16:9 |
+| `PACK-05` | BL-12 blister packaging machine | Landscape 16:9 |
+| `PACK-06` | Round table semi-automatic packaging | Landscape 16:9 |
 
 ## CB1 4.1 — `#cb1`
 

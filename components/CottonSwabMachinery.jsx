@@ -3,7 +3,7 @@
 // ============================================================
 //  /machinery/cotton-swab-machinery
 //  Built from wireframe: hero, vertically stacked process blocks
-//  (paper stick → swab → packing), tiny CTA. No bottom navy CTA.
+//  (paper stick → swab → packaging), tiny CTA. No bottom navy CTA.
 // ============================================================
 window.CottonSwabMachinery = function CottonSwabMachinery() {
   return (
@@ -64,7 +64,7 @@ as individual machines into existing lines.
             <ProcessBlock
               num="02"
               title="Cotton swab production"
-              body="Cotton is applied to the sticks to form the finished swab. The cotton swab machine can operate standalone without a paper stick production machine. It runs with both paper and plastic sticks from any supplier. It integrates seamlessly with all FALU packing and paper stick production machinery for a continuous, efficient flow."
+              body="Cotton is applied to the sticks to form the finished swab. The cotton swab machine can operate standalone without a paper stick production machine. It runs with both paper and plastic sticks from any supplier. It integrates seamlessly with all FALU packaging and paper stick production machinery for a continuous, efficient flow."
               imgId="SWAB-02"
               image="CB1 4.1 cotton swab production machine"
               links={[
@@ -74,12 +74,12 @@ as individual machines into existing lines.
             <ProcessConnector />
             <ProcessBlock
               num="03"
-              title="Packing"
-              body="Finished swabs are packed either semi-automatically (auto-sorted, hand-placed) or fully automatically (sorted, filled and closed without manual intervention). Six packing machines across five formats: cardboard box, polybag, round box, square box, and blister."
+              title="Packaging"
+              body="Finished swabs are packed either semi-automatically (auto-sorted, hand-placed) or fully automatically (sorted, filled and closed without manual intervention). Six packaging machines across five formats: cardboard box, polybag, round box, square box, and blister."
               imgId="SWAB-03"
-              image="Packing line, multiple format options"
+              image="Packaging line, multiple format options"
               links={[
-              ["See all packing machines", "#packing"]]
+              ["See all packaging machines", "#packing"]]
               } />
           </div>
 
@@ -101,7 +101,7 @@ as individual machines into existing lines.
               The three steps as one inline FALU line.
             </h2>
             <p style={{ color: "#cfdcec", fontSize: 16, lineHeight: 1.65 }}>
-              Stick production, swab forming and packing, all engineered and serviced by FALU.
+              Stick production, swab forming and packaging, all engineered and serviced by FALU.
               Click any model below to see its product page.
             </p>
           </div>
@@ -134,15 +134,15 @@ as individual machines into existing lines.
             </div>
             <div style={lineRow.arrow}>→</div>
             <div style={lineRow.col}>
-              <div className="mono" style={lineRow.colHeader}>03 · PACKING · 6 MACHINES</div>
+              <div className="mono" style={lineRow.colHeader}>03 · PACKAGING · 6 MACHINES</div>
               <div style={lineRow.list}>
                 {[
-                ["SV-2X", "Cardboard box packing", "#sv2x"],
-                ["BV-2M", "Polybag packing (semi-auto)", "#polybag"],
-                ["ABS-2", "Polybag packing (auto)", "#polybag"],
-                ["RB-30A", "Round box packing", "#rb30a"],
-                ["SQB-2A", "Square box packing", "#sqb2a"],
-                ["BL-12", "Blister packing", "#bl12"]].
+                ["SV-2X", "Cardboard box packaging", "#sv2x"],
+                ["BV-2M", "Polybag packaging (semi-auto)", "#polybag"],
+                ["ABS-2", "Polybag packaging (auto)", "#polybag"],
+                ["RB-30A", "Round box packaging", "#rb30a"],
+                ["SQB-2A", "Square box packaging", "#sqb2a"],
+                ["BL-12", "Blister packaging", "#bl12"]].
                 map(([code, label, href]) =>
                 <a key={code} href={href} style={lineRow.row}>
                     <span className="mono" style={{ color: "#fff", fontWeight: 600 }}>{code} <span style={lineRow.linkArrow}>↗</span></span>

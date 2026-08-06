@@ -106,7 +106,7 @@ window.Machinery = function Machinery() {
                 {[
                 ["Production flow & capacity", "Output forecasts by shift pattern, format and downtime assumptions, matched to your business plan."],
                 ["Factory layout & space", "CAD layout for your factory floor, including service zones, utilities and material flow."],
-                ["Line concept creation", "End-to-end line concept covering stick supply, swab production, packing and inspection."],
+                ["Line concept creation", "End-to-end line concept covering stick supply, swab production, packaging and inspection."],
                 ["Capital sequencing", "Phased investment plan, retrofit-first paths where appropriate to spread capital expenditure."]].
                 map(([t, b]) =>
                 <div key={t}>

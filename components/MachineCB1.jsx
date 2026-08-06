@@ -84,7 +84,7 @@ window.MachineCB1 = function MachineCB1() {
             </h1>
             <p style={hero.lede}>
               Versatile high-speed swab former designed to integrate with the PRX paper stick
-              machine upstream and any of six FALU packing machines downstream. Engineered for
+              machine upstream and any of six FALU packaging machines downstream. Engineered for
               decades of operation.
             </p>
 
@@ -153,7 +153,7 @@ window.MachineCB1 = function MachineCB1() {
             ["Forming", "Precise control of swab forming through pneumatic pressure adjustment. Most parameters adjustable on the operator panel."],
             ["Process monitoring", "Automatic monitoring of each cotton sliver strand and stick feeding from the magazine. Machine stops on failure to prevent waste."],
             ["Belt transfer system", "Primary belt transfer replaces chain drive, longer lifetime, reduced cleaning effort, no contamination risk from grease."],
-            ["Packaging interface", "Continuous moving packaging system ensures fast and smooth packing cycles into any of six FALU packing machines."],
+            ["Packaging interface", "Continuous moving transfer system ensures fast and smooth cycles into any of six FALU packaging machines."],
             ["Encapsulation", "Full encapsulation reduces noise and cotton dust emissions. Improved guide rail system design throughout."]].
             map(([title, body]) =>
             <div key={title} style={features.cell}>
@@ -338,7 +338,7 @@ window.MachineCB1 = function MachineCB1() {
               title="Swab drying"
               items={[
               ["Swab heating unit", "Pre-dries the cotton swabs before packaging. Guide rails, tubes, heating coil and fan mounted on the secondary chain."],
-              ["Industrial drying system", "Inline drying for immediate packing in airtight packages. Compact line design, full encapsulation, internal air circulation, lower energy and operating costs."]]
+              ["Industrial drying system", "Inline drying for immediate packaging in airtight packages. Compact line design, full encapsulation, internal air circulation, lower energy and operating costs."]]
               } />
 
             <OptionGroup

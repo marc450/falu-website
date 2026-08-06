@@ -74,8 +74,6 @@ window.HomepageB = function HomepageB() {
               num: "01",
               title: "Cotton Swab Production",
               desc: "Machines for automated and semi-automated cotton swab manufacturing, from a single machine to a complete line. Compatible with paper, wood and plastic sticks.",
-              formatsLabel: "Packing formats",
-              formats: "Cardboard boxes · Polybags · Round boxes · Square boxes · Blisters · Round table",
               cta: "Cotton Swab Machinery",
               href: "#cotton-swab-machinery",
               imgLabel: "Cotton swab production line"
@@ -83,7 +81,7 @@ window.HomepageB = function HomepageB() {
             {
               num: "02",
               title: "Cotton Pad Production",
-              desc: "Machines for automatic and semi-automatic cosmetic pad manufacturing. Two capacity classes for lower- and high-volume operations, plus a dedicated automated packing line.",
+              desc: "Machines for automatic and semi-automatic cosmetic pad manufacturing. Two capacity classes for lower- and high-volume operations, plus a dedicated automated packaging line.",
               formatsLabel: "Pad formats",
               formats: "Round pads · Oval pads · Square pads · Baby pads",
               cta: "Cotton Pad Machinery",
@@ -108,10 +106,12 @@ window.HomepageB = function HomepageB() {
                 <div style={famB.textCol}>
                   <h3 style={{ fontSize: 36, lineHeight: 1.1, letterSpacing: "-0.02em" }}>{f.title}</h3>
                   <p style={{ marginTop: 18, color: "var(--ink-soft)", fontSize: 16, lineHeight: 1.65, maxWidth: 520 }}>{f.desc}</p>
+                  {f.formats &&
                   <div style={famB.formats}>
-                    <div className="mono" style={famB.formatsLabel}>{f.formatsLabel}</div>
-                    <div className="mono" style={famB.formatsList}>{f.formats}</div>
-                  </div>
+                      <div className="mono" style={famB.formatsLabel}>{f.formatsLabel}</div>
+                      <div className="mono" style={famB.formatsList}>{f.formats}</div>
+                    </div>
+                  }
                   <a href={f.href} className="btn btn--minimal" style={{ marginTop: 24 }}>View {f.cta}<span className="arrow" /></a>
                 </div>
               </div>
@@ -299,7 +299,7 @@ window.HomepageB = function HomepageB() {
 const FALU_COUNTRIES = new Set([
 "US", "CA", "MX", "BR", "CL", "PE", "PR", "PA", "CO", "VE", "EC", "UY", "AR",
 "IS", "IE", "GB", "FR", "BE", "CH", "DE", "AT", "DK", "SE", "FI",
-"UA", "RU", "GR", "BG", "RS", "RO", "HU", "CZ", "PL", "IT", "ES", "PT", "LT", "MK", "HR",
+"UA", "RU", "GR", "BG", "RS", "RO", "HU", "CZ", "PL", "SK", "SI", "IT", "ES", "PT", "LT", "MK", "HR",
 "TR", "AM", "IR", "IQ", "IL", "JO", "LB", "AE", "BH",
 "EG", "LY", "TN", "DZ", "ML", "CI", "BJ", "NG", "KE", "ZW", "ZA",
 "PK", "IN", "TH", "VN", "MY", "ID", "PH",

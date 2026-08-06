@@ -3,7 +3,7 @@
 // ============================================================
 //  /machinery/cotton-pad-machinery
 //  Family overview. Mirrors cotton-swab template: process blocks
-//  (pad production -> packing), complete line, benefits.
+//  (pad production -> packaging), complete line, benefits.
 // ============================================================
 window.CottonPadMachinery = function CottonPadMachinery() {
   return (
@@ -32,7 +32,7 @@ window.CottonPadMachinery = function CottonPadMachinery() {
             </h1>
             <p style={{ fontSize: 18, lineHeight: 1.6, color: "var(--ink-soft)" }}>
               FALU manufactures machinery for the industrial production of cosmetic cotton pads.
-              Two production capacities, plus an automated packing line, run standalone or as a
+              Two production capacities, plus an automated packaging line, run standalone or as a
               complete inline system.
             </p>
           </div>
@@ -65,10 +65,10 @@ window.CottonPadMachinery = function CottonPadMachinery() {
             <PadConnector />
             <PadBlock
               num="02"
-              title="Packing"
+              title="Packaging"
               body="The RB-2 fills polybags or paper bags with cotton pads, fully automatically. It connects to the WR-2100 S interface and receives pads via metal cassettes that stack them flawlessly, then pushes them through packaging molds into bags. Filled bags pass to the sealing unit and are closed by heat stamp. Up to 52 bags per minute, typically 50 to 120 pads per bag."
               imgId="PAD-02"
-              image="RB-2 cotton pad polybag packing machine"
+              image="RB-2 cotton pad polybag packaging machine"
               links={[
               ["RB-2", "Polybag & paper bag", "#rb2"]]
               } />
@@ -88,10 +88,10 @@ window.CottonPadMachinery = function CottonPadMachinery() {
           <SectionLabel num="02" tone="dark">The complete line</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 64, alignItems: "end", marginBottom: 48, marginTop: 32 }}>
             <h2 style={{ color: "#fff", maxWidth: 760, fontSize: 44, lineHeight: 1.1, letterSpacing: "-0.02em" }}>
-              Pad production and packing as one inline FALU line.
+              Pad production and packaging as one inline FALU line.
             </h2>
             <p style={{ color: "#cfdcec", fontSize: 16, lineHeight: 1.65 }}>
-              Production and packing, engineered and serviced by FALU. Click any model below to
+              Production and packaging, engineered and serviced by FALU. Click any model below to
               see its product page.
             </p>
           </div>
@@ -118,11 +118,11 @@ window.CottonPadMachinery = function CottonPadMachinery() {
             </div>
             <div style={padLine.arrow}>→</div>
             <div style={padLine.col}>
-              <div className="mono" style={padLine.colHeader}>02 · PACKING</div>
+              <div className="mono" style={padLine.colHeader}>02 · PACKAGING</div>
               <a href="#rb2" style={padLine.link}>
                 <div style={padLine.machine}>
                   <div className="mono" style={padLine.code}>RB-2 <span style={padLine.linkArrow}>↗</span></div>
-                  <div style={padLine.label}>Polybag &amp; paper bag packing</div>
+                  <div style={padLine.label}>Polybag &amp; paper bag packaging</div>
                   <p style={padLine.note}>Fills and heat-seals bags at up to 52 per minute, connected to the WR-series interface.</p>
                 </div>
               </a>
@@ -133,8 +133,8 @@ window.CottonPadMachinery = function CottonPadMachinery() {
             <h2 style={padBenefits.label}>Why a complete FALU line.</h2>
             <div style={padBenefits.grid}>
               {[
-                ["Continuous inline flow", "Pads pass straight from the WR-2100 S into the RB-2 packer via metal cassettes, with no manual transfer between production and packing."],
-                ["One supplier, one contract", "Production and packing engineered to work together, commissioned and serviced by FALU from Rüti."],
+                ["Continuous inline flow", "Pads pass straight from the WR-2100 S into the RB-2 packer via metal cassettes, with no manual transfer between production and packaging."],
+                ["One supplier, one contract", "Production and packaging engineered to work together, commissioned and serviced by FALU from Rüti."],
                 ["Scales with demand", "Start with the WR-600 V and move to the WR-2100 S, or add the RB-2 packer to an existing WR machine as volume grows."]
               ].map(([t, b]) => (
                 <div key={t} style={padBenefits.benefit}>

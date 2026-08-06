@@ -2,50 +2,50 @@
 
 // ============================================================
 //  /machinery/cotton-swab-machinery/packing
-//  Overview of all cotton swab packing machines. Each card links
+//  Overview of all cotton swab packaging machines. Each card links
 //  to its machine detail page. Format-led, scannable.
 // ============================================================
 window.PackingMachines = function PackingMachines() {
   const machines = [
   {
     code: "SV-2X",
-    name: "Cardboard box packing",
-    desc: "Fully automatic cardboard box packing. Erects, fills, closes and seals flat cartons, replacing plastic packaging with cardboard.",
+    name: "Cardboard box packaging",
+    desc: "Fully automatic cardboard box packaging. Erects, fills, closes and seals flat cartons, replacing plastic packaging with cardboard.",
     automation: ["full"],
     href: "#sv2x",
-    img: "SV-2X cardboard box packing machine"
+    img: "SV-2X cardboard box packaging machine"
   },
   {
     code: "BV-2M / ABS-2",
-    name: "Polybag packing",
-    desc: "Semi-automatic (BV-2M) or fully automatic (ABS-2) polybag packing. Polyethylene or paper bags, optional zipper-lock closure.",
+    name: "Polybag packaging",
+    desc: "Semi-automatic (BV-2M) or fully automatic (ABS-2) polybag packaging. Polyethylene or paper bags, optional zipper-lock closure.",
     automation: ["semi", "full"],
     href: "#polybag",
-    img: "ABS-2 polybag packing machine"
+    img: "ABS-2 polybag packaging machine"
   },
   {
     code: "RB-30A",
-    name: "Round box packing",
+    name: "Round box packaging",
     desc: "Fully automatic round box filling. Dispenses boxes, fills a predefined swab count, and closes them with their lids.",
     automation: ["full"],
     href: "#rb30a",
-    img: "RB-30A round box packing machine"
+    img: "RB-30A round box packaging machine"
   },
   {
     code: "SQB-2A",
-    name: "Square box packing",
-    desc: "Fully automatic square box packing. Erects, fills and closes square folding cartons for retail distribution.",
+    name: "Square box packaging",
+    desc: "Fully automatic square box packaging. Erects, fills and closes square folding cartons for retail distribution.",
     automation: ["full"],
     href: "#sqb2a",
-    img: "SQB-2A square box packing machine"
+    img: "SQB-2A square box packaging machine"
   },
   {
     code: "BL-12",
-    name: "Blister packing",
-    desc: "Fully automatic blister packing. Thermoforms cavities, fills a counted set of swabs, and seals with card or foil for tamper-evident packs.",
+    name: "Blister packaging",
+    desc: "Fully automatic blister packaging. Thermoforms cavities, fills a counted set of swabs, and seals with card or foil for tamper-evident packs.",
     automation: ["full"],
     href: "#bl12",
-    img: "BL-12 blister packing machine"
+    img: "BL-12 blister packaging machine"
   }];
 
   const automationLabel = { full: "Fully automatic", semi: "Semi-automatic" };
@@ -65,7 +65,7 @@ window.PackingMachines = function PackingMachines() {
             <span style={{ margin: "0 10px", opacity: 0.4 }}>/</span>
             <a href="#cotton-swab-machinery" style={{ color: "inherit", textDecoration: "none" }}>COTTON SWAB MACHINERY</a>
             <span style={{ margin: "0 10px", opacity: 0.4 }}>/</span>
-            <span style={{ color: "var(--navy)" }}>PACKING</span>
+            <span style={{ color: "var(--navy)" }}>PACKAGING</span>
           </div>
         </div>
       </div>
@@ -75,9 +75,9 @@ window.PackingMachines = function PackingMachines() {
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 80, alignItems: "end" }}>
             <h1 style={{ fontSize: 80, lineHeight: 0.98, letterSpacing: "-0.035em", color: "var(--navy)" }}>
-              Swab packing machines.
+              Swab packaging machines.
             </h1>
-            <p style={{ fontSize: 18, lineHeight: 1.6, color: "var(--ink-soft)" }}>Six packing machines across five formats combine with cotton swab production to match any retail or bulk format. Each one connects to FALU CB and CT swab lines.
+            <p style={{ fontSize: 18, lineHeight: 1.6, color: "var(--ink-soft)" }}>Six packaging machines across five formats combine with cotton swab production to match any retail or bulk format. Each one connects to FALU CB and CT swab lines.
 
 
             </p>
@@ -88,7 +88,7 @@ window.PackingMachines = function PackingMachines() {
       {/* MACHINE LIST */}
       <section style={{ padding: "0 0 96px", background: "var(--bg-band)", borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)" }}>
         <div className="container" style={{ paddingTop: 80 }}>
-          <SectionLabel num="01">Six packing machines</SectionLabel>
+          <SectionLabel num="01">Six packaging machines</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginTop: 48 }}>
             {machines.map((m, i) =>
             <a key={m.code} href={m.href} style={pack.card}>
@@ -108,9 +108,9 @@ window.PackingMachines = function PackingMachines() {
               </a>
             )}
 
-            {/* Round table packing card */}
+            {/* Round table packaging card */}
             <div style={pack.card}>
-              <ImageSlot id="PACK-06" label="Round table semi-automatic packing" ratio="16 / 9" />
+              <ImageSlot id="PACK-06" label="Round table semi-automatic packaging" ratio="16 / 9" />
               <div style={pack.body}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
                   <div className="mono" style={pack.code}>ROUND TABLE</div>
@@ -118,7 +118,7 @@ window.PackingMachines = function PackingMachines() {
                     <span className="mono" style={pack.pill}>Semi-automatic</span>
                   </div>
                 </div>
-                <h3 style={{ fontSize: 24, marginTop: 10, lineHeight: 1.15, letterSpacing: "-0.015em", color: "var(--navy)" }}>Round table packing</h3>
+                <h3 style={{ fontSize: 24, marginTop: 10, lineHeight: 1.15, letterSpacing: "-0.015em", color: "var(--navy)" }}>Round table packaging</h3>
                 <p style={{ marginTop: 14, fontSize: 14, lineHeight: 1.6, color: "var(--ink-soft)", flex: 1 }}>
                   The swab machine places finished swabs onto a rotating round table. Factory workers
                   pick them up and place them into the container by hand. Lower investment, full
@@ -138,23 +138,23 @@ window.PackingMachines = function PackingMachines() {
             Special and custom formats.
           </h2>
           <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--ink-soft)", maxWidth: 760 }}>
-            Two further packing options are available in combination with the cotton swab machines, and additional formats can be developed on request.
+            Two further packaging options are available in combination with the cotton swab machines, and additional formats can be developed on request.
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24, marginTop: 48 }}>
             <div style={pack.ghost}>
               <div className="mono" style={pack.ghostLabel}>SPECIAL FORMAT</div>
               <h3 style={pack.ghostTitle}>Flip-top boxes</h3>
-              <p style={pack.ghostDesc}>Hinged-lid retail box packing, available in combination with FALU cotton swab machines.</p>
+              <p style={pack.ghostDesc}>Hinged-lid retail box packaging, available in combination with FALU cotton swab machines.</p>
             </div>
             <div style={pack.ghost}>
               <div className="mono" style={pack.ghostLabel}>SPECIAL FORMAT</div>
               <h3 style={pack.ghostTitle}>Flow packs</h3>
-              <p style={pack.ghostDesc}>Horizontal flow-wrap packing for individual swabs or counted multipacks.</p>
+              <p style={pack.ghostDesc}>Horizontal flow-wrap packaging for individual swabs or counted multipacks.</p>
             </div>
             <a href="#contact" style={pack.ghostCta}>
               <div className="mono" style={pack.ghostLabel}>CUSTOM SOLUTION</div>
               <h3 style={pack.ghostTitle}>Tell us your requirements</h3>
-              <p style={pack.ghostDesc}>Further packing solutions are developed on request. Get in touch to discuss your specific format.</p>
+              <p style={pack.ghostDesc}>Further packaging solutions are developed on request. Get in touch to discuss your specific format.</p>
               <span style={pack.ghostArrow}>→</span>
             </a>
           </div>

@@ -108,7 +108,7 @@ window.MachinePRX = function MachinePRX() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 64, alignItems: "start", marginBottom: 56 }}>
             <h2>From paper rolls<br />to finished sticks.</h2>
             <p style={{ color: "var(--ink-soft)", fontSize: 16, lineHeight: 1.65 }}>
-              The PRX runs forming, drying, buffering and packing as one integrated system. It can
+              The PRX runs forming, drying, buffering and packaging as one integrated system. It can
               supply other downstream processes, or sit directly upstream of a FALU swab machine so
               finished sticks never have to be cartoned, shipped or hand-loaded.
             </p>
@@ -121,7 +121,7 @@ window.MachinePRX = function MachinePRX() {
             ["Standalone or integrated", "Operates as a stand-alone stick line, or connects directly to FALU CT and CB series swab machines for fully automated stick supply."],
             ["Eliminates manual loading", "Produces, buffers and feeds sticks directly to the swab machine, removing manual carton loading and the operator errors that come with it."],
             ["Integrated buffer", "A buffer of 75'000 sticks harmonises stick and swab line speeds, around 30 minutes of swab production at 2'800 swabs/min."],
-            ["Forming, drying, buffering, packing", "Paper is shaped, dried to remove excess humidity, buffered, then packed or fed onward, all in one machine."]].
+            ["Forming, drying, buffering, packaging", "Paper is shaped, dried to remove excess humidity, buffered, then packed or fed onward, all in one machine."]].
             map(([title, body]) =>
             <div key={title} style={prxFeatures.cell}>
               <h4 style={{ fontSize: 16 }}>{title}</h4>
@@ -209,7 +209,7 @@ window.MachinePRX = function MachinePRX() {
             </div>
             <div style={prxLine.arrow}>→</div>
             <div style={prxLine.col}>
-              <div className="mono" style={prxLine.colHeader}>03 · PACKING · 7 OPTIONS</div>
+              <div className="mono" style={prxLine.colHeader}>03 · PACKAGING · 7 OPTIONS</div>
               <div style={prxLine.list}>
                 {[
                 ["SV-2X", "Cardboard boxes", "#sv2x"],

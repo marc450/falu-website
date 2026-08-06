@@ -39,7 +39,7 @@ components/
   Machinery.jsx            # machinery family index (#machinery)
   CottonSwabMachinery.jsx  # #cotton-swab-machinery
   CottonPadMachinery.jsx   # #cotton-pad-machinery
-  PackingMachines.jsx      # #packing (swab packing overview)
+  PackingMachines.jsx      # #packing (swab packaging overview)
   MachineCB1.jsx           # #cb1 (bespoke flagship detail page)
   MachinePRX.jsx           # #prx (bespoke detail page)
   machines-data.jsx        # FALU_MACHINES data for the generic detail template
