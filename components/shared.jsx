@@ -1,6 +1,77 @@
 /* global React */
 const { useState } = React;
 
+// ============ CONTACT LINKS → CLIPBOARD ============
+// Site-wide rule: clicking an email address or a phone number must never open a
+// mail client or a dialer. It copies the value and confirms with a small toast.
+// Handled by one delegated listener so every mailto:/tel: anchor on any page is
+// covered without touching each call site.
+if (!window.__faluContactCopyBound) {
+  window.__faluContactCopyBound = true;
+
+  document.addEventListener("click", (e) => {
+    const a = e.target && e.target.closest && e.target.closest('a[href^="mailto:"], a[href^="tel:"]');
+    if (!a) return;
+    e.preventDefault();
+    const value = faluContactValue(a);
+    faluCopy(value).then((ok) => faluToast(ok ? `Copied · ${value}` : value));
+  });
+}
+
+// Prefer the visible text when the link shows the address/number itself (keeps
+// the readable "+41 55 225 51 51" spacing); fall back to the href for links
+// whose label is a call to action, e.g. "Send a speculative application".
+function faluContactValue(a) {
+  const href = a.getAttribute("href").replace(/^(mailto:|tel:)/i, "").split("?")[0].trim();
+  const text = (a.textContent || "").trim();
+  const isContactText = /^\+?[\d\s()./-]{6,}$/.test(text) || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text);
+  return isContactText ? text : href;
+}
+
+function faluCopy(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(text).then(() => true, () => faluCopyFallback(text));
+  }
+  return Promise.resolve(faluCopyFallback(text));
+}
+
+// execCommand path for http:// origins, where the async clipboard API is blocked.
+function faluCopyFallback(text) {
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;top:0;left:-9999px;opacity:0;";
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    document.body.removeChild(ta);
+    return ok;
+  } catch (err) {
+    return false;
+  }
+}
+
+function faluToast(message) {
+  let el = document.getElementById("falu-toast");
+  if (!el) {
+    el = document.createElement("div");
+    el.id = "falu-toast";
+    el.style.cssText =
+      "position:fixed;left:50%;bottom:32px;transform:translateX(-50%);z-index:9999;" +
+      "background:#00213f;color:#fff;border:1px solid #103e6c;padding:12px 18px;" +
+      "font-family:var(--font-mono, monospace);font-size:12px;letter-spacing:0.08em;" +
+      "text-transform:uppercase;pointer-events:none;opacity:0;transition:opacity .18s ease;";
+    document.body.appendChild(el);
+  }
+  el.textContent = message;
+  // Force a reflow so a repeat click restarts the fade instead of being ignored.
+  void el.offsetWidth;
+  el.style.opacity = "1";
+  clearTimeout(el.__faluTimer);
+  el.__faluTimer = setTimeout(() => {el.style.opacity = "0";}, 1800);
+}
+
 // ============ HEADER ============
 window.FaluHeader = function FaluHeader({ active = "home" }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -114,7 +185,9 @@ window.FaluFooter = function FaluFooter() {
           </p>
           <p style={{ marginTop: 4, fontSize: 12, color: "#8fa1b3" }}>
             Joweidzentrum 5, 8630 Rüti, Switzerland<br/>
-            +41 55 225 51 51 · sales@falu.com
+            <a href="tel:+41552255151" style={{ color: "inherit" }}>+41 55 225 51 51</a>
+            {" · "}
+            <a href="mailto:sales@falu.com" style={{ color: "inherit" }}>sales@falu.com</a>
           </p>
         </div>
         <div>
@@ -142,7 +215,6 @@ window.FaluFooter = function FaluFooter() {
             <li><a href="#services">Spare parts</a></li>
             <li><a href="#services">Retrofits & upgrades</a></li>
             <li><a href="#contact">Request consultation</a></li>
-            <li><a href="#contact">Downloads</a></li>
           </ul>
         </div>
       </div>

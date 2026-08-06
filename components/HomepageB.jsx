@@ -40,7 +40,8 @@ window.HomepageB = function HomepageB() {
       </section>
 
       {/* 2. FEATURED CB1 */}
-      <section style={{ padding: "120px 0", borderTop: "1px solid var(--rule)" }}>
+      {/* No borderTop here — the hero sub-row already draws the rule. */}
+      <section style={{ padding: "120px 0" }}>
         <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 80, alignItems: "center" }}>
           <div>
             <h2 style={{ fontSize: 52, lineHeight: 1.05, letterSpacing: "-0.025em" }}>CB1, the cotton swab production machine that defines the category.
@@ -63,7 +64,7 @@ window.HomepageB = function HomepageB() {
           <SectionLabel num="01">Machinery</SectionLabel>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "end", marginBottom: 72 }}>
             <h2 style={{ fontSize: 52, lineHeight: 1.0, letterSpacing: "-0.03em" }}>
-              Production machinery, from single machines to fully integrated lines.
+              Production machinery, from single machines to complete production lines.
             </h2>
           </div>
 
@@ -72,8 +73,9 @@ window.HomepageB = function HomepageB() {
             {
               num: "01",
               title: "Cotton Swab Production",
-              desc: "Machinery and integrated production systems for automated and semi-automated cotton swab manufacturing. Flexible packaging formats, scalable automation, compatible with paper, wood and plastic sticks.",
-              machines: "CB1 · SV2 · BV/ABS · RB-30A · SQB-2A · BL-12 · Round table",
+              desc: "Machines for automated and semi-automated cotton swab manufacturing, from a single machine to a complete line. Compatible with paper, wood and plastic sticks.",
+              formatsLabel: "Packing formats",
+              formats: "Cardboard boxes · Polybags · Round boxes · Square boxes · Blisters · Round table",
               cta: "Cotton Swab Machinery",
               href: "#cotton-swab-machinery",
               imgLabel: "Cotton swab production line"
@@ -81,8 +83,9 @@ window.HomepageB = function HomepageB() {
             {
               num: "02",
               title: "Cotton Pad Production",
-              desc: "Machinery for automatic and semi-automatic round and square cosmetic pads. Two production capacities for lower- and high-volume operations, plus a dedicated automated packing line.",
-              machines: "WR-600 V · WR-2100 · VP",
+              desc: "Machines for automatic and semi-automatic cosmetic pad manufacturing. Two capacity classes for lower- and high-volume operations, plus a dedicated automated packing line.",
+              formatsLabel: "Pad formats",
+              formats: "Round pads · Oval pads · Square pads · Baby pads",
               cta: "Cotton Pad Machinery",
               href: "#cotton-pad-machinery",
               imgLabel: "Cotton pad production line"
@@ -90,8 +93,9 @@ window.HomepageB = function HomepageB() {
             {
               num: "03",
               title: "Paper Stick Production",
-              desc: "Dedicated machinery for efficient, zero-waste paper stick manufacturing. Designed for standalone production or seamless integration into automated cotton swab production systems.",
-              machines: "PRX",
+              desc: "Paper stick manufacturing built around minimal material loss. The forming process is trimmed to use nearly the entire paper web, so waste stays far below what conventional stick lines produce. Runs standalone or feeds sticks straight into a cotton swab line.",
+              formatsLabel: "Stick formats",
+              formats: "Various diameters & lengths on request · Also suitable for lollipop sticks",
               cta: "Paper Stick Machinery",
               href: "#prx",
               imgLabel: "PRX paper stick production machine"
@@ -104,7 +108,10 @@ window.HomepageB = function HomepageB() {
                 <div style={famB.textCol}>
                   <h3 style={{ fontSize: 36, lineHeight: 1.1, letterSpacing: "-0.02em" }}>{f.title}</h3>
                   <p style={{ marginTop: 18, color: "var(--ink-soft)", fontSize: 16, lineHeight: 1.65, maxWidth: 520 }}>{f.desc}</p>
-                  <div className="mono" style={famB.machines}>{f.machines}</div>
+                  <div style={famB.formats}>
+                    <div className="mono" style={famB.formatsLabel}>{f.formatsLabel}</div>
+                    <div className="mono" style={famB.formatsList}>{f.formats}</div>
+                  </div>
                   <a href={f.href} className="btn btn--minimal" style={{ marginTop: 24 }}>View {f.cta}<span className="arrow" /></a>
                 </div>
               </div>
@@ -126,7 +133,7 @@ window.HomepageB = function HomepageB() {
                 scalability. Before a single machine is specified, our engineers help structure
                 the plant around your output target, footprint and capacity roadmap.
               </p>
-              <a href="#machinery" className="btn btn--primary" style={{ marginTop: 32 }}>Discuss your setup<span className="arrow" /></a>
+              <a href="#contact" className="btn btn--primary" style={{ marginTop: 32 }}>Discuss your setup<span className="arrow" /></a>
             </div>
             <div style={planning.right}>
               {[
@@ -304,6 +311,10 @@ const NUM_TO_A2 = { "004": "AF", "008": "AL", "012": "DZ", "024": "AO", "032": "
 
 function WorldMap() {
   const [paths, setPaths] = React.useState(null);
+  // { name, x, y } in wrapper-relative pixels, set on hover.
+  const [tip, setTip] = React.useState(null);
+  const wrapRef = React.useRef(null);
+
   React.useEffect(() => {
     let cancelled = false;
     fetch("https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json").
@@ -315,34 +326,65 @@ function WorldMap() {
       const path = window.d3.geoPath(projection);
       setPaths(features.map((f) => {
         const num = String(f.id).padStart(3, "0");
-        return { d: path(f), a2: NUM_TO_A2[num] };
+        return { d: path(f), a2: NUM_TO_A2[num], name: f.properties && f.properties.name || "" };
       }).filter((p) => p.d));
     });
     return () => {cancelled = true;};
   }, []);
 
+  const track = (name) => (e) => {
+    const box = wrapRef.current && wrapRef.current.getBoundingClientRect();
+    if (!box) return;
+    setTip({ name, x: e.clientX - box.left, y: e.clientY - box.top });
+  };
+
   return (
-    <div style={{ background: "#021a33", border: "1px solid #0c3056", padding: "24px", position: "relative" }}>
-      <svg viewBox="0 0 1200 560" style={{ width: "100%", display: "block" }}>
+    <div ref={wrapRef} style={{ background: "#021a33", border: "1px solid #0c3056", padding: "24px", position: "relative" }}>
+      <svg viewBox="0 0 1200 560" style={{ width: "100%", display: "block" }} onMouseLeave={() => setTip(null)}>
         {paths ? paths.map((p, i) => {
-          const isHQ = p.a2 === "CH";
           const isFalu = p.a2 && FALU_COUNTRIES.has(p.a2);
+          const hovered = tip && tip.name === p.name;
           return (
             <path
               key={i}
               d={p.d}
-              fill={isHQ ? "var(--falu-red)" : isFalu ? "#d1d5db" : "#0c3056"}
-              stroke="#021a33"
-              strokeWidth="0.5" />);
+              fill={isFalu ? "var(--falu-red)" : "#0c3056"}
+              fillOpacity={hovered ? 0.75 : 1}
+              stroke={hovered ? "#9ab3cc" : "#021a33"}
+              strokeWidth="0.5"
+              style={{ cursor: "default" }}
+              onMouseMove={track(p.name)}
+              onMouseLeave={() => setTip(null)} />);
 
 
         }) :
         <text x="600" y="280" textAnchor="middle" fill="#9ab3cc" fontFamily="var(--font-mono)" fontSize="12">Loading map...</text>
         }
       </svg>
+
+      {tip && tip.name &&
+      <div style={{
+        position: "absolute",
+        left: tip.x + 14,
+        top: tip.y + 14,
+        pointerEvents: "none",
+        background: "#021a33",
+        border: "1px solid #0c3056",
+        color: "#fff",
+        fontFamily: "var(--font-mono)",
+        fontSize: 11,
+        letterSpacing: "0.06em",
+        textTransform: "uppercase",
+        padding: "6px 10px",
+        whiteSpace: "nowrap",
+        zIndex: 2
+      }}>
+          {tip.name}
+        </div>
+      }
+
       <div style={{ marginTop: 16, paddingTop: 16, borderTop: "1px solid #0c3056", display: "flex", gap: 24, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.06em", color: "#9ab3cc", textTransform: "uppercase", flexWrap: "wrap" }}>
-        <span><span style={{ display: "inline-block", width: 10, height: 10, background: "var(--falu-red)", marginRight: 8, verticalAlign: "middle" }} />HQ, Rüti CH</span>
-        <span><span style={{ display: "inline-block", width: 10, height: 10, background: "#d1d5db", marginRight: 8, verticalAlign: "middle" }} />Country with FALU installations</span>
+        <span><span style={{ display: "inline-block", width: 10, height: 10, background: "var(--falu-red)", marginRight: 8, verticalAlign: "middle" }} />Country with FALU installations</span>
         <span style={{ marginLeft: "auto" }}>70+ countries served since 1965</span>
       </div>
     </div>);
@@ -378,7 +420,9 @@ const famB = {
   imageCol: { flex: "1 1 0", minWidth: 0 },
   textCol: { flex: "1 1 0", minWidth: 0 },
   num: { fontSize: 11, color: "var(--falu-red)", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 500 },
-  machines: { marginTop: 20, padding: "10px 0", borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)", color: "var(--navy)", fontSize: 13, letterSpacing: "0.04em" }
+  formats: { marginTop: 20, padding: "12px 0", borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)", maxWidth: 520 },
+  formatsLabel: { fontSize: 10, color: "var(--ink-muted)", letterSpacing: "0.18em", textTransform: "uppercase" },
+  formatsList: { marginTop: 8, color: "var(--navy)", fontSize: 13, letterSpacing: "0.04em", lineHeight: 1.6 }
 };
 
 const planning = {
